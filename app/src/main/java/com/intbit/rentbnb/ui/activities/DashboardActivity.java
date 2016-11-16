@@ -36,8 +36,6 @@ public class DashboardActivity extends RentbnbBaseActivity
 
         initializeViews();
 
-        setupActionBarTitle("Rent");
-
         dataManager = new DataManager();
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(DashboardActivity.this, 2);

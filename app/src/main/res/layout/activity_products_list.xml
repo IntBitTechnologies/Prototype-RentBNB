@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingTop="@dimen/i1_card_view_margin_8dp"
-    tools:context="com.intbit.rentbnb.ui.activities.ProductsListActivity">
+    tools:context="com.intbit.rentbnb.ui.activities.OffersListActivity">
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/activity_products_list_recyclerView"

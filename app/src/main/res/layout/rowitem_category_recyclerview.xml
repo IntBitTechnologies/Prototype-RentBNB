@@ -21,7 +21,7 @@
 
                 <ImageView
                     android:id="@+id/rowitem_recyclerview_categorylist_defaultimageview"
-                    android:layout_width="@dimen/addproduct_imageview_dimens"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/addproduct_imageview_dimens"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
