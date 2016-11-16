@@ -1,0 +1,49 @@
+Prototype-RentBNB/.gradle
+Prototype-RentBNB/local.properties
+Prototype-RentBNB/.idea/
+Prototype-RentBNB/.DS_Store
+Prototype-RentBNB/app/build
+Prototype-RentBNB/captures
+#built application files
+*.apk
+*.ap_
+
+Prototype-RentBNB/Prototype-RentBNB.iml
+Prototype-RentBNB/app/app.iml
+Prototype-RentBNB/app/src/androidTest/androidTest.iml
+Prototype-RentBNB/app/src/main/main.iml
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+Prototype-RentBNB/bin/
+Prototype-RentBNB/gen/
+Prototype-RentBNB/build/
+Prototype-RentBNB/app/src/main/gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# Eclipse project files
+.classpath
+.project
+
+# Android Studio
+*.iml
+.idea
+#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
+.gradle
+build/
+
+#NDK
+obj/
