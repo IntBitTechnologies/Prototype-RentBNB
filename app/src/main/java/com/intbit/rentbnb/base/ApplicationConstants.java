@@ -1,11 +1,25 @@
 package com.intbit.rentbnb.base;
 
 /**
- * Created by Adiba on 16/11/2016.
+ * Created by Sakthivel on 16/11/16
  */
+public interface ApplicationConstants {
 
-public class ApplicationConstants {
-        public static final String CurrentPage = "CURRENT_PAGE";
+    public static final String OFFER_MODEL = "OFFER_MODEL";
 
-        public static final String StepperPage = "STEPPER_PAGE";
+    public static final String CurrentPage = "CURRENT_PAGE";
+
+    public static final String StepperPage = "STEPPER_PAGE";
+
+    public static final int PERMISSION_REQUEST_STORAGE_READ = 503;
+
+    public static final int PERMISSION_REQUEST_STORAGE_WRITE = 504;
+
+    public static final int PERMISSION_REQUEST_CAMERA_ACCESS = 505;
+
+    public static final int OPEN_CAMERA = 506;
+
+    public static final int OPEN_GALLERY = 507;
+
+
 }

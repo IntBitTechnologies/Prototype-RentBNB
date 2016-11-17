@@ -23,7 +23,7 @@ public class DataManager {
 
     String[] products = {"Apple MacBook Pro", "Dell Inspiron", "HP Notebook", "HP Spectre", "Lenovo C2000 Desktop"};
 
-    String[] productUrls = {"apple", "dell", "hp_notebook", "hp_spectre", "lenovoc2000"};
+    String[] productUrls = {"macbook", "dell", "hp", "hpspectre", "lenovo"};
 
     String[] description = {"1GB RAM", "2GB RAM", "3GB RAM", "4GB RAM", "5GB RAM"};
 
@@ -54,7 +54,7 @@ public class DataManager {
         for (int i = 0; i < products.length; i++) {
             Offer offer = new Offer();
             offer.setProductName(products[i]);
-            offer.setProductPrice(String.valueOf(i));
+            offer.setProductPrice(String.valueOf(i + 5));
             offer.setProductUrl(productUrls[i]);
             offer.setPostedDate("16-Nov-2016");
             offer.setProductDescription(description[i]);

@@ -12,7 +12,7 @@ import com.intbit.rentbnb.adapters.OfferListRecyclerViewAdapter;
 import com.intbit.rentbnb.base.DataManager;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
 import com.intbit.rentbnb.models.Offer;
-import com.intbit.rentbnb.support.ApplicationConstants;
+import com.intbit.rentbnb.base.ApplicationConstants;
 import com.intbit.rentbnb.support.RecyclerItemClickListener;
 
 import java.util.List;
@@ -26,7 +26,9 @@ public class OffersListActivity extends RentbnbBaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products_list);
+        setContentView(R.layout.activity_offers_list);
+
+        setupActionBar(getResources().getString(R.string.app_name), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
 
         productsRecyclerView = (RecyclerView) findViewById(R.id.activity_products_list_recyclerView);
 
