@@ -24,8 +24,6 @@ public class SubCategoryActivity extends RentbnbBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_category);
 
-        setupActionBarTitle("Rent");
-
         subCategoriesRecyclerView = (RecyclerView) findViewById(R.id.activity_subcategories_recyclerView);
 
         GridLayoutManager mLayoutManager = new GridLayoutManager(SubCategoryActivity.this, 2);

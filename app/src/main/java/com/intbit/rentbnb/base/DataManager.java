@@ -1,7 +1,7 @@
 package com.intbit.rentbnb.base;
 
 import com.intbit.rentbnb.models.Category;
-import com.intbit.rentbnb.models.Product;
+import com.intbit.rentbnb.models.Offer;
 import com.intbit.rentbnb.models.SubCategory;
 
 import java.util.ArrayList;
@@ -13,21 +13,24 @@ import java.util.List;
 
 public class DataManager {
 
-    String[] categories = {"Antiques", "Appliances", "Arts", "Audio Equipment", "Auto Parts", "Baby", "Beauty", "Bicycles", "Boats", "Books", "Business", "Campers", "Cars", "CDs", "Cell Phones", "Clothing", "Collectibles", "Farming", "Furniture", "Games", "General", "Home", "Household", "Jewelry", "Motorcycles", "Musical Instruments", "Pet Supplies", "Photography", "Sports", "Tickets", "Tools", "TV", "Video Equipment", "Video Games"};
+    String[] categories = {"Business", "Sports", "Education", "Electronics", "Party", "Home", "Construction", "Uniform & Tuxedo"};
 
-    String[] subCategories = {"Kitchen", "Home Automation", "Home"};
+    String[] categoryUrls = {"business", "sports", "education", "electronics", "party", "home", "construction", "tuxedo"};
 
-    String[] products = {"Toaster", "Slow cooker", "Mixer", "Blender", "Coffee maker", "Microwave", "Tandoor cookware"};
+    String[] subCategories = {"Audio", "Auto", "HealthCare", "Laptops & Computers", "Phones & Tablets", "Video & Photography", "Other"};
 
-   /* String[] productsOfAutomation = {"Smart Smoke and Carbon Monoxide Detector", "Water / Flood Sensor", "Light Control Switches and Dimmers", "Energy Monitoring Switch", "Smart Doorbell"};
+    String[] products = {"Apple MacBook Pro", "Dell Inspiron", "HP Notebook", "HP Spectre", "Lenovo C2000 Desktop"};
 
-    String[] productsOfHome = {"Air Conditioner", "Gas fireplace", "Refrigerators", "Vacuum cleaner", "Electric water heater tank", "Small twin window fan"};*/
+    String[] productUrls = {"apple", "dell", "hp_notebook", "hp_spectre", "lenovoc2000"};
+
+    String[] description = {"1GB RAM", "2GB RAM", "3GB RAM", "4GB RAM", "5GB RAM"};
 
     public List<Category> getAllCategories() {
         List<Category> categoryList = new ArrayList<>();
         for (int i = 0; i < categories.length; i++) {
             Category category = new Category();
             category.setCategoryName(categories[i]);
+            category.setImageUrl(categoryUrls[i]);
             categoryList.add(category);
         }
         return categoryList;
@@ -43,15 +46,18 @@ public class DataManager {
         return subCategoryList;
     }
 
-    public List<Product> getAllProductList() {
-        List<Product> productList = new ArrayList<>();
+    public List<Offer> getAllOffersList() {
+        List<Offer> offerList = new ArrayList<>();
         for (int i = 0; i < products.length; i++) {
-            Product product = new Product();
-            product.setProductName(products[i]);
-            product.setProductPrice(String.valueOf(i));
-            productList.add(product);
+            Offer offer = new Offer();
+            offer.setProductName(products[i]);
+            offer.setProductPrice(String.valueOf(i));
+            offer.setProductUrl(productUrls[i]);
+            offer.setPostedDate("16-Nov-2016");
+            offer.setProductDescription(description[i]);
+            offerList.add(offer);
         }
-        return productList;
+        return offerList;
     }
 
 }

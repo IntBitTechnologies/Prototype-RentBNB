@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.models.Category;
-import com.intbit.rentbnb.ui.activities.ProductsListActivity;
 import com.intbit.rentbnb.ui.activities.SubCategoryActivity;
 
 import java.util.List;
@@ -48,6 +47,14 @@ public class CategoriesListRecyclerViewAdapter extends RecyclerView.Adapter<Cate
                 mContext.startActivity(intent);
             }
         });
+
+        String draw = mItems.get(i).getImageUrl();
+        int id = mContext.getResources().getIdentifier(draw, "drawable", mContext.getPackageName());
+        if (id == 0) {
+            viewHolder.pictureView.setImageResource(R.drawable.noimage);
+        } else {
+            viewHolder.pictureView.setImageResource(id);
+        }
     }
 
     public void remove(final int position) {

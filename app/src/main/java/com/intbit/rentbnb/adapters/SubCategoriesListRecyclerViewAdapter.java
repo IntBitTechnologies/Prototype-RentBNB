@@ -10,9 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.intbit.rentbnb.R;
-import com.intbit.rentbnb.models.Category;
 import com.intbit.rentbnb.models.SubCategory;
-import com.intbit.rentbnb.ui.activities.ProductsListActivity;
+import com.intbit.rentbnb.ui.activities.OffersListActivity;
 
 import java.util.List;
 
@@ -43,7 +42,7 @@ public class SubCategoriesListRecyclerViewAdapter extends RecyclerView.Adapter<S
         viewHolder.pictureView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, ProductsListActivity.class);
+                Intent intent = new Intent(mContext, OffersListActivity.class);
                 mContext.startActivity(intent);
             }
         });
