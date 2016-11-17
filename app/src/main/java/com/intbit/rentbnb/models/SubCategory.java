@@ -7,6 +7,15 @@ package com.intbit.rentbnb.models;
 public class SubCategory {
 
     String subCategoryName;
+    String imageUrl;
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
 
     public String getSubCategoryName() {
         return subCategoryName;

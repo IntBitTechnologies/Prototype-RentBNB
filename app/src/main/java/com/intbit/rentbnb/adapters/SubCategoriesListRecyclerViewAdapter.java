@@ -39,6 +39,13 @@ public class SubCategoriesListRecyclerViewAdapter extends RecyclerView.Adapter<S
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
         viewHolder.titleView.setText(mItems.get(i).getSubCategoryName());
+        String draw = mItems.get(i).getImageUrl();
+        int id = mContext.getResources().getIdentifier(draw, "drawable", mContext.getPackageName());
+        if (id == 0) {
+            viewHolder.pictureView.setImageResource(R.drawable.noimage);
+        } else {
+            viewHolder.pictureView.setImageResource(id);
+        }
         viewHolder.pictureView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

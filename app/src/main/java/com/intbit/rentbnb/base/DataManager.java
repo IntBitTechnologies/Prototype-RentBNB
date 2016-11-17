@@ -19,6 +19,8 @@ public class DataManager {
 
     String[] subCategories = {"Audio", "Auto", "HealthCare", "Laptops & Computers", "Phones & Tablets", "Video & Photography", "Other"};
 
+    String[] subCategoriesUrls = {"audio", "auto", "healthcare", "laptop", "phonetablet", "photography", "other_electronics"};
+
     String[] products = {"Apple MacBook Pro", "Dell Inspiron", "HP Notebook", "HP Spectre", "Lenovo C2000 Desktop"};
 
     String[] productUrls = {"apple", "dell", "hp_notebook", "hp_spectre", "lenovoc2000"};
@@ -41,6 +43,7 @@ public class DataManager {
         for (int i = 0; i < subCategories.length; i++) {
             SubCategory subCategory = new SubCategory();
             subCategory.setSubCategoryName(subCategories[i]);
+            subCategory.setImageUrl(subCategoriesUrls[i]);
             subCategoryList.add(subCategory);
         }
         return subCategoryList;
