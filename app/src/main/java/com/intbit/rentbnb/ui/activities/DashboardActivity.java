@@ -1,5 +1,6 @@
 package com.intbit.rentbnb.ui.activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -32,11 +33,9 @@ public class DashboardActivity extends RentbnbBaseActivity
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_dashboard);
 
         initializeViews();
-
-        setupActionBarTitle("Rent");
 
         dataManager = new DataManager();
 
@@ -67,8 +66,8 @@ public class DashboardActivity extends RentbnbBaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
+                startActivity(intent);
             }
         });
 
