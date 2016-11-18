@@ -75,11 +75,6 @@ public class DashboardActivity extends RentbnbBaseActivity
     }
 
     @Override
-    public void getData() {
-
-    }
-
-    @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
@@ -120,7 +115,8 @@ public class DashboardActivity extends RentbnbBaseActivity
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
-
+            Intent intent = new Intent(DashboardActivity.this, MyListingActivity.class);
+            startActivity(intent);
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {

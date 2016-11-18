@@ -80,11 +80,8 @@ public abstract class RentbnbBaseActivity extends AppCompatActivity {
     public void stopProgressDialog() {
         if (progressDialog != null) {
             progressDialog.dismiss();
-        }
-        ;
+        };
     }
-
-    public abstract void getData();
 
     public void showRefreshSpinner() {
         if (swipeRefreshLayout != null) {

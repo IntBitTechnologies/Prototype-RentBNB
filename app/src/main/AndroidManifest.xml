@@ -29,12 +29,16 @@
             android:name=".ui.activities.SubCategoryActivity"
             android:label="@string/title_activity_sub_category"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.activities.ProductDetailActivity"
+        <activity
+            android:name=".ui.activities.ProductDetailActivity"
             android:label="@string/activity_title_product_details"
             android:theme="@style/AppTheme" />
-        <activity android:name=".ui.activities.PostOfferActivity"
+        <activity
+            android:name=".ui.activities.PostOfferActivity"
             android:label="@string/activity_title_post_an_offer"
             android:theme="@style/AppTheme" />
+        <activity android:name=".ui.activities.MyListingActivity" />
+        <activity android:name=".ui.activities.RentNowActivity"></activity>
     </application>
 
 </manifest>

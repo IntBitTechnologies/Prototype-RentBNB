@@ -5,7 +5,6 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.intbit.rentbnb.R;
-import com.intbit.rentbnb.adapters.CategoriesListRecyclerViewAdapter;
 import com.intbit.rentbnb.adapters.SubCategoriesListRecyclerViewAdapter;
 import com.intbit.rentbnb.base.DataManager;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
@@ -24,7 +23,7 @@ public class SubCategoryActivity extends RentbnbBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sub_category);
 
-        setupActionBar(getResources().getString(R.string.app_name), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
+        setupActionBar(getResources().getString(R.string.subcategories), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
 
         subCategoriesRecyclerView = (RecyclerView) findViewById(R.id.activity_subcategories_recyclerView);
 
@@ -38,10 +37,5 @@ public class SubCategoryActivity extends RentbnbBaseActivity {
 
         mAdapter = new SubCategoriesListRecyclerViewAdapter(subCategoryList, this);
         subCategoriesRecyclerView.setAdapter(mAdapter);
-    }
-
-    @Override
-    public void getData() {
-
     }
 }

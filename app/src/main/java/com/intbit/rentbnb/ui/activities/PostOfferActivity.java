@@ -29,12 +29,6 @@ public class PostOfferActivity extends RentbnbBaseActivity {
         moveToNext();
     }
 
-    @Override
-    public void getData() {
-
-    }
-
-
     public void moveToNext() {
         if (Preferences.getCurrentPage() != 0) {
             stepProcess = Preferences.getCurrentPage() + 1;

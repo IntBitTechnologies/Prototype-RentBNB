@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
     private Button step3NextButton;
     private SeekBar conditionSeekBar;
     private TextView conditionTextView;
+    EditText priceEditText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,12 +33,12 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
         conditionSeekBar = (SeekBar) v.findViewById(R.id.tab_post_offer_step_3_condition_seekBar);
         conditionTextView = (TextView) v.findViewById(R.id.tab_post_offer_step_3_condition_tracker_textView);
         step3NextButton = (Button) v.findViewById(R.id.tab_post_offer_step_3_next_button);
+        priceEditText = (EditText) v.findViewById(R.id.tab_post_offer_step_3_price_EditText);
+        priceEditText.requestFocus();
 
         step3NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO Do all Validations and Save Data
-
                 //Trigger code for changing page
                 Preferences.setCurrentPage(4);
                 ((PostOfferActivity) getActivity()).changefragmentalongStepProcess(4);

@@ -21,6 +21,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.content.CursorLoader;
 
@@ -49,6 +50,7 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
     Context mContext;
     Activity mActivity;
     boolean isCameraButton = false;
+    EditText titleEdittext;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -58,6 +60,8 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
         takePhotoButton = (Button) v.findViewById(R.id.tab_post_offer_step_2_take_photo_button);
         selectPhotoButton = (Button) v.findViewById(R.id.tab_post_offer_step_2_select_photo_button);
         productPhotoImageView = (ImageView) v.findViewById(R.id.tab_post_offer_step_2_photo_imageView);
+        titleEdittext = (EditText) v.findViewById(R.id.tab_post_offer_step_2_title_EditText);
+        titleEdittext.requestFocus();
 
         mContext = getActivity().getApplicationContext();
         mActivity = getActivity();

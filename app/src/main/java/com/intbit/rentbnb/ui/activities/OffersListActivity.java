@@ -28,7 +28,7 @@ public class OffersListActivity extends RentbnbBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offers_list);
 
-        setupActionBar(getResources().getString(R.string.app_name), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
+        setupActionBar(getResources().getString(R.string.products), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
 
         productsRecyclerView = (RecyclerView) findViewById(R.id.activity_products_list_recyclerView);
 
@@ -56,7 +56,5 @@ public class OffersListActivity extends RentbnbBaseActivity {
         );
     }
 
-    @Override
-    public void getData() {
-    }
+
 }
