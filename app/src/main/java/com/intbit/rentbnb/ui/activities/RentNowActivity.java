@@ -54,7 +54,7 @@ public class RentNowActivity extends RentbnbBaseActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(RentNowActivity.this, "Request Sent", Toast.LENGTH_SHORT).show();
-                Intent intent = new Intent(RentNowActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(RentNowActivity.this, ProductPostedActivity.class);
                 startActivity(intent);
                 finish();
             }

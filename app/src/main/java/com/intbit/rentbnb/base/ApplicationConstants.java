@@ -17,9 +17,11 @@ public interface ApplicationConstants {
 
     public static final int PERMISSION_REQUEST_CAMERA_ACCESS = 505;
 
+    public static final int PERMISSION_REQUEST_FINE_LOCATION = 500;
+
+    public static final int PERMISSION_REQUEST_COARSE_LOCATION = 501;
+
     public static final int OPEN_CAMERA = 506;
 
     public static final int OPEN_GALLERY = 507;
-
-
 }

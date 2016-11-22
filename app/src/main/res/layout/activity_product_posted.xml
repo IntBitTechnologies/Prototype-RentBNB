@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/activity_product_posted_title_textView"
+        style="@style/i1_card_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/i1_15dp_margin"
+        android:layout_marginTop="@dimen/i1_20dp_margin"
+        android:text="@string/fragment_title_done" />
+
+    <TextView
+        android:id="@+id/activity_product_posted_description_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_product_posted_title_textView"
+        android:layout_centerHorizontal="true"
+        android:text="@string/offer_posted_description"
+        android:textAlignment="center"
+        android:textAppearance="@style/i1_8R_ST" />
+
+    <ImageView
+        android:id="@+id/activity_product_posted_photo_imageView"
+        android:layout_width="@dimen/addproduct_imageview_dimens"
+        android:layout_height="@dimen/addproduct_imageview_dimens"
+        android:layout_below="@+id/activity_product_posted_description_textView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/i1_20dp_margin"
+        android:layout_marginTop="@dimen/i1_30dp_margin"
+        android:src="@drawable/auto" />
+
+    <TextView
+        android:id="@+id/activity_product_posted_productName_textView"
+        style="@style/i1_8R"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_product_posted_photo_imageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/i1_30dp_margin"
+        android:text="@string/ferrari"
+        android:textAllCaps="false" />
+
+    <LinearLayout
+        android:id="@+id/tab_post_offer_step_4_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_product_posted_productName_textView">
+
+        <Button
+            android:id="@+id/activity_product_posted_post_another_button"
+            style="@style/i1_button_white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="0.10"
+            android:drawableLeft="@drawable/take_photo_icon"
+            android:drawablePadding="@dimen/i1_15dp_padding"
+            android:text="@string/button_post_another"
+            android:textAlignment="textStart" />
+
+        <Button
+            android:id="@+id/activity_product_posted_share_button"
+            style="@style/i1_button_standard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="0.56"
+            android:drawableLeft="@drawable/share_icon"
+            android:drawablePadding="@dimen/i1_15dp_padding"
+            android:text="@string/button_share"
+            android:textAlignment="textStart" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/activity_product_posted_finish_button"
+        style="@style/i1_button_standard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_done" />
+
+</RelativeLayout>
+
