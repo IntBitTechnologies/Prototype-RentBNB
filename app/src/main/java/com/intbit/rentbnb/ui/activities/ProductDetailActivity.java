@@ -1,5 +1,6 @@
 package com.intbit.rentbnb.ui.activities;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -7,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.app.AlertDialog;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.DetailsListRecyclerViewAdapter;
@@ -48,8 +49,7 @@ public class ProductDetailActivity extends RentbnbBaseActivity {
         rentNowButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ProductDetailActivity.this, RentNowActivity.class);
-                startActivity(intent);
+                showRentTypePopUp();
             }
         });
 
@@ -62,6 +62,41 @@ public class ProductDetailActivity extends RentbnbBaseActivity {
                 }
             }
         }
+    }
+
+    private void showRentTypePopUp() {
+        final boolean[] ifSelectedBuy = {false};
+        final String waterQuantity[] = {"Buy", "Rent", "Rent to Own"};
+        new AlertDialog.Builder(ProductDetailActivity.this, R.style.AppCompatAlertDialogStyle)
+                .setTitle("Please select a Rent Type")
+                .setSingleChoiceItems(waterQuantity, 0, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if (i == 0) {
+                            ifSelectedBuy[0] = true;
+                        }
+                    }
+                })
+                .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if (ifSelectedBuy[0]) {
+                            //Add buying page
+                            //Intent intent = new Intent(ProductDetailActivity.this, RentNowActivity.class);
+                            //startActivity(intent);
+                        } else {
+                            Intent intent = new Intent(ProductDetailActivity.this, RentNowActivity.class);
+                            startActivity(intent);
+                        }
+                        dialog.dismiss();
+                    }
+                })
+                .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
     }
 
     private void updateUI(Offer offer) {
@@ -78,8 +113,9 @@ public class ProductDetailActivity extends RentbnbBaseActivity {
     private void populateData(Offer offer) {
         data = new ArrayList<DetailsListItem>();
         data.add(new DetailsListItem(getString(R.string.product_name), offer.getProductName(), getResources().getDrawable(R.drawable.ic_local_offer_black_48px)));
-        data.add(new DetailsListItem(getString(R.string.product_price), "$ "+offer.getProductPrice(), getResources().getDrawable(R.drawable.ic_product_price)));
+        data.add(new DetailsListItem(getString(R.string.product_price), "$ " + offer.getProductPrice(), getResources().getDrawable(R.drawable.ic_product_price)));
         data.add(new DetailsListItem(getString(R.string.posted_on), offer.getPostedDate(), getResources().getDrawable(R.drawable.calendar_icon)));
+        data.add(new DetailsListItem(getString(R.string.listed_by), offer.getProductListedBy(), getResources().getDrawable(R.drawable.listedby_icon)));
         data.add(new DetailsListItem(getString(R.string.product_description), offer.getProductDescription(), getResources().getDrawable(R.drawable.ic_description_black_48px)));
 
         detailsListRecyclerViewAdapter = new DetailsListRecyclerViewAdapter(data);

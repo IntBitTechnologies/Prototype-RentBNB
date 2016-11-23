@@ -16,6 +16,7 @@ import com.intbit.rentbnb.base.DataManager;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.models.Category;
 import com.intbit.rentbnb.models.SubCategory;
+import com.intbit.rentbnb.support.Preferences;
 
 import java.util.ArrayList;
 import java.util.List;

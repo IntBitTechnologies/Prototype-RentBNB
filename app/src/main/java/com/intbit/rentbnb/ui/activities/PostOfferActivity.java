@@ -6,6 +6,7 @@ import android.os.Bundle;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
+import com.intbit.rentbnb.support.Preferences;
 import com.intbit.rentbnb.support.StepsView;
 
 /**

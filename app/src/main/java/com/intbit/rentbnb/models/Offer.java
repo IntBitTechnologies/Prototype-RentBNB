@@ -14,6 +14,7 @@ public class Offer implements Parcelable {
     private String productUrl;
     private String productDescription;
     private String postedDate;
+    private String productListedBy;
 
     public Offer() {
         
@@ -25,6 +26,7 @@ public class Offer implements Parcelable {
         productUrl = in.readString();
         productDescription = in.readString();
         postedDate = in.readString();
+        productListedBy = in.readString();
     }
 
     public static final Creator<Offer> CREATOR = new Creator<Offer>() {
@@ -79,6 +81,14 @@ public class Offer implements Parcelable {
         this.productName = productName;
     }
 
+    public String getProductListedBy() {
+        return productListedBy;
+    }
+
+    public void setProductListedBy(String productListedBy) {
+        this.productListedBy = productListedBy;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -91,5 +101,6 @@ public class Offer implements Parcelable {
         dest.writeString(productUrl);
         dest.writeString(productDescription);
         dest.writeString(postedDate);
+        dest.writeString(productListedBy);
     }
 }

@@ -24,11 +24,19 @@
     <string name="button_take_photo">Take Photo</string>
     <string name="button_select_photo">Select Photo</string>
     <string name="enter_title">Enter Title</string>
+    <string name="enter_brand_manufacturer">Enter Brand/Manufacturer</string>
+    <string name="enter_model">Enter Product Model</string>
+    <string name="enter_serialNo">Enter Serial No</string>
     <string name="product_name">Product Name</string>
     <string name="product_price">Product Price</string>
     <string name="posted_on">Posted On</string>
+    <string name="listed_by">Listed By</string>
     <string name="product_description">Product Description</string>
-    <string name="enter_price">Enter Price</string>
+    <string name="enter_daily_rental_price">Enter Daily Rental Price</string>
+    <string name="enter_weekly_rental_price">Enter Weekly Rental Price</string>
+    <string name="enter_monthly_rental_price">Enter Monthly Rental Price</string>
+    <string name="enter_deposit_amount">Enter Deposit Amount</string>
+    <string name="enter_unit_sale_price">Enter Unit Sale Price</string>
     <string name="specify_the_condition">Specify the condition</string>
     <string name="fragment_title_describe_product">Describe Product</string>
     <string name="fragment_title_upload_photo">Upload Photo</string>
@@ -42,7 +50,7 @@
     <string name="products">Products</string>
     <string name="productDetails">Product Detail</string>
     <string name="select_start_date">Select start date</string>
-    <string name="select_end_date">Select snd date</string>
+    <string name="select_end_date">Select end date</string>
     <string name="checkbox_need_delivery">Need Delivery?</string>
     <string name="button_request_product">Request Product</string>
     <string name="share_subject">Subject</string>
@@ -53,5 +61,8 @@
     <string name="permission_rationale_location">Access to the location service is required to demonstrate the \'my location\' feature, which shows your current location on the map.</string>
     <string name="location_permission_denied">This sample requires location permission to enable the \'my location\' layer. Please try again and grant access to use the location.\nIf the permission has been permanently denied, it can be enabled from the System Settings &gt; Apps &gt; \'Google Maps API Demos\'.</string>
     <string name="your_current_location">Your Current Location</string>
+    <string name="rent_or_buy">Rent/Buy</string>
+    <string name="select_rent_type">Select Rent Type</string>
+    <string name="select">Select</string>
 
 </resources>

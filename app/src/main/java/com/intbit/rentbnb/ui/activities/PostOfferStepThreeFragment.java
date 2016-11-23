@@ -1,7 +1,5 @@
 package com.intbit.rentbnb.ui.activities;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -11,10 +9,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
+import com.intbit.rentbnb.support.Preferences;
 
 /**
  * Created by Adiba on 14/11/2016.
@@ -24,17 +22,18 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
     private Button step3NextButton;
     private SeekBar conditionSeekBar;
     private TextView conditionTextView;
-    EditText priceEditText;
+    EditText dailyRentPriceEditText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         View v = inflater.inflate(R.layout.tab_post_offer_step_3, container, false);
+
         conditionSeekBar = (SeekBar) v.findViewById(R.id.tab_post_offer_step_3_condition_seekBar);
         conditionTextView = (TextView) v.findViewById(R.id.tab_post_offer_step_3_condition_tracker_textView);
         step3NextButton = (Button) v.findViewById(R.id.tab_post_offer_step_3_next_button);
-        priceEditText = (EditText) v.findViewById(R.id.tab_post_offer_step_3_price_EditText);
-        priceEditText.requestFocus();
+        dailyRentPriceEditText = (EditText) v.findViewById(R.id.tab_post_offer_step_3_dailyRent_price_EditText);
+        dailyRentPriceEditText.requestFocus();
 
         step3NextButton.setOnClickListener(new View.OnClickListener() {
             @Override

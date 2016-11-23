@@ -29,6 +29,7 @@ import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.ApplicationConstants;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.support.ImageUtil;
+import com.intbit.rentbnb.support.Preferences;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

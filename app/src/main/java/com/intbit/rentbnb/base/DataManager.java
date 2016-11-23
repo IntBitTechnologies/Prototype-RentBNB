@@ -27,6 +27,8 @@ public class DataManager {
 
     String[] description = {"1GB RAM", "2GB RAM", "3GB RAM", "4GB RAM", "5GB RAM"};
 
+    String[] listedBy = {"Harry Potter", "Tom Cruise", "Brad Pitt", "Angelina Jolie", "Emma Watson"};
+
     public List<Category> getAllCategories() {
         List<Category> categoryList = new ArrayList<>();
         for (int i = 0; i < categories.length; i++) {
@@ -58,6 +60,7 @@ public class DataManager {
             offer.setProductUrl(productUrls[i]);
             offer.setPostedDate("16-Nov-2016");
             offer.setProductDescription(description[i]);
+            offer.setProductListedBy(listedBy[i]);
             offerList.add(offer);
         }
         return offerList;
