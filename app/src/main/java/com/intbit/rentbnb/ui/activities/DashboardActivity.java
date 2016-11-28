@@ -66,7 +66,7 @@ public class DashboardActivity extends RentbnbBaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, PostOfferStepOneActivity.class);
                 startActivity(intent);
             }
         });

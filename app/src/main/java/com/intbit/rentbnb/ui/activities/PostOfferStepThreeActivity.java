@@ -1,8 +1,9 @@
-package com.intbit.rentbnb.ui.activities.fragments;
+package com.intbit.rentbnb.ui.activities;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -14,23 +15,22 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.view.LayoutInflater;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.content.CursorLoader;
 
 import com.intbit.rentbnb.R;
+import com.intbit.rentbnb.adapters.ThumbnailImageRecyclerViewAdapter;
 import com.intbit.rentbnb.base.ApplicationConstants;
-import com.intbit.rentbnb.base.RentbnbBaseFragment;
+import com.intbit.rentbnb.base.RentbnbBaseActivity;
 import com.intbit.rentbnb.support.ImageUtil;
-import com.intbit.rentbnb.support.Preferences;
-import com.intbit.rentbnb.ui.activities.PostOfferActivity;
+import com.intbit.rentbnb.support.RecyclerItemClickListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -42,71 +42,84 @@ import java.io.IOException;
  * Created by Adiba on 14/11/2016.
  */
 
-public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
+public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
     Button step3, takePhotoButton, selectPhotoButton;
     private int SELECT_FILE = ApplicationConstants.OPEN_GALLERY,
             REQUEST_CAMERA = ApplicationConstants.OPEN_CAMERA,
             PERMISSION_STORAGE_READ = ApplicationConstants.PERMISSION_REQUEST_STORAGE_READ,
             PERMISSION_STORAGE_WRITE = ApplicationConstants.PERMISSION_REQUEST_STORAGE_WRITE;
     ImageView productPhotoImageView;
-    Context mContext;
+    //Context mContext;
     Activity mActivity;
     boolean isCameraButton = false;
-    EditText titleEdittext;
+    private RecyclerView photosRecyclerView;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.tab_post_offer_step_2, container, false);
-        step3 = (Button) v.findViewById(R.id.tab_post_offer_step_2_next_button);
-        takePhotoButton = (Button) v.findViewById(R.id.tab_post_offer_step_2_take_photo_button);
-        selectPhotoButton = (Button) v.findViewById(R.id.tab_post_offer_step_2_select_photo_button);
-        productPhotoImageView = (ImageView) v.findViewById(R.id.tab_post_offer_step_2_photo_imageView);
-        titleEdittext = (EditText) v.findViewById(R.id.tab_post_offer_step_2_title_EditText);
-        titleEdittext.requestFocus();
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.tab_post_offer_step_3);
 
-        mContext = getActivity().getApplicationContext();
-        mActivity = getActivity();
+        setupActionBar(getResources().getString(R.string.activity_title_post_an_offer), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
+
+        step3 = (Button) findViewById(R.id.tab_post_offer_step_2_next_button);
+        photosRecyclerView = (RecyclerView) findViewById(R.id.tab_post_offer_step3_thumbnailRecyclerView);
 
         step3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Preferences.setCurrentPage(3);
-                ((PostOfferActivity) getActivity()).changefragmentalongStepProcess(3);
+                Intent intent = new Intent(PostOfferStepThreeActivity.this, PostOfferStepTwoActivity.class);
+                startActivity(intent);
             }
         });
 
-        takePhotoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                isCameraButton = true;
-                if (checkReadStorage()) {
-                    if (checkWriteStorage()) {
-                        if (checkCameraPermission()) {
-                            openCamera();
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(PostOfferStepThreeActivity.this);
+        mLayoutManager.setOrientation(OrientationHelper.HORIZONTAL);
+        photosRecyclerView.setLayoutManager(mLayoutManager);
+
+        ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter = new ThumbnailImageRecyclerViewAdapter(this);
+        photosRecyclerView.setAdapter(thumbnailImageRecyclerViewAdapter);
+        photosRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        if (checkReadStorage()) {
+                            if (checkWriteStorage()) {
+                                if (checkCameraPermission()) {
+                                    popup();
+                                }
+                            }
                         }
                     }
-                }
-            }
-        });
+                })
+        );
+    }
 
-        selectPhotoButton.setOnClickListener(new View.OnClickListener() {
+    private void popup() {
+        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
+        AlertDialog.Builder builder = new AlertDialog.Builder(PostOfferStepThreeActivity.this, R.style.i1_dialog_standard);
+        builder.setTitle("Add Photo!");
+        builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                if (checkReadStorage()) {
-                    if (checkWriteStorage()) {
+            public void onClick(DialogInterface dialog, int item) {
+                if (items[item].equals("Take Photo")) {
+                    if (checkCameraPermission()) {
+                        openCamera();
+                    }
+                } else if (items[item].equals("Choose from Library")) {
+                    if (checkReadStorage()) {
                         openGallery();
                     }
+                } else if (items[item].equals("Cancel")) {
+                    dialog.dismiss();
                 }
             }
         });
-
-        return v;
+        builder.show();
     }
 
     private boolean checkCameraPermission() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(PostOfferStepThreeActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
             ActivityCompat.requestPermissions(mActivity, new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
@@ -116,7 +129,7 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
 
     private boolean checkReadStorage() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(PostOfferStepThreeActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_STORAGE_READ);
@@ -126,7 +139,7 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
 
     private boolean checkWriteStorage() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(PostOfferStepThreeActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_STORAGE_WRITE);
@@ -191,10 +204,10 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
                 }
 
                 Uri imageUri = Uri.fromFile(destination);
-                String path = ImageUtil.getPath(mContext, imageUri);
+                String path = ImageUtil.getPath(PostOfferStepThreeActivity.this, imageUri);
                 Bitmap bitmap = null;
                 try {
-                    bitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
+                    bitmap = MediaStore.Images.Media.getBitmap(PostOfferStepThreeActivity.this.getContentResolver(), imageUri);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -203,7 +216,7 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
             } else if (requestCode == SELECT_FILE) {
                 Uri selectedImageUri = data.getData();
                 String[] projection = {MediaStore.MediaColumns.DATA};
-                CursorLoader cursorLoader = new CursorLoader(mContext, selectedImageUri, projection, null, null, null);
+                CursorLoader cursorLoader = new CursorLoader(PostOfferStepThreeActivity.this, selectedImageUri, projection, null, null, null);
                 Cursor cursor = cursorLoader.loadInBackground();
                 int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
                 cursor.moveToFirst();

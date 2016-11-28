@@ -32,11 +32,12 @@
     <string name="posted_on">Posted On</string>
     <string name="listed_by">Listed By</string>
     <string name="product_description">Product Description</string>
-    <string name="enter_daily_rental_price">Enter Daily Rental Price</string>
-    <string name="enter_weekly_rental_price">Enter Weekly Rental Price</string>
-    <string name="enter_monthly_rental_price">Enter Monthly Rental Price</string>
-    <string name="enter_deposit_amount">Enter Deposit Amount</string>
+    <string name="enter_daily_rental_price">Daily Price*</string>
+    <string name="enter_weekly_rental_price">Weekly Price*</string>
+    <string name="enter_monthly_rental_price">Monthly Price*</string>
+    <string name="enter_deposit_amount">Deposit Amount*</string>
     <string name="enter_unit_sale_price">Enter Unit Sale Price</string>
+    <string name="purchase_amount">Purchase Amount*</string>
     <string name="specify_the_condition">Specify the condition</string>
     <string name="fragment_title_describe_product">Describe Product</string>
     <string name="fragment_title_upload_photo">Upload Photo</string>
@@ -67,5 +68,11 @@
     <string name="rent_or_buy">Rent/Buy</string>
     <string name="select_rent_type">Select Rent Type</string>
     <string name="select">Select</string>
+    <string name="serial_number">Serial Number(optional)</string>
+    <string name="model">Model(optional)</string>
+    <string name="brand_manufacturer">Brand/Manufacturer *</string>
+    <string name="title">Title *</string>
+    <string name="rent_to_own">Rent to own</string>
+    <string name="picture_upload_instruction">Recommended 4 pictures (from different angles)</string>
 
 </resources>

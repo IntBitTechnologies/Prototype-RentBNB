@@ -1,4 +1,4 @@
-package com.intbit.rentbnb.ui.activities.fragments;
+package com.intbit.rentbnb.ui.activities;
 
 import android.Manifest;
 import android.content.Context;
@@ -39,7 +39,7 @@ import static android.content.Context.LOCATION_SERVICE;
  * Created by Adiba on 14/11/2016.
  */
 
-public class PostOfferStepFourFragment extends RentbnbBaseFragment implements Locator.Listener {
+public class PostOfferStepFourActivity extends RentbnbBaseFragment implements Locator.Listener {
 
     private GoogleMap googleMap;
     Context mContext;
