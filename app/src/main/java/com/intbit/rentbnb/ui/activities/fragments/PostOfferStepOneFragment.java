@@ -1,4 +1,4 @@
-package com.intbit.rentbnb.ui.activities;
+package com.intbit.rentbnb.ui.activities.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,6 +17,7 @@ import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.models.Category;
 import com.intbit.rentbnb.models.SubCategory;
 import com.intbit.rentbnb.support.Preferences;
+import com.intbit.rentbnb.ui.activities.PostOfferActivity;
 
 import java.util.ArrayList;
 import java.util.List;

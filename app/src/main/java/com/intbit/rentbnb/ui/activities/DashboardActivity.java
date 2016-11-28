@@ -112,24 +112,38 @@ public class DashboardActivity extends RentbnbBaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_dashboard) {
+            //Already in Dashboard
+        } else if (id == R.id.nav_myListings) {
             Intent intent = new Intent(DashboardActivity.this, MyListingActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
+        } else if (id == R.id.nav_myOrders) {
+            Intent intent = new Intent(DashboardActivity.this, MyOrdersActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_openRequest) {
+            Intent intent = new Intent(DashboardActivity.this, OpenRequestsActivity.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_requestProduct) {
+            //Intent intent = new Intent(DashboardActivity.this, RequestProductActivity.class);
+            //startActivity(intent);
         } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+            shareAppLink();
+        } else if (id == R.id.nav_logOut) {
 
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void shareAppLink() {
+        Intent sendIntent = new Intent();
+        sendIntent.setAction(Intent.ACTION_SEND);
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, getResources().getString(R.string.app_name));
+        sendIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.app_name) + "\n" + getResources().getString(R.string.app_name));
+        sendIntent.setType("text/plain");
+        startActivity(sendIntent);
     }
 
 }

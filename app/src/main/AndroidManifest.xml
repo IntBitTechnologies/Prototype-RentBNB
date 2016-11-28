@@ -56,7 +56,10 @@
         <activity
             android:name=".ui.activities.ProductPostedActivity"
             android:label="@string/title_activity_product_posted"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ui.activities.RequestProductActivity" />
+        <activity android:name=".ui.activities.MyOrdersActivity" />
+        <activity android:name=".ui.activities.OpenRequestsActivity"></activity>
     </application>
 
 </manifest>

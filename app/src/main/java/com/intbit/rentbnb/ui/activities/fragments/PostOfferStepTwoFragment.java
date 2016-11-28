@@ -1,4 +1,4 @@
-package com.intbit.rentbnb.ui.activities;
+package com.intbit.rentbnb.ui.activities.fragments;
 
 import android.Manifest;
 import android.app.Activity;
@@ -30,6 +30,7 @@ import com.intbit.rentbnb.base.ApplicationConstants;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.support.ImageUtil;
 import com.intbit.rentbnb.support.Preferences;
+import com.intbit.rentbnb.ui.activities.PostOfferActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

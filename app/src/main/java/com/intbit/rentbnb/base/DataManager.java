@@ -2,6 +2,7 @@ package com.intbit.rentbnb.base;
 
 import com.intbit.rentbnb.models.Category;
 import com.intbit.rentbnb.models.Offer;
+import com.intbit.rentbnb.models.Request;
 import com.intbit.rentbnb.models.SubCategory;
 
 import java.util.ArrayList;
@@ -28,6 +29,8 @@ public class DataManager {
     String[] description = {"1GB RAM", "2GB RAM", "3GB RAM", "4GB RAM", "5GB RAM"};
 
     String[] listedBy = {"Harry Potter", "Tom Cruise", "Brad Pitt", "Angelina Jolie", "Emma Watson"};
+
+    String[] requestProducts = {"Harley Davidson for 1 Week", "Apple Laptop for 3 Months"};
 
     public List<Category> getAllCategories() {
         List<Category> categoryList = new ArrayList<>();
@@ -64,6 +67,19 @@ public class DataManager {
             offerList.add(offer);
         }
         return offerList;
+    }
+
+    public List<Request> getAllOpenRequests() {
+        List<Request> requestList = new ArrayList<>();
+        for (int i = 0; i < requestProducts.length; i++) {
+            Request request = new Request();
+            request.setRequestedBy("Dan Brown");
+            request.setRequestedDate("24-Nov-2016");
+            request.setRequestedModel("VPCEG-18");
+            request.setRequestedProduct(requestProducts[i]);
+            requestList.add(request);
+        }
+        return requestList;
     }
 
 }

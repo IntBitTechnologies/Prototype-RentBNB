@@ -1,4 +1,4 @@
-package com.intbit.rentbnb.ui.activities;
+package com.intbit.rentbnb.ui.activities.fragments;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.support.Preferences;
+import com.intbit.rentbnb.ui.activities.PostOfferActivity;
 
 /**
  * Created by Adiba on 14/11/2016.

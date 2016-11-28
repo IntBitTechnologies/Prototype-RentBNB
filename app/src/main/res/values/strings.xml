@@ -46,6 +46,9 @@
     <string name="ferrari">Ferrari</string>
     <string name="optional">(optional)</string>
     <string name="my_listing">My Listing</string>
+    <string name="my_orders">My Orders</string>
+    <string name="open_requests">Open Requests</string>
+    <string name="request_product">Request Product</string>
     <string name="subcategories">SubCategories</string>
     <string name="products">Products</string>
     <string name="productDetails">Product Detail</string>

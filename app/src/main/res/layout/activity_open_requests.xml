@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_open_requests"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context="com.intbit.rentbnb.ui.activities.OpenRequestsActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/rentbnb_custom_toolbar_view" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/activity_openReqests_recyclerView"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="@dimen/i1_20dp_margin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </android.support.v7.widget.RecyclerView>
+
+</RelativeLayout>

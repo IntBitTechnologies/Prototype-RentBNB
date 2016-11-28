@@ -1,4 +1,4 @@
-package com.intbit.rentbnb.ui.activities;
+package com.intbit.rentbnb.ui.activities.fragments;
 
 import android.Manifest;
 import android.content.Context;
@@ -31,6 +31,7 @@ import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.ApplicationConstants;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.support.Locator;
+import com.intbit.rentbnb.ui.activities.ProductPostedActivity;
 
 import static android.content.Context.LOCATION_SERVICE;
 
