@@ -55,6 +55,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="AlertDialogCSS" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <item name="android:textColor">@color/primary_text</item>
+        <item name="colorAccent">@color/accent</item>
+    </style>
+
     <!--Intbit Styles start-->
     <!--Roboto styles starts-->
     <style name="i1_R">
@@ -2103,7 +2108,10 @@
 
     <!--Text Input Layout Style starts-->
     <style name="i1_text_input_layout">
-        <item name="android:layout_margin">@dimen/i1_10dp_margin</item>
+        <!--<item name="android:layout_margin">@dimen/i1_10dp_margin</item>-->
+        <item name="android:layout_marginLeft">@dimen/i1_10dp_margin</item>
+        <item name="android:layout_marginRight">@dimen/i1_10dp_margin</item>
+        <item name="android:layout_marginTop">@dimen/i1_10dp_margin</item>
     </style>
     <!--Text Input Layout Style ends-->
 

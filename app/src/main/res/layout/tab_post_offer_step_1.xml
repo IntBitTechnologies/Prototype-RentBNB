@@ -23,7 +23,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_menu_camera"
+                android:src="@drawable/ic_category_icon"
                 android:gravity="top|left"
                 android:layout_margin="@dimen/i1_10dp_margin"
                 android:layout_gravity="center_vertical" />
@@ -59,7 +59,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_menu_camera"
+                    android:drawableLeft="@drawable/ic_title_icon"
                     android:drawablePadding="@dimen/i1_10dp_margin"
                     android:gravity="top|left"
                     android:hint="@string/title"
@@ -76,7 +76,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_menu_camera"
+                    android:drawableLeft="@drawable/ic_brand_icon"
                     android:drawablePadding="@dimen/i1_10dp_margin"
                     android:gravity="top|left"
                     android:hint="@string/brand_manufacturer"
@@ -93,7 +93,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_menu_camera"
+                    android:drawableLeft="@drawable/ic_model_number_icon"
                     android:drawablePadding="@dimen/i1_10dp_margin"
                     android:gravity="top|left"
                     android:hint="@string/model"
@@ -110,7 +110,7 @@
                 <android.support.design.widget.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/ic_menu_camera"
+                    android:drawableLeft="@drawable/ic_serial_number_icon"
                     android:drawablePadding="@dimen/i1_10dp_margin"
                     android:gravity="top|left"
                     android:hint="@string/serial_number"
@@ -122,29 +122,6 @@
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
-
-    <!--<TextView
-        android:id="@+id/tab_post_offer_step_1_description_title_textView"
-        style="@style/i1_card_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tab_post_offer_step_1_title_cardView"
-        android:layout_marginBottom="@dimen/i1_15dp_margin"
-        android:layout_marginTop="@dimen/i1_20dp_margin"
-        android:text="@string/description" />-->
-
-    <!--<TextView
-        android:id="@+id/tab_post_offer_step_1_optional_textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tab_post_offer_step_1_categories_cardView"
-        android:layout_marginBottom="@dimen/i1_15dp_margin"
-        android:layout_marginLeft="@dimen/i1_5dp_margin"
-        android:layout_marginTop="@dimen/i1_20dp_margin"
-        android:layout_toRightOf="@+id/tab_post_offer_step_1_description_title_textView"
-        android:text="@string/optional"
-        android:textAllCaps="false"
-        android:textAppearance="@style/i1_8R_ST" />-->
 
     <android.support.v7.widget.CardView
         style="@style/i1_card_view_without_content_padding"
@@ -165,6 +142,8 @@
                 android:layout_height="match_parent"
                 android:gravity="top|left"
                 android:hint="@string/description"
+                android:drawableLeft="@drawable/ic_description_icon"
+                android:drawablePadding="@dimen/i1_10dp_margin"
                 android:inputType="textMultiLine"
                 android:lines="5"
                 android:scrollHorizontally="false" />

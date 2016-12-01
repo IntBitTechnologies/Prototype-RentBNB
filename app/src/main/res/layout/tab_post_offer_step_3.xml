@@ -15,13 +15,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="@string/button_next" />
+        android:text="Finish" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/tab_post_offer_step3_thumbnailRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/imageView3"
+        android:layout_above="@+id/tab_post_offer_step3_productImageView"
         android:layout_below="@+id/toolbar" />
 
     <ImageView
@@ -30,13 +30,13 @@
         app:srcCompat="@drawable/business"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:id="@+id/imageView3" />
+        android:id="@+id/tab_post_offer_step3_productImageView" />
 
     <TextView
         android:text="@string/picture_upload_instruction"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView3"
+        android:layout_below="@+id/tab_post_offer_step3_productImageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:id="@+id/textView2" />

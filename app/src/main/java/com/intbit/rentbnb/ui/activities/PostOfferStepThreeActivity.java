@@ -24,11 +24,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.content.CursorLoader;
+import android.widget.Toast;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.ThumbnailImageRecyclerViewAdapter;
 import com.intbit.rentbnb.base.ApplicationConstants;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
+import com.intbit.rentbnb.models.Thumbnail;
 import com.intbit.rentbnb.support.ImageUtil;
 import com.intbit.rentbnb.support.RecyclerItemClickListener;
 
@@ -37,6 +39,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Adiba on 14/11/2016.
@@ -49,10 +53,10 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
             PERMISSION_STORAGE_READ = ApplicationConstants.PERMISSION_REQUEST_STORAGE_READ,
             PERMISSION_STORAGE_WRITE = ApplicationConstants.PERMISSION_REQUEST_STORAGE_WRITE;
     ImageView productPhotoImageView;
-    //Context mContext;
     Activity mActivity;
     boolean isCameraButton = false;
     private RecyclerView photosRecyclerView;
+    ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -63,6 +67,7 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
 
         step3 = (Button) findViewById(R.id.tab_post_offer_step_2_next_button);
         photosRecyclerView = (RecyclerView) findViewById(R.id.tab_post_offer_step3_thumbnailRecyclerView);
+        productPhotoImageView = (ImageView) findViewById(R.id.tab_post_offer_step3_productImageView);
 
         step3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,27 +81,46 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
         mLayoutManager.setOrientation(OrientationHelper.HORIZONTAL);
         photosRecyclerView.setLayoutManager(mLayoutManager);
 
-        ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter = new ThumbnailImageRecyclerViewAdapter(this);
+        List<Thumbnail> thumbnailList = new ArrayList<>();
+        Thumbnail thumbnail = new Thumbnail();
+        thumbnailList.add(thumbnail);
+
+        thumbnailImageRecyclerViewAdapter = new ThumbnailImageRecyclerViewAdapter(this, thumbnailList);
         photosRecyclerView.setAdapter(thumbnailImageRecyclerViewAdapter);
         photosRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        if (checkReadStorage()) {
-                            if (checkWriteStorage()) {
-                                if (checkCameraPermission()) {
-                                    popup();
-                                }
-                            }
+                        //if (position == 0) {
+                        if (position == (photosRecyclerView.getAdapter().getItemCount()-1)) {
+                            popup();
+                        } else {
+                            Thumbnail itemThumbnail = thumbnailImageRecyclerViewAdapter.getItem(position);
+                            String imageUrl = itemThumbnail.getImageUrl();
+                            loadBaseImageViewImage(imageUrl);
                         }
                     }
                 })
         );
     }
 
+    private void loadBaseImageViewImage(String imageUrl) {
+        File file = new File(imageUrl);
+        Uri imageUri = Uri.fromFile(file);
+        String path = ImageUtil.getPath(this, imageUri);
+        Bitmap bitmap = null;
+        try {
+            bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Bitmap processedBitmap = adjustImageOrientation(bitmap, path);
+        productPhotoImageView.setImageBitmap(processedBitmap);
+    }
+
     private void popup() {
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(PostOfferStepThreeActivity.this, R.style.i1_dialog_standard);
+        AlertDialog.Builder builder = new AlertDialog.Builder(PostOfferStepThreeActivity.this, R.style.AlertDialogCSS);
         builder.setTitle("Add Photo!");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
@@ -212,7 +236,8 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
                     e.printStackTrace();
                 }
                 Bitmap processedBitmap = adjustImageOrientation(bitmap, path);
-                productPhotoImageView.setImageBitmap(processedBitmap);
+                //productPhotoImageView.setImageBitmap(processedBitmap);
+                uploadPhotoToRecyclerView(path);
             } else if (requestCode == SELECT_FILE) {
                 Uri selectedImageUri = data.getData();
                 String[] projection = {MediaStore.MediaColumns.DATA};
@@ -233,8 +258,17 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
                 options.inJustDecodeBounds = false;
                 bm = BitmapFactory.decodeFile(selectedImagePath, options);
 
-                productPhotoImageView.setImageBitmap(bm);
+                //productPhotoImageView.setImageBitmap(bm);
             }
+        }
+    }
+
+    private void uploadPhotoToRecyclerView(String imageUri) {
+        int itemCount = photosRecyclerView.getAdapter().getItemCount();
+        if (itemCount > 6) {
+            Toast.makeText(PostOfferStepThreeActivity.this, "You can upload only 6 photos maximum", Toast.LENGTH_SHORT).show();
+        } else {
+            thumbnailImageRecyclerViewAdapter.addThumbnail(imageUri.toString());
         }
     }
 
