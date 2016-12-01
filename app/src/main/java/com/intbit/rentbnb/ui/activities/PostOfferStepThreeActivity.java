@@ -72,7 +72,8 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
         step3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PostOfferStepThreeActivity.this, PostOfferStepTwoActivity.class);
+                Intent intent = new Intent(PostOfferStepThreeActivity.this, DashboardActivity.class);
+                finishAffinity();
                 startActivity(intent);
             }
         });
@@ -91,8 +92,8 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        //if (position == 0) {
-                        if (position == (photosRecyclerView.getAdapter().getItemCount()-1)) {
+                        if (position == 0) {
+                        //if (position == (photosRecyclerView.getAdapter().getItemCount()-1)) {
                             popup();
                         } else {
                             Thumbnail itemThumbnail = thumbnailImageRecyclerViewAdapter.getItem(position);
