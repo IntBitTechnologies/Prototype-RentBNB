@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/renttoownTab_productsList_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/ripple_light"
+        android:clipToPadding="false"
+        android:paddingBottom="@dimen/i1_card_view_margin_8dp" />
+
+    <ImageView
+        android:id="@+id/global_noDataFoundImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_centerInParent="true"
+        android:src="@drawable/no_data"
+        android:visibility="gone" />
+
+</RelativeLayout>

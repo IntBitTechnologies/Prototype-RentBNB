@@ -3,9 +3,9 @@ package com.intbit.rentbnb.ui.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -16,19 +16,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.intbit.rentbnb.R;
-import com.intbit.rentbnb.adapters.CategoriesListRecyclerViewAdapter;
-import com.intbit.rentbnb.base.DataManager;
+import com.intbit.rentbnb.adapters.DashboardViewPagerAdapter;
+import com.intbit.rentbnb.adapters.DashboardViewPagerItem;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
-import com.intbit.rentbnb.models.Category;
+import com.intbit.rentbnb.support.SlidingTabLayout.SlidingTabLayout;
+import com.intbit.rentbnb.ui.activities.fragments.BuyTab;
+import com.intbit.rentbnb.ui.activities.fragments.RentTab;
+import com.intbit.rentbnb.ui.activities.fragments.RentToOwnTab;
+import com.intbit.rentbnb.ui.activities.fragments.RequestsTab;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class DashboardActivity extends RentbnbBaseActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private RecyclerView categoriesRecyclerView;
-    private CategoriesListRecyclerViewAdapter mAdapter;
-    private DataManager dataManager;
+    private ViewPager pager;
+    private DashboardViewPagerAdapter dashboardViewPagerAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -37,15 +40,21 @@ public class DashboardActivity extends RentbnbBaseActivity
 
         initializeViews();
 
-        dataManager = new DataManager();
+        pager = (ViewPager) findViewById(R.id.activity_dashboard_viewPager);
+        pager.setAdapter(dashboardViewPagerAdapter);
 
-        GridLayoutManager mLayoutManager = new GridLayoutManager(DashboardActivity.this, 2);
-        categoriesRecyclerView.setLayoutManager(mLayoutManager);
+        setAdapterItems();
 
-        List<Category> allCategoriesList = dataManager.getAllCategories();
+        SlidingTabLayout tabs = (SlidingTabLayout) findViewById(R.id.activity_dashboard_slidingTabLayout);
+        tabs.setDistributeEvenly(true);
+        tabs.setViewPager(pager);
+        tabs.setCustomTabColorizer(new SlidingTabLayout.TabColorizer() {
+            @Override
+            public int getIndicatorColor(int position) {
+                return getResources().getColor(R.color.accent);
+            }
+        });
 
-        mAdapter = new CategoriesListRecyclerViewAdapter(allCategoriesList, this);
-        categoriesRecyclerView.setAdapter(mAdapter);
     }
 
     private void initializeViews() {
@@ -71,7 +80,99 @@ public class DashboardActivity extends RentbnbBaseActivity
             }
         });
 
-        categoriesRecyclerView = (RecyclerView) findViewById(R.id.activity_main_categories_recyclerView);
+    }
+
+    private void setAdapterItems() {
+
+        String titles[] = getResources().getStringArray(R.array.dashboard_tab_titles);
+        int icons[] = new int[]{R.drawable.calendar_icon, R.drawable.calendar_icon, R.drawable.calendar_icon, R.drawable.calendar_icon};
+
+        ArrayList<DashboardViewPagerItem> items = new ArrayList<DashboardViewPagerItem>();
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        Fragment fragment = null;
+        for (int i = 0; i < titles.length; i++) {
+
+            switch (i) {
+                case 0:
+                    fragment = new RentTab();
+                    break;
+                case 1:
+                    fragment = new BuyTab();
+                    break;
+                case 2:
+                    fragment = new RentToOwnTab();
+                    break;
+                case 3:
+                    fragment = new RequestsTab();
+                    break;
+            }
+            items.add(new DashboardViewPagerItem(fragment, titles[i], icons[i]));
+        }
+
+        dashboardViewPagerAdapter = new DashboardViewPagerAdapter(fragmentManager, items);
+        dashboardViewPagerAdapter.setAdapterForViewPager(pager);
+
+        pager.setAdapter(dashboardViewPagerAdapter);
+        /*pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                switch (position) {
+                    case 0:
+                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_icon));
+                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(PracticeActivity.this, AddAppointmentActivity.class);
+                                intent.putExtra(ApplicationConstants.EDIT_MODE, false);
+                                startActivity(intent);
+                            }
+                        });
+                        break;
+                    case 1:
+                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_person_icon));
+                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(PracticeActivity.this, AddProviderActivity.class);
+                                intent.putExtra(ApplicationConstants.EDIT_MODE, false);
+                                startActivity(intent);
+                            }
+                        });
+                        break;
+                    case 2:
+                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_person_icon));
+                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(PracticeActivity.this, AddPatientActivity.class);
+                                intent.putExtra(ApplicationConstants.EDIT_MODE, false);
+                                startActivity(intent);
+                            }
+                        });
+                        break;
+                    case 3:
+                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_notification_icon));
+                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(PracticeActivity.this, AddNotificationActivity.class);
+                                startActivity(intent);
+                            }
+                        });
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });*/
     }
 
     @Override

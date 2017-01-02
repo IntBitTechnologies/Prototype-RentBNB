@@ -75,4 +75,11 @@
     <string name="rent_to_own">Rent to own</string>
     <string name="picture_upload_instruction">Recommended 4 pictures (from different angles)</string>
 
+    <array name="dashboard_tab_titles">
+        <item>Rent</item>
+        <item>Buy</item>
+        <item>Rent to own</item>
+        <item>Requests</item>
+    </array>
+
 </resources>

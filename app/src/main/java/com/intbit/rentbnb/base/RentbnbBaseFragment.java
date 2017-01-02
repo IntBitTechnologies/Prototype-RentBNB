@@ -1,10 +1,11 @@
 package com.intbit.rentbnb.base;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 
 /**
- * Created by Adiba on 14/11/2016.
+ * Created by Sakthivel on 30/12/2016.
  */
 
 public class RentbnbBaseFragment extends Fragment {
+
 }

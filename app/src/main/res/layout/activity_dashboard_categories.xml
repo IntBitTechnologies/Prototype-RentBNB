@@ -10,9 +10,33 @@
     android:background="@color/background"
     tools:showIn="@layout/app_bar_main">
 
-    <android.support.v7.widget.RecyclerView
+    <android.support.v7.widget.SearchView
+        android:id="@+id/activity_main_categories_searchView"
+        android:background="@color/primary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.SearchView>
+
+    <com.intbit.rentbnb.support.SlidingTabLayout.SlidingTabLayout
+        android:id="@+id/activity_dashboard_slidingTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_main_categories_searchView"
+        android:background="@color/primary"
+        android:elevation="2dp" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/activity_dashboard_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/activity_dashboard_slidingTabLayout"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <!--<android.support.v7.widget.RecyclerView
         android:id="@+id/activity_main_categories_recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/activity_dashboard_slidingTabLayout" />-->
 
 </RelativeLayout>

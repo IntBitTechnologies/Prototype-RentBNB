@@ -24,4 +24,9 @@ public interface ApplicationConstants {
     public static final int OPEN_CAMERA = 506;
 
     public static final int OPEN_GALLERY = 507;
+
+    public static final String FRAGMENT_TAG_KEY = "FRAGMENT_TAG";
+
+    public static final String FRAGMENT_DASHBOARD = "FRAGMENT_DASHBOARD";
+
 }
