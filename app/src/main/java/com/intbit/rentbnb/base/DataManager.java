@@ -3,7 +3,6 @@ package com.intbit.rentbnb.base;
 import com.intbit.rentbnb.models.Category;
 import com.intbit.rentbnb.models.Offer;
 import com.intbit.rentbnb.models.Request;
-import com.intbit.rentbnb.models.SubCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,10 +16,6 @@ public class DataManager {
     String[] categories = {"Business", "Sports", "Education", "Electronics", "Party", "Home", "Construction", "Uniform & Tuxedo"};
 
     String[] categoryUrls = {"business", "sports", "education", "electronics", "party", "home", "construction", "tuxedo"};
-
-    String[] subCategories = {"Audio", "Auto", "HealthCare", "Laptops & Computers", "Phones & Tablets", "Video & Photography", "Other"};
-
-    String[] subCategoriesUrls = {"audio", "auto", "healthcare", "laptop", "phonetablet", "photography", "other_electronics"};
 
     String[] products = {"Apple MacBook Pro", "Dell Inspiron", "HP Notebook", "HP Spectre", "Lenovo C2000 Desktop"};
 
@@ -41,17 +36,6 @@ public class DataManager {
             categoryList.add(category);
         }
         return categoryList;
-    }
-
-    public List<SubCategory> getAllSubCategories() {
-        List<SubCategory> subCategoryList = new ArrayList<>();
-        for (int i = 0; i < subCategories.length; i++) {
-            SubCategory subCategory = new SubCategory();
-            subCategory.setSubCategoryName(subCategories[i]);
-            subCategory.setImageUrl(subCategoriesUrls[i]);
-            subCategoryList.add(subCategory);
-        }
-        return subCategoryList;
     }
 
     public List<Offer> getAllOffersList() {

@@ -7,7 +7,7 @@
         android:id="@+id/renttoownTab_productsList_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/ripple_light"
+        android:background="@color/background"
         android:clipToPadding="false"
         android:paddingBottom="@dimen/i1_card_view_margin_8dp" />
 

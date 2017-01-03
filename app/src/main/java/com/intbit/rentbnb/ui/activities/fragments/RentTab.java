@@ -22,6 +22,8 @@ import android.widget.ImageView;
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.CategoriesListRecyclerViewAdapter;
 import com.intbit.rentbnb.base.DataManager;
+import com.intbit.rentbnb.base.RentBnbEnums;
+import com.intbit.rentbnb.base.RentBnbEnvironment;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.models.Category;
 import com.intbit.rentbnb.support.RentBnbOnFragmentSelectedListener;
@@ -47,6 +49,8 @@ public class RentTab extends RentbnbBaseFragment implements RentBnbOnFragmentSel
 
         initializeViews(view);
 
+        getData(RentBnbEnums.Offers_View_Grid.toInt());
+
         return view;
     }
 
@@ -56,11 +60,6 @@ public class RentTab extends RentbnbBaseFragment implements RentBnbOnFragmentSel
         noDataImageView = (ImageView) view.findViewById(R.id.global_noDataFoundImageView);
 
         mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-
-
-        GridLayoutManager mLayoutManager = new GridLayoutManager(mContext, 2);
-        mRecyclerView.setLayoutManager(mLayoutManager);
 
         dataManager = new DataManager();
 
@@ -70,38 +69,53 @@ public class RentTab extends RentbnbBaseFragment implements RentBnbOnFragmentSel
     @Override
     public void onFragmentSelected(FragmentManager fragmentManager, ViewPager viewPager, int position, Fragment fragment) {
         if (fragment instanceof RentTab) {
-            getData();
+            getData(RentBnbEnums.Offers_View_Grid.toInt());
         }
     }
 
-    public void getData() {
+    public void getData(int viewType) {
         List<Category> allCategoriesList = dataManager.getAllCategories();
 
-        mAdapter = new CategoriesListRecyclerViewAdapter(allCategoriesList, mContext);
+        if (viewType == RentBnbEnums.Offers_View_Grid.toInt()) {
+            GridLayoutManager mLayoutManager = new GridLayoutManager(mContext, 2);
+            mRecyclerView.setLayoutManager(mLayoutManager);
+        } else {
+            mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        }
+
+        mAdapter = new CategoriesListRecyclerViewAdapter(allCategoriesList, mContext, viewType);
         mRecyclerView.setAdapter(mAdapter);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        getData();
+        if (RentBnbEnvironment.Offers_View_Mode == RentBnbEnums.Offers_View_Grid.toInt()) {
+            getData(RentBnbEnums.Offers_View_Grid.toInt());
+        } else if (RentBnbEnvironment.Offers_View_Mode == RentBnbEnums.Offers_View_List.toInt()) {
+            getData(RentBnbEnums.Offers_View_List.toInt());
+        }
     }
 
-    /*@Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater menuInflater) {
-        super.onCreateOptionsMenu(menu, menuInflater);
-        mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-        mSearchView.setQueryHint(getResources().getString(R.string.search_hint_patient));
-
-        ((EditText) mSearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text)).setTextColor(getResources().getColor(R.color.white));
-        ((EditText) mSearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text)).setHintTextColor(getResources().getColor(R.color.primary_light));
-
-        ImageView searchCloseIcon = (ImageView) mSearchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
-        searchCloseIcon.setColorFilter(getResources().getColor(R.color.white));
-        setupSearchView();
+    @Override
+    public void changeViewType() {
+        if (RentBnbEnvironment.Offers_View_Mode == RentBnbEnums.Offers_View_Grid.toInt()) {
+            RentBnbEnvironment.Offers_View_Mode = RentBnbEnums.Offers_View_List.toInt();
+            changeToListTypeView();
+        } else if (RentBnbEnvironment.Offers_View_Mode == RentBnbEnums.Offers_View_List.toInt()) {
+            RentBnbEnvironment.Offers_View_Mode = RentBnbEnums.Offers_View_Grid.toInt();
+            changeToGridTypeView();
+        }
     }
-*/
+
+    private void changeToGridTypeView() {
+        getData(RentBnbEnums.Offers_View_Grid.toInt());
+    }
+
+    private void changeToListTypeView() {
+        getData(RentBnbEnums.Offers_View_List.toInt());
+    }
+
     /*private void setupSearchView() {
         mSearchView.setIconifiedByDefault(true);
         mSearchView.setOnQueryTextListener(this);

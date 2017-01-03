@@ -18,23 +18,20 @@
             android:id="@+id/nav_openRequest"
             android:icon="@drawable/drawer_locations"
             android:title="Open Requests" />
-        <item
-            android:id="@+id/nav_requestProduct"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Request Product" />
     </group>
 
-    <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/drawer_send_invitations"
-                android:title="Share App" />
-            <item
-                android:id="@+id/nav_logOut"
-                android:icon="@drawable/drawer_help"
-                android:title="Logout" />
-        </menu>
-    </item>
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="none">
+
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/drawer_send_invitations"
+            android:title="Send Invitations" />
+        <item
+            android:id="@+id/nav_logOut"
+            android:icon="@drawable/drawer_help"
+            android:title="Help" />
+    </group>
 
 </menu>

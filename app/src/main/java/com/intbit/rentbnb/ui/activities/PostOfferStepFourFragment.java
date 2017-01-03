@@ -189,4 +189,8 @@ public class PostOfferStepFourFragment extends RentbnbBaseFragment implements Lo
 
     }
 
+    @Override
+    public void changeViewType() {
+
+    }
 }

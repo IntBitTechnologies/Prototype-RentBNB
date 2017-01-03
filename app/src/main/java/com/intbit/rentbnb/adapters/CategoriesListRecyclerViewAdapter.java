@@ -11,8 +11,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.intbit.rentbnb.R;
+import com.intbit.rentbnb.base.RentBnbEnums;
 import com.intbit.rentbnb.models.Category;
-import com.intbit.rentbnb.ui.activities.SubCategoryActivity;
 
 import java.util.List;
 
@@ -22,29 +22,36 @@ import java.util.List;
 public class CategoriesListRecyclerViewAdapter extends RecyclerView.Adapter<CategoriesListRecyclerViewAdapter.ViewHolder> {
     private List<Category> mItems;
     public Context mContext;
+    public int viewType;
 
-    public CategoriesListRecyclerViewAdapter(List<Category> data, Context context) {
+    public CategoriesListRecyclerViewAdapter(List<Category> data, Context context, int viewType) {
         super();
 
         this.mItems = data;
         this.mContext = context;
+        this.viewType = viewType;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rowitem_category_recyclerview, viewGroup, false);
+        View v;
+        if (viewType == RentBnbEnums.Offers_View_Grid.toInt()) {
+            v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rowitem_category_gridview_recyclerview, viewGroup, false);
+        } else {
+            v = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.rowitem_category_listview_recyclerview, viewGroup, false);
+        }
         ViewHolder viewHolder = new ViewHolder(v);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        viewHolder.titleView.setText(mItems.get(i).getCategoryName());
+        //viewHolder.titleView.setText(mItems.get(i).getCategoryName());
         viewHolder.cateroriesLinearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, SubCategoryActivity.class);
-                mContext.startActivity(intent);
+                /*Intent intent = new Intent(mContext, SubCategoryActivity.class);
+                mContext.startActivity(intent);*/
             }
         });
 
@@ -78,7 +85,7 @@ public class CategoriesListRecyclerViewAdapter extends RecyclerView.Adapter<Cate
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.titleView = (TextView) itemView.findViewById(R.id.rowitem_recyclerview_categorylist_title_textview);
+            //this.titleView = (TextView) itemView.findViewById(R.id.rowitem_recyclerview_categorylist_title_textview);
             this.pictureView = (ImageView) itemView.findViewById(R.id.rowitem_recyclerview_categorylist_defaultimageview);
             this.cateroriesLinearLayout = (LinearLayout) itemView.findViewById(R.id.rowitem_recyclerview_categorylist_linearlayout);
         }
