@@ -5,24 +5,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/rentbnb_custom_toolbar_view" />
-
     <Button
-        android:id="@+id/tab_post_offer_step_2_next_button"
+        android:id="@+id/tab_post_offer_step_3_next_button"
         style="@style/i1_button_standard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Finish" />
+        android:text="@string/button_complete_step3" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/tab_post_offer_step3_thumbnailRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tab_post_offer_step3_productImageView"
-        android:layout_below="@+id/toolbar" />
+        android:layout_above="@+id/tab_post_offer_step3_productImageView" />
 
     <ImageView
         android:layout_width="wrap_content"

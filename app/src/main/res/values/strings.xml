@@ -10,7 +10,7 @@
     <string name="discard_changes_title">Discard Changes</string>
     <string name="discard_changes_message">Are you sure to discard the changes you have made?</string>
     <string name="title_activity_sub_category">SubCategoryActivity</string>
-    <string name="activity_title_post_an_offer">Post an Offer</string>
+    <string name="activity_title_new_request">New Request</string>
     <string name="activity_title_rent_now">Rent Now</string>
 
     <string name="activity_title_product_details">Product Details</string>
@@ -81,5 +81,10 @@
         <item>Rent to own</item>
         <item>Requests</item>
     </array>
+    
+    <string name="button_complete_step1">Complete Step1/4</string>
+    <string name="button_complete_step2">Complete Step2/4</string>
+    <string name="button_complete_step3">Complete Step3/4</string>
+    <string name="button_post_now">Post Now!</string>
 
 </resources>

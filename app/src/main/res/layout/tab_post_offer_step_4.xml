@@ -4,11 +4,19 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.gms.maps.MapView
+    <!--<com.google.android.gms.maps.MapView
         android:id="@+id/tab_post_offer_step4_mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    </com.google.android.gms.maps.MapView>
+    </com.google.android.gms.maps.MapView>-->
+
+    <Button
+        android:id="@+id/tab_post_offer_step_4_next_button"
+        style="@style/i1_button_standard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/button_post_now" />
 
 </RelativeLayout>

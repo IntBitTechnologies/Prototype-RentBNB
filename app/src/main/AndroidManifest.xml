@@ -43,14 +43,11 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".ui.activities.PostOfferActivity"
-            android:label="@string/activity_title_post_an_offer"
+            android:label="@string/activity_title_new_request"
             android:theme="@style/AppTheme" />
         <activity android:name=".ui.activities.MyListingActivity" />
         <activity android:name=".ui.activities.RentNowActivity" />
         <activity android:name=".ui.activities.MapActivity" />
-        <activity android:name=".ui.activities.PostOfferStepOneActivity" />
-        <activity android:name=".ui.activities.PostOfferStepTwoActivity" />
-        <activity android:name=".ui.activities.PostOfferStepThreeActivity" />
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"

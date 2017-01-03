@@ -3,6 +3,7 @@ package com.intbit.rentbnb.ui.activities;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -15,12 +16,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.content.CursorLoader;
@@ -30,8 +34,10 @@ import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.ThumbnailImageRecyclerViewAdapter;
 import com.intbit.rentbnb.base.ApplicationConstants;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
+import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.models.Thumbnail;
 import com.intbit.rentbnb.support.ImageUtil;
+import com.intbit.rentbnb.support.Preferences;
 import com.intbit.rentbnb.support.RecyclerItemClickListener;
 
 import java.io.ByteArrayOutputStream;
@@ -46,8 +52,8 @@ import java.util.List;
  * Created by Adiba on 14/11/2016.
  */
 
-public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
-    Button step3, takePhotoButton, selectPhotoButton;
+public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
+    Button step4, takePhotoButton, selectPhotoButton;
     private int SELECT_FILE = ApplicationConstants.OPEN_GALLERY,
             REQUEST_CAMERA = ApplicationConstants.OPEN_CAMERA,
             PERMISSION_STORAGE_READ = ApplicationConstants.PERMISSION_REQUEST_STORAGE_READ,
@@ -57,8 +63,29 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
     boolean isCameraButton = false;
     private RecyclerView photosRecyclerView;
     ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter;
+    Context mContext;
 
     @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
+        View v = inflater.inflate(R.layout.tab_post_offer_step_3, container, false);
+        step4 = (Button) v.findViewById(R.id.tab_post_offer_step_3_next_button);
+
+        mContext = getActivity().getApplicationContext();
+
+        step4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO Do all Validations and Save Data
+                //Trigger code for changing page
+                Preferences.setCurrentPage(4);
+                ((PostOfferActivity)getActivity()).changefragmentalongStepProcess(4);
+            }
+        });
+        return v;
+    }
+
+    /*@Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tab_post_offer_step_3);
@@ -72,13 +99,13 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
         step3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PostOfferStepThreeActivity.this, DashboardActivity.class);
+                Intent intent = new Intent(PostOfferStepThreeFragment.this, DashboardActivity.class);
                 finishAffinity();
                 startActivity(intent);
             }
         });
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(PostOfferStepThreeActivity.this);
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(PostOfferStepThreeFragment.this);
         mLayoutManager.setOrientation(OrientationHelper.HORIZONTAL);
         photosRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -88,12 +115,12 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
 
         thumbnailImageRecyclerViewAdapter = new ThumbnailImageRecyclerViewAdapter(this, thumbnailList);
         photosRecyclerView.setAdapter(thumbnailImageRecyclerViewAdapter);
-        photosRecyclerView.addOnItemTouchListener(
+        *//*photosRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
                         if (position == 0) {
-                        //if (position == (photosRecyclerView.getAdapter().getItemCount()-1)) {
+                            //if (position == (photosRecyclerView.getAdapter().getItemCount()-1)) {
                             popup();
                         } else {
                             Thumbnail itemThumbnail = thumbnailImageRecyclerViewAdapter.getItem(position);
@@ -101,17 +128,16 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
                             loadBaseImageViewImage(imageUrl);
                         }
                     }
-                })
-        );
-    }
+                }));*//*
+    }*/
 
     private void loadBaseImageViewImage(String imageUrl) {
         File file = new File(imageUrl);
         Uri imageUri = Uri.fromFile(file);
-        String path = ImageUtil.getPath(this, imageUri);
+        String path = ImageUtil.getPath(mContext, imageUri);
         Bitmap bitmap = null;
         try {
-            bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), imageUri);
+            bitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -121,7 +147,7 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
 
     private void popup() {
         final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
-        AlertDialog.Builder builder = new AlertDialog.Builder(PostOfferStepThreeActivity.this, R.style.AlertDialogCSS);
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.AlertDialogCSS);
         builder.setTitle("Add Photo!");
         builder.setItems(items, new DialogInterface.OnClickListener() {
             @Override
@@ -144,7 +170,7 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
 
     private boolean checkCameraPermission() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(PostOfferStepThreeActivity.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
             ActivityCompat.requestPermissions(mActivity, new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
@@ -154,7 +180,7 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
 
     private boolean checkReadStorage() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(PostOfferStepThreeActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_STORAGE_READ);
@@ -164,7 +190,7 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
 
     private boolean checkWriteStorage() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(PostOfferStepThreeActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
             ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_STORAGE_WRITE);
@@ -229,10 +255,10 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
                 }
 
                 Uri imageUri = Uri.fromFile(destination);
-                String path = ImageUtil.getPath(PostOfferStepThreeActivity.this, imageUri);
+                String path = ImageUtil.getPath(mContext, imageUri);
                 Bitmap bitmap = null;
                 try {
-                    bitmap = MediaStore.Images.Media.getBitmap(PostOfferStepThreeActivity.this.getContentResolver(), imageUri);
+                    bitmap = MediaStore.Images.Media.getBitmap(mContext.getContentResolver(), imageUri);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -242,7 +268,7 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
             } else if (requestCode == SELECT_FILE) {
                 Uri selectedImageUri = data.getData();
                 String[] projection = {MediaStore.MediaColumns.DATA};
-                CursorLoader cursorLoader = new CursorLoader(PostOfferStepThreeActivity.this, selectedImageUri, projection, null, null, null);
+                CursorLoader cursorLoader = new CursorLoader(mContext, selectedImageUri, projection, null, null, null);
                 Cursor cursor = cursorLoader.loadInBackground();
                 int column_index = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
                 cursor.moveToFirst();
@@ -267,7 +293,7 @@ public class PostOfferStepThreeActivity extends RentbnbBaseActivity {
     private void uploadPhotoToRecyclerView(String imageUri) {
         int itemCount = photosRecyclerView.getAdapter().getItemCount();
         if (itemCount > 6) {
-            Toast.makeText(PostOfferStepThreeActivity.this, "You can upload only 6 photos maximum", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(PostOfferStepThreeFragment.this, "You can upload only 6 photos maximum", Toast.LENGTH_SHORT).show();
         } else {
             thumbnailImageRecyclerViewAdapter.addThumbnail(imageUri.toString());
         }

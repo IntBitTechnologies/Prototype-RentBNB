@@ -39,7 +39,7 @@ import static android.content.Context.LOCATION_SERVICE;
  * Created by Adiba on 14/11/2016.
  */
 
-public class PostOfferStepFourActivity extends RentbnbBaseFragment implements Locator.Listener {
+public class PostOfferStepFourFragment extends RentbnbBaseFragment implements Locator.Listener {
 
     private GoogleMap googleMap;
     Context mContext;
@@ -48,7 +48,7 @@ public class PostOfferStepFourActivity extends RentbnbBaseFragment implements Lo
     private Double currentLongitude;
     private int PERMISSION_REQUEST_FINE_LOCATION = ApplicationConstants.PERMISSION_REQUEST_FINE_LOCATION;
     private int PERMISSION_REQUEST_COARSE_LOCATION = ApplicationConstants.PERMISSION_REQUEST_COARSE_LOCATION;
-    MapView mMapView;
+    //MapView mMapView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -57,14 +57,14 @@ public class PostOfferStepFourActivity extends RentbnbBaseFragment implements Lo
 
         initializeViews(v, savedInstanceState);
 
-        gotoCurrentLocation();
+        //gotoCurrentLocation();
 
-        showCurrentPinCode();
+        //showCurrentPinCode();
 
         return v;
     }
 
-    private void showCurrentPinCode() {
+    /*private void showCurrentPinCode() {
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle(mContext.getResources().getString(R.string.app_name));
         builder.setMessage(mContext.getResources().getString(R.string.your_current_location));
@@ -89,23 +89,23 @@ public class PostOfferStepFourActivity extends RentbnbBaseFragment implements Lo
 
         final AlertDialog dialog = builder.create();
         dialog.show();
-    }
+    }*/
 
     private void initializeViews(View v, Bundle savedInstanceState) {
         mContext = getActivity().getApplicationContext();
 
-        locationManager = (LocationManager) getActivity().getSystemService(LOCATION_SERVICE);
+        //locationManager = (LocationManager) getActivity().getSystemService(LOCATION_SERVICE);
 
-        mMapView = (MapView) v.findViewById(R.id.tab_post_offer_step4_mapView);
-        mMapView.onCreate(savedInstanceState);
+        //mMapView = (MapView) v.findViewById(R.id.tab_post_offer_step4_mapView);
+        //mMapView.onCreate(savedInstanceState);
 
-        mMapView.onResume(); // needed to get the map to display immediately
+        //mMapView.onResume(); // needed to get the map to display immediately
 
-        try {
+        /*try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     private void gotoCurrentLocation() {
@@ -158,7 +158,7 @@ public class PostOfferStepFourActivity extends RentbnbBaseFragment implements Lo
         currentLatitude = location.getLatitude();
         currentLongitude = location.getLongitude();
 
-        mMapView.getMapAsync(new OnMapReadyCallback() {
+       /* mMapView.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap mMap) {
                 googleMap = mMap;
@@ -181,7 +181,7 @@ public class PostOfferStepFourActivity extends RentbnbBaseFragment implements Lo
                         .build();                   // Creates a CameraPosition from the builder
                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
-        });
+        });*/
     }
 
     @Override
