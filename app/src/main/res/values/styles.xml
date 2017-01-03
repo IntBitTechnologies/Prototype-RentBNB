@@ -2158,7 +2158,7 @@
     </style>
 
     <style name="colorControlHighlight_red">
-        <item name="colorControlHighlight">@color/ripple_light</item>
+        <item name="colorControlHighlight">@color/primary_light</item>
     </style>
 
     <style name="i1_image_view">

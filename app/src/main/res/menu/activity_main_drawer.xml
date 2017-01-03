@@ -4,32 +4,36 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_dashboard"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="Home" />
+            android:icon="@drawable/drawer_home"
+            android:title="Dashboard" />
         <item
             android:id="@+id/nav_myListings"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Categories" />
+            android:icon="@drawable/drawer_categories"
+            android:title="My Listings" />
         <item
             android:id="@+id/nav_myOrders"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Alerts" />
+            android:icon="@drawable/drawer_alerts"
+            android:title="My Orders" />
         <item
             android:id="@+id/nav_openRequest"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="Locations" />
+            android:icon="@drawable/drawer_locations"
+            android:title="Open Requests" />
+        <item
+            android:id="@+id/nav_requestProduct"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Request Product" />
     </group>
 
     <item android:title="">
         <menu>
             <item
-                android:id="@+id/nav_send_invitation"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Send Invitation" />
+                android:id="@+id/nav_share"
+                android:icon="@drawable/drawer_send_invitations"
+                android:title="Share App" />
             <item
-                android:id="@+id/nav_help"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Help" />
+                android:id="@+id/nav_logOut"
+                android:icon="@drawable/drawer_help"
+                android:title="Logout" />
         </menu>
     </item>
 </menu>
