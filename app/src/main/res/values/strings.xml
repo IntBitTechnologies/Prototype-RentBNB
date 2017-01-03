@@ -82,4 +82,27 @@
         <item>Requests</item>
     </array>
 
+    <string name="sort_price_lowtohigh">Price: Low to High</string>
+    <string name="sort_price_hightolow">Price: High to Low</string>
+    <string name="sort_newest_ads">Newest Ads</string>
+    <string name="sort_closest_ads">Closest Ads</string>
+
+    <string name="filter">Filter</string>
+    <string name="filter_categories">Categories</string>
+    <string name="filter_location">Location</string>
+    <string name="filter_price">Price</string>
+
+    <array name="product_categories">
+        <item>Home and Garden</item>
+        <item>Fashion and Accessories</item>
+        <item>Baby Care</item>
+        <item>Cars and Motors</item>
+        <item>Electronics</item>
+        <item>Free Stuff</item>
+        <item>Sports</item>
+        <item>Games and Leisure</item>
+        <item>Multimedia</item>
+        <item>Other</item>
+    </array>
+
 </resources>

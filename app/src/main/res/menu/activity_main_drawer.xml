@@ -5,36 +5,31 @@
         <item
             android:id="@+id/nav_dashboard"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Dashboard" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_myListings"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="My Listings" />
+            android:title="Categories" />
         <item
             android:id="@+id/nav_myOrders"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="My Orders" />
+            android:title="Alerts" />
         <item
             android:id="@+id/nav_openRequest"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Open Requests" />
-        <item
-            android:id="@+id/nav_requestProduct"
-            android:icon="@drawable/ic_menu_manage"
-            android:title="Request Product" />
+            android:title="Locations" />
     </group>
 
-    <item android:title="Communicate">
+    <item android:title="">
         <menu>
             <item
-                android:id="@+id/nav_share"
+                android:id="@+id/nav_send_invitation"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Share App" />
+                android:title="Send Invitation" />
             <item
-                android:id="@+id/nav_logOut"
+                android:id="@+id/nav_help"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Logout" />
+                android:title="Help" />
         </menu>
     </item>
-
 </menu>

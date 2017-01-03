@@ -16,17 +16,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.HorizontalScrollView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.intbit.rentbnb.R;
-
-/*import com.intbit.docapp.R;
-import com.intbit.docapp.base.ApplicationConstants;
-import com.intbit.docapp.ui.adapters.viewpageradapters.PatientViewPagerAdapter;
-import com.intbit.docapp.ui.adapters.viewpageradapters.ProvidersViewPagerAdapter;
-import com.intbit.docapp.ui.adapters.viewpageradapters.DashboardViewPagerAdapter;*/
 
 /**
  * To be used with ViewPager to provide a tab indicator component which give constant feedback as to
@@ -178,23 +171,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
         return textView;
     }
 
-    /*private ImageView createDefaultImageIcon(Context context) {
-        ImageView imageView = new ImageView(context);
-        imageView.setId(R.id.addproduct_rowitem_image);
-        imageView.setImageResource(R.drawable.add_icon);
-        imageView.setColorFilter(getResources().getColor(R.color.primary_light));
-        LinearLayout.LayoutParams tabLL = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        tabLL.gravity = (Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL);
-        imageView.setLayoutParams(tabLL);
-        imageView.setPadding(0, 30, 0, 0);
-        return imageView;
-    }*/
-
     private LinearLayout createDefaultTabLL(Context context) {
         LinearLayout linearLayout = new LinearLayout(context);
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         linearLayout.setLayoutParams(layoutParams);
-        //linearLayout.addView(createDefaultImageIcon(context));
         linearLayout.addView(createDefaultTabView(context));
         linearLayout.setOrientation(LinearLayout.VERTICAL);
         TypedValue outValue = new TypedValue();
@@ -212,29 +192,20 @@ public class SlidingTabLayout extends HorizontalScrollView {
             View tabView = null;
             LinearLayout tabViewLL = null;
             TextView tabTitleView = null;
-            //ImageView tabIconView = null;
 
             if (mTabViewLayoutId != 0) {
                 // If there is a custom tab view layout id set, try and inflate it
-                tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip,
-                        false);
+                tabView = LayoutInflater.from(getContext()).inflate(mTabViewLayoutId, mTabStrip, false);
                 tabTitleView = (TextView) tabView.findViewById(mTabViewTextViewId);
-                //tabIconView = (ImageView) tabView.findViewById(mTabViewImageViewId);
             }
 
             if (tabViewLL == null) {
                 tabViewLL = createDefaultTabLL(getContext());
             }
 
-            if (tabTitleView == null) //&& TextView.class.isInstance(tabView)) {
-            {
+            if (tabTitleView == null) {
                 tabTitleView = (TextView) tabViewLL.findViewById(R.id.action_bar_title_textview);
             }
-
-            /*if (tabIconView == null) //&& ImageView.class.isInstance(tabView)) {
-            {
-                tabIconView = (ImageView) tabViewLL.findViewById(R.id.addproduct_rowitem_image);
-            }*/
 
             if (mDistributeEvenly) {
                 LinearLayout.LayoutParams lp = (LinearLayout.LayoutParams) tabViewLL.getLayoutParams();
@@ -244,33 +215,18 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
             tabTitleView.setText(adapter.getPageTitle(i));
             int resourceId = 0;
-            /*if (viewType.equals(ApplicationConstants.USER_TYPE_PRACTICE)) {
-                resourceId = ((DashboardViewPagerAdapter) adapter).getItems().get(i).getFragmentIcon();
-            } else if (viewType.equals(ApplicationConstants.USER_TYPE_PROVIDER)) {
-                resourceId = ((ProvidersViewPagerAdapter) adapter).getItems().get(i).getFragmentIcon();
-            } else if (viewType.equals(ApplicationConstants.USER_TYPE_PATIENT)) {
-                resourceId = ((PatientViewPagerAdapter) adapter).getItems().get(i).getFragmentIcon();
-            }*/
-            //tabIconView.setImageResource(resourceId);
-            //tabIconView.setImageResource(R.mipmap.ic_launcher);
             tabViewLL.setOnClickListener(tabClickListener);
             String desc = mContentDescriptions.get(i, null);
             if (desc != null) {
                 tabView.setContentDescription(desc);
             }
 
-            /*if (tabIconView == null) {
-                tabIconView = createDefaultImageIcon(getContext());
-            }*/
-
             mTabStrip.addView(tabViewLL);
             if (i == mViewPager.getCurrentItem()) {
                 tabViewLL.setSelected(true);
                 tabTitleView.setTextColor(getResources().getColor(R.color.white));
-                //tabIconView.setColorFilter(getResources().getColor(R.color.white));
             } else {
                 tabTitleView.setTextColor(getResources().getColor(R.color.primary_light));
-                //tabIconView.setColorFilter(getResources().getColor(R.color.primary_light));
             }
         }
     }
@@ -343,7 +299,7 @@ public class SlidingTabLayout extends HorizontalScrollView {
         @Override
         public void onPageSelected(int position) {
             TextView tabTextView;
-            //ImageView tabIconImageView;
+
             if (mScrollState == ViewPager.SCROLL_STATE_IDLE) {
                 mTabStrip.onViewPagerPageChanged(position, 0f);
                 scrollToTab(position, 0);
@@ -351,16 +307,13 @@ public class SlidingTabLayout extends HorizontalScrollView {
             for (int i = 0; i < mTabStrip.getChildCount(); i++) {
                 mTabStrip.getChildAt(i).setSelected(position == i);
                 tabTextView = (TextView) mTabStrip.getChildAt(i).findViewById(R.id.action_bar_title_textview);
-                //tabIconImageView = (ImageView) mTabStrip.getChildAt(i).findViewById(R.id.addproduct_rowitem_image);
                 if (i == position) {//active tab
                     if(tabTextView!=null) {
                         tabTextView.setTextColor(getResources().getColor(R.color.white));
-                        //tabIconImageView.setColorFilter(getResources().getColor(R.color.white));
                     }
                 } else {//inactive tab
                     if(tabTextView!=null) {
                         tabTextView.setTextColor(getResources().getColor(R.color.primary_light));
-                        //tabIconImageView.setColorFilter(getResources().getColor(R.color.primary_light));
                     }
                 }
             }

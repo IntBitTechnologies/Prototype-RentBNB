@@ -14,6 +14,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.DashboardViewPagerAdapter;
@@ -113,66 +114,6 @@ public class DashboardActivity extends RentbnbBaseActivity
         dashboardViewPagerAdapter.setAdapterForViewPager(pager);
 
         pager.setAdapter(dashboardViewPagerAdapter);
-        /*pager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                switch (position) {
-                    case 0:
-                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_icon));
-                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(PracticeActivity.this, AddAppointmentActivity.class);
-                                intent.putExtra(ApplicationConstants.EDIT_MODE, false);
-                                startActivity(intent);
-                            }
-                        });
-                        break;
-                    case 1:
-                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_person_icon));
-                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(PracticeActivity.this, AddProviderActivity.class);
-                                intent.putExtra(ApplicationConstants.EDIT_MODE, false);
-                                startActivity(intent);
-                            }
-                        });
-                        break;
-                    case 2:
-                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_person_icon));
-                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(PracticeActivity.this, AddPatientActivity.class);
-                                intent.putExtra(ApplicationConstants.EDIT_MODE, false);
-                                startActivity(intent);
-                            }
-                        });
-                        break;
-                    case 3:
-                        floatingActionButton.setImageDrawable(getResources().getDrawable(R.drawable.add_notification_icon));
-                        floatingActionButton.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(PracticeActivity.this, AddNotificationActivity.class);
-                                startActivity(intent);
-                            }
-                        });
-                        break;
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-
-            }
-        });*/
     }
 
     @Override
@@ -192,7 +133,7 @@ public class DashboardActivity extends RentbnbBaseActivity
         return true;
     }
 
-    @Override
+    /*@Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -200,12 +141,19 @@ public class DashboardActivity extends RentbnbBaseActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_filter) {
+            Toast.makeText(DashboardActivity.this, "Filter", Toast.LENGTH_SHORT).show();
+            Intent filterIntent = new Intent(DashboardActivity.this, FilterActivity.class);
+            startActivity(filterIntent);
+            return true;
+        } else if (id == R.id.action_changeView) {
+            Toast.makeText(DashboardActivity.this, "Change View", Toast.LENGTH_SHORT).show();
+
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
@@ -224,13 +172,6 @@ public class DashboardActivity extends RentbnbBaseActivity
         } else if (id == R.id.nav_openRequest) {
             Intent intent = new Intent(DashboardActivity.this, OpenRequestsActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_requestProduct) {
-            //Intent intent = new Intent(DashboardActivity.this, RequestProductActivity.class);
-            //startActivity(intent);
-        } else if (id == R.id.nav_share) {
-            shareAppLink();
-        } else if (id == R.id.nav_logOut) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

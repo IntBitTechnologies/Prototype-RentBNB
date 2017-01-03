@@ -16,7 +16,6 @@ import com.intbit.rentbnb.base.DataManager;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
 
 import com.intbit.rentbnb.models.Category;
-import com.intbit.rentbnb.models.SubCategory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,16 +49,12 @@ public class PostOfferStepOneActivity extends RentbnbBaseActivity {
         dataManager = new DataManager();
 
         List<Category> categoryList = dataManager.getAllCategories();
-        List<SubCategory> subCategoryList = dataManager.getAllSubCategories();
         List<String> categories = new ArrayList<String>();
         List<String> subCategories = new ArrayList<String>();
         categories.add(getResources().getString(R.string.select_category));
         subCategories.add(getResources().getString(R.string.select_subcategory));
         for (int i = 0; i < categoryList.size(); i++) {
             categories.add(categoryList.get(i).getCategoryName());
-        }
-        for (int i = 0; i < subCategoryList.size(); i++) {
-            subCategories.add(subCategoryList.get(i).getSubCategoryName());
         }
 
         // Creating adapter for spinner
