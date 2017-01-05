@@ -2071,9 +2071,8 @@
     <!--Underline style starts-->
     <style name="i1_underline_1dp">
         <item name="android:layout_height">1dp</item>
-        <item name="android:background">@color/secondary_text</item>
-        <item name="android:layout_marginLeft">@dimen/i1_10dp_margin</item>
-        <item name="android:layout_marginRight">@dimen/i1_20dp_margin</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@color/button_disabled</item>
     </style>
 
     <style name="i1_underline">
@@ -2258,6 +2257,38 @@
         <item name="colorAccent">@color/accent</item>
         <item name="colorControlNormal">@color/accent</item>
         <item name="colorControlActivated">@color/accent</item>
+    </style>
+
+    <style name="sort_by_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/sort_by_button_height</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/i1_six</item>
+        <item name="android:background"> @drawable/sort_by_button</item>
+        <item name="android:textColor">@drawable/button_text_color_states</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_margin">@dimen/i1_5dp_margin</item>
+    </style>
+
+    <style name="filter_by_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/filter_by_button_height</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/i1_eight</item>
+        <item name="android:background"> @drawable/filter_by_button</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_margin">@dimen/i1_5dp_margin</item>
+    </style>
+
+    <style name="custom_edit_text">
+        <item name="android:paddingTop">@dimen/i1_10dp_padding</item>
+        <item name="android:paddingBottom">@dimen/i1_10dp_padding</item>
+        <item name="android:paddingRight">@dimen/i1_15dp_padding</item>
+        <item name="android:paddingLeft">@dimen/i1_15dp_padding</item>
+        <item name="android:background">@drawable/custom_edit_text</item>
     </style>
 
     <!--Intbit Styles end-->

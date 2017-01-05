@@ -105,6 +105,11 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment  implements Re
         }
     }
 
+    @Override
+    public void changeViewType() {
+
+    }
+
 
    /* @Override
     public void onCreate(Bundle savedInstanceState) {

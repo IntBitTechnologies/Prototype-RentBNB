@@ -85,6 +85,8 @@
     <dimen name="i1_0dp">0dp</dimen>
     <dimen name="tabsHeight">48dp</dimen>
     <dimen name="activity_row_height">60dp</dimen>
+    <dimen name="filter_by_button_height">35dp</dimen>
+    <dimen name="sort_by_button_height">35dp</dimen>
     <!--Intbit Dimensions end-->
 
 </resources>

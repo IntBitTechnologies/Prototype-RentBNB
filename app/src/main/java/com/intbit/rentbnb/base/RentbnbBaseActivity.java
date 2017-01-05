@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.ActionBar;
@@ -149,6 +150,8 @@ public abstract class RentbnbBaseActivity extends AppCompatActivity {
         parent.setContentInsetsAbsolute(0, 0);
 
         final TextView activityTitle = ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.action_bar_title));
+        Typeface custom_title_font = Typeface.createFromAsset(getAssets(),  "fonts/Lato-Regular.ttf");
+        activityTitle.setTypeface(custom_title_font);
         activityTitle.setGravity(Gravity.CENTER_HORIZONTAL | Gravity.CENTER_VERTICAL);
         activityTitle.setText(title);
         final ImageView leftIcon = ((ImageView) getSupportActionBar().getCustomView().findViewById(R.id.action_bar_leftIcon));
@@ -204,19 +207,32 @@ public abstract class RentbnbBaseActivity extends AppCompatActivity {
             }
         });
 
+        TextView rightText = ((TextView) getSupportActionBar().getCustomView().findViewById(R.id.action_bar_rightText));
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Lato-Regular.ttf");
+        rightText.setTypeface(custom_font);
+
+        rightText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (right2Action == ActionBarActivityRight2Action.ACTION_RESET) {
+                    actionBarRight2TextClicked();
+                }
+            }
+        });
+
         rightIcon.setVisibility(View.GONE);
         leftIcon.setVisibility(View.GONE);
         rightIcon2.setVisibility(View.INVISIBLE);
         RelativeLayout.LayoutParams relativeLayoutParam = (RelativeLayout.LayoutParams) activityTitle.getLayoutParams();
         switch (leftAction) {
             case ACTION_BACK:
-                leftIcon.setImageResource(R.drawable.keyboardback_icon);
+                leftIcon.setImageResource(R.drawable.ic_back_icon);
                 leftIcon.setVisibility(View.VISIBLE);
                 activityFinishFlag = true;
                 break;
             case ACTION_CLOSE:
                 leftIcon.setVisibility(View.VISIBLE);
-                leftIcon.setImageResource(R.drawable.close_icon);
+                leftIcon.setImageResource(R.drawable.ic_close_icon);
                 activityFinishFlag = true;
                 break;
             case ACTION_NONE:
@@ -245,6 +261,10 @@ public abstract class RentbnbBaseActivity extends AppCompatActivity {
             case ACTION_NEXT:
                 rightIcon2.setVisibility(View.VISIBLE);
                 rightIcon2.setImageResource(R.drawable.keyboard_next_icon);
+                break;
+            case ACTION_RESET:
+                rightText.setText(getResources().getString(R.string.action_reset));
+                rightText.setVisibility(View.VISIBLE);
                 break;
         }
     }
@@ -294,7 +314,8 @@ public abstract class RentbnbBaseActivity extends AppCompatActivity {
         ACTION_NONE,
         ACTION_DONE,
         ACTION_EDIT,
-        ACTION_NEXT
+        ACTION_NEXT,
+        ACTION_RESET
     }
 
     @Override

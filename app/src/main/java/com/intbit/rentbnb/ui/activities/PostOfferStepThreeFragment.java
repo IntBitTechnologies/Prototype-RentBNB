@@ -18,7 +18,10 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -39,6 +42,7 @@ import com.intbit.rentbnb.models.Thumbnail;
 import com.intbit.rentbnb.support.ImageUtil;
 import com.intbit.rentbnb.support.Preferences;
 import com.intbit.rentbnb.support.RecyclerItemClickListener;
+import com.intbit.rentbnb.support.RentBnbOnFragmentSelectedListener;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -52,7 +56,7 @@ import java.util.List;
  * Created by Adiba on 14/11/2016.
  */
 
-public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
+public class PostOfferStepThreeFragment extends RentbnbBaseFragment implements RentBnbOnFragmentSelectedListener {
     Button step4, takePhotoButton, selectPhotoButton;
     private int SELECT_FILE = ApplicationConstants.OPEN_GALLERY,
             REQUEST_CAMERA = ApplicationConstants.OPEN_CAMERA,
@@ -338,5 +342,15 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
             return null;
         }
         return image.copy(Bitmap.Config.ARGB_8888, true);
+    }
+
+    @Override
+    public void changeViewType() {
+
+    }
+
+    @Override
+    public void onFragmentSelected(FragmentManager fragmentManager, ViewPager viewPager, int position, Fragment fragment) {
+
     }
 }

@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,12 +16,13 @@ import android.widget.EditText;
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.support.Preferences;
+import com.intbit.rentbnb.support.RentBnbOnFragmentSelectedListener;
 
 /**
  * Created by Adiba on 14/11/2016.
  */
 
-public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
+public class PostOfferStepTwoFragment extends RentbnbBaseFragment implements RentBnbOnFragmentSelectedListener {
     private Button step3NextButton;
     EditText dailyRentPriceEditText;
     private Activity mContext;
@@ -46,6 +50,16 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
         });
 
         return view;
+    }
+
+    @Override
+    public void changeViewType() {
+
+    }
+
+    @Override
+    public void onFragmentSelected(FragmentManager fragmentManager, ViewPager viewPager, int position, Fragment fragment) {
+
     }
 
     /*@Override
