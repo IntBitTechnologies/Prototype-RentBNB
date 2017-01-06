@@ -24,8 +24,9 @@ And center_vertical gravity on all the child views -->
 
         <TextView
             android:id="@+id/action_bar_title"
-            style="@style/i1_action_title"
             android:layout_width="wrap_content"
+            android:textSize="@dimen/i1_twelve"
+            android:textColor="@color/white"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true" />
@@ -36,8 +37,8 @@ And center_vertical gravity on all the child views -->
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
-            android:textAppearance="@style/i1_action_title"
             android:layout_centerVertical="true"
+            android:textColor="@color/white"
             android:gravity="center_vertical"
             android:paddingRight="@dimen/i1_15dp_margin"
             android:clickable="true" />

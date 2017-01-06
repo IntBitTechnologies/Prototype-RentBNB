@@ -19,7 +19,12 @@ import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -58,6 +63,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
     private Activity mContext;
     private RecyclerView photosRecyclerView;
     ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter;
+
     private int SELECT_FILE = ApplicationConstants.OPEN_GALLERY,
             REQUEST_CAMERA = ApplicationConstants.OPEN_CAMERA,
             PERMISSION_STORAGE_READ = ApplicationConstants.PERMISSION_REQUEST_STORAGE_READ,

@@ -82,9 +82,9 @@
         <item>Requests</item>
     </array>
     
-    <string name="button_complete_step1">Complete Step1/4</string>
-    <string name="button_complete_step2">Complete Step2/4</string>
-    <string name="button_complete_step3">Complete Step3/4</string>
+    <string name="button_complete_step1">Complete Step 1/4</string>
+    <string name="button_complete_step2">Complete Step 2/4</string>
+    <string name="button_complete_step3">Complete Step 3/4</string>
     <string name="button_post_now">Post Now!</string>
 
     <string name="sort_price_lowtohigh">Price: Low to High</string>
@@ -109,5 +109,10 @@
         <item>Multimedia</item>
         <item>Other</item>
     </array>
+
+    <string name="action_reset"> Reset </string>
+    <string name="section_title_sort_by">Sort by</string>
+    <string name="section_title_filter_by">Filter by</string>
+    <string name="distance_0_km">0 km</string>
 
 </resources>

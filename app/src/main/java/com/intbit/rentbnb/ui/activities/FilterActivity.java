@@ -16,7 +16,7 @@ public class FilterActivity extends RentbnbBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_filter);
 
-        setupActionBar(getResources().getString(R.string.filter), ActionBarActivityLeftAction.ACTION_CLOSE,ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
+        setupActionBar(getResources().getString(R.string.filter), ActionBarActivityLeftAction.ACTION_BACK,ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_RESET);
     }
 
 }

@@ -3,4 +3,8 @@
     <declare-styleable name="StepsViewIndicator">
         <attr name="numOfSteps" format="integer" />
     </declare-styleable>
+
+    <declare-styleable name="CustomTextView">
+        <attr name="typeface" format="string" />
+    </declare-styleable>
 </resources>
