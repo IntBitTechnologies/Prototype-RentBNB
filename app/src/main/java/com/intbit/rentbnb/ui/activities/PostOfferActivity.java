@@ -16,6 +16,10 @@ import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
 import com.intbit.rentbnb.support.Preferences;
 import com.intbit.rentbnb.support.StepsView;
+import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepFourFragment;
+import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepOneFragment;
+import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepThreeFragment;
+import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepTwoFragment;
 
 /**
  * Created by Adiba on 14/11/2016.

@@ -1,9 +1,10 @@
-package com.intbit.rentbnb.ui.activities;
+package com.intbit.rentbnb.ui.activities.fragments;
 
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.CursorLoader;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,26 +20,27 @@ import android.provider.MediaStore;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.content.CursorLoader;
-import android.widget.Toast;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.OrientationHelper;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.ThumbnailImageRecyclerViewAdapter;
 import com.intbit.rentbnb.base.ApplicationConstants;
-import com.intbit.rentbnb.base.RentbnbBaseActivity;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.models.Thumbnail;
 import com.intbit.rentbnb.support.ImageUtil;
 import com.intbit.rentbnb.support.Preferences;
+import com.intbit.rentbnb.support.RentBnbOnFragmentSelectedListener;
 import com.intbit.rentbnb.support.RecyclerItemClickListener;
+import com.intbit.rentbnb.ui.activities.PostOfferActivity;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -51,61 +53,39 @@ import java.util.List;
 /**
  * Created by Adiba on 14/11/2016.
  */
-
-public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
-    Button step4, takePhotoButton, selectPhotoButton;
+public class PostOfferStepOneFragment extends RentbnbBaseFragment implements RentBnbOnFragmentSelectedListener {
+    private Button step2, takePhotoButton, selectPhotoButton;
+    private Activity mContext;
+    private RecyclerView photosRecyclerView;
+    ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter;
     private int SELECT_FILE = ApplicationConstants.OPEN_GALLERY,
             REQUEST_CAMERA = ApplicationConstants.OPEN_CAMERA,
             PERMISSION_STORAGE_READ = ApplicationConstants.PERMISSION_REQUEST_STORAGE_READ,
             PERMISSION_STORAGE_WRITE = ApplicationConstants.PERMISSION_REQUEST_STORAGE_WRITE;
-    ImageView productPhotoImageView;
-    Activity mActivity;
     boolean isCameraButton = false;
-    private RecyclerView photosRecyclerView;
-    ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter;
-    Context mContext;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        super.onCreateView(inflater, container, savedInstanceState);
-        View v = inflater.inflate(R.layout.tab_post_offer_step_3, container, false);
-        step4 = (Button) v.findViewById(R.id.tab_post_offer_step_3_next_button);
-
-        mContext = getActivity().getApplicationContext();
-
-        step4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //TODO Do all Validations and Save Data
-                //Trigger code for changing page
-                Preferences.setCurrentPage(4);
-                ((PostOfferActivity)getActivity()).changefragmentalongStepProcess(4);
-            }
-        });
-        return v;
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = (Activity) context;
     }
 
-    /*@Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.tab_post_offer_step_3);
+    @Override
+    public View onCreateView(final LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.tab_post_offer_step_1, container, false);
 
-        setupActionBar(getResources().getString(R.string.activity_title_post_an_offer), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
-
-        step3 = (Button) findViewById(R.id.tab_post_offer_step_2_next_button);
-        photosRecyclerView = (RecyclerView) findViewById(R.id.tab_post_offer_step3_thumbnailRecyclerView);
-        productPhotoImageView = (ImageView) findViewById(R.id.tab_post_offer_step3_productImageView);
-
-        step3.setOnClickListener(new View.OnClickListener() {
+        step2 = (Button) view.findViewById(R.id.tab_post_offer_step_1_next_button);
+        step2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PostOfferStepThreeFragment.this, DashboardActivity.class);
-                finishAffinity();
-                startActivity(intent);
+                Preferences.setCurrentPage(2);
+                ((PostOfferActivity) getActivity()).changefragmentalongStepProcess(2);
             }
         });
 
-        LinearLayoutManager mLayoutManager = new LinearLayoutManager(PostOfferStepThreeFragment.this);
+        photosRecyclerView = (RecyclerView) view.findViewById(R.id.tab_post_offer_step1_thumbnailRecyclerView);
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(mContext);
         mLayoutManager.setOrientation(OrientationHelper.HORIZONTAL);
         photosRecyclerView.setLayoutManager(mLayoutManager);
 
@@ -113,10 +93,10 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
         Thumbnail thumbnail = new Thumbnail();
         thumbnailList.add(thumbnail);
 
-        thumbnailImageRecyclerViewAdapter = new ThumbnailImageRecyclerViewAdapter(this, thumbnailList);
+        thumbnailImageRecyclerViewAdapter = new ThumbnailImageRecyclerViewAdapter(mContext, thumbnailList);
         photosRecyclerView.setAdapter(thumbnailImageRecyclerViewAdapter);
-        *//*photosRecyclerView.addOnItemTouchListener(
-                new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
+        photosRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(mContext, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
                         if (position == 0) {
@@ -128,8 +108,22 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
                             loadBaseImageViewImage(imageUrl);
                         }
                     }
-                }));*//*
-    }*/
+                }));
+
+        return view;
+    }
+
+    @Override
+    public void onFragmentSelected(FragmentManager fragmentManager, ViewPager viewPager, int position, Fragment fragment) {
+        if (fragment instanceof PostOfferStepOneFragment) {
+            //getData(RentBnbEnums.Offers_View_Grid.toInt());
+        }
+    }
+
+    @Override
+    public void changeViewType() {
+
+    }
 
     private void loadBaseImageViewImage(String imageUrl) {
         File file = new File(imageUrl);
@@ -142,7 +136,7 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
             e.printStackTrace();
         }
         Bitmap processedBitmap = adjustImageOrientation(bitmap, path);
-        productPhotoImageView.setImageBitmap(processedBitmap);
+        //productPhotoImageView.setImageBitmap(processedBitmap);
     }
 
     private void popup() {
@@ -170,30 +164,30 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
 
     private boolean checkCameraPermission() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
-            ActivityCompat.requestPermissions(mActivity, new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
+            ActivityCompat.requestPermissions(mContext, new String[]{android.Manifest.permission.CAMERA}, REQUEST_CAMERA);
         }
         return isPermissionGranted;
     }
 
     private boolean checkReadStorage() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
-            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_STORAGE_READ);
+            ActivityCompat.requestPermissions(mContext, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, PERMISSION_STORAGE_READ);
         }
         return isPermissionGranted;
     }
 
     private boolean checkWriteStorage() {
         boolean isPermissionGranted = false;
-        if (ContextCompat.checkSelfPermission(mActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+        if (ContextCompat.checkSelfPermission(mContext, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             isPermissionGranted = true;
         } else {
-            ActivityCompat.requestPermissions(mActivity, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_STORAGE_WRITE);
+            ActivityCompat.requestPermissions(mContext, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, PERMISSION_STORAGE_WRITE);
         }
         return isPermissionGranted;
     }
@@ -262,7 +256,7 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Bitmap processedBitmap = adjustImageOrientation(bitmap, path);
+                //Bitmap processedBitmap = adjustImageOrientation(bitmap, path);
                 //productPhotoImageView.setImageBitmap(processedBitmap);
                 uploadPhotoToRecyclerView(path);
             } else if (requestCode == SELECT_FILE) {

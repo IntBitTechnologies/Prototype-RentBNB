@@ -1,4 +1,4 @@
-package com.intbit.rentbnb.ui.activities;
+package com.intbit.rentbnb.ui.activities.fragments;
 
 import android.Manifest;
 import android.content.Context;
