@@ -115,4 +115,15 @@
     <string name="section_title_filter_by">Filter by</string>
     <string name="distance_0_km">0 km</string>
 
+    <string name="category_home">Home &amp; Garden</string>
+    <string name="category_fashion">Fashion &amp; Accessories</string>
+    <string name="category_baby">Baby care</string>
+    <string name="category_cars">Cars &amp; Motors</string>
+    <string name="category_electronics">Electronics</string>
+    <string name="category_free">Free Stuff</string>
+    <string name="category_sports">Sports</string>
+    <string name="category_games">Games &amp; Leisure</string>
+    <string name="category_multimedia">Multimedia</string>
+    <string name="category_other">Other</string>
+
 </resources>

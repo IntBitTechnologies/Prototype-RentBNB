@@ -29,6 +29,7 @@
         android:id="@+id/activity_dashboard_viewPager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/i1_10dp_margin"
         android:layout_below="@+id/activity_dashboard_slidingTabLayout"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 

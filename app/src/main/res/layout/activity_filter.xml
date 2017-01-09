@@ -1,232 +1,353 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <include
-        android:id="@+id/toolbar"
-        layout="@layout/rentbnb_custom_toolbar_view" />
-
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/toolbar"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/i1_15dp_margin"
-            android:text="@string/section_title_sort_by" />
+        android:fillViewport="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/i1_10dp_margin"
-            android:layout_marginLeft="@dimen/i1_10dp_margin"
-            android:layout_marginRight="@dimen/i1_10dp_margin"
-            android:layout_marginStart="@dimen/i1_10dp_margin"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <Button
-                android:id="@+id/button2"
-                style="@style/sort_by_button"
-                android:layout_weight="1"
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/rentbnb_custom_toolbar_view" />
 
-                android:text="@string/sort_price_lowtohigh" />
-
-            <Button
-                android:id="@+id/button3"
-                style="@style/sort_by_button"
-                android:layout_weight="1"
-                android:text="@string/sort_price_hightolow" />
-
-            <Button
-                android:id="@+id/button4"
-                style="@style/sort_by_button"
-                android:layout_weight="1"
-                android:text="@string/sort_newest_ads" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/i1_15dp_margin"
-            android:layout_marginEnd="@dimen/i1_10dp_margin"
-            android:layout_marginLeft="@dimen/i1_10dp_margin"
-            android:layout_marginRight="@dimen/i1_10dp_margin"
-            android:layout_marginStart="@dimen/i1_10dp_margin"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <Button
-                style="@style/sort_by_button"
-                android:layout_weight="1"
-                android:text="@string/sort_closest_ads"
-                android:textAllCaps="false" />
-
-            <Button
-                style="@style/sort_by_button"
-                android:layout_weight="1"
-                android:visibility="invisible" />
-
-            <Button
-                style="@style/sort_by_button"
-                android:layout_weight="1"
-                android:visibility="invisible" />
-
-        </LinearLayout>
-
-        <View style="@style/i1_underline_1dp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/i1_15dp_margin"
-            android:text="@string/section_title_filter_by" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/i1_10dp_margin"
-            android:layout_marginLeft="@dimen/i1_10dp_margin"
-            android:layout_marginRight="@dimen/i1_10dp_margin"
-            android:layout_marginStart="@dimen/i1_10dp_margin"
-            android:gravity="center_vertical"
-            android:orientation="horizontal">
-
-            <Button
-                style="@style/filter_by_button"
-                android:layout_weight="1"
-                android:text="@string/filter_categories" />
-
-            <Button
-                android:id="@+id/button5"
-                style="@style/filter_by_button"
-                android:layout_weight="1"
-                android:text="@string/filter_location" />
-
-            <Button
-                style="@style/filter_by_button"
-                android:layout_weight="1"
-                android:text="@string/filter_price" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/filter_layout_price"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/i1_15dp_margin"
-            android:orientation="vertical"
-            android:visibility="visible">
-
-            <RelativeLayout
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_below="@+id/toolbar"
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="From"
-                    android:layout_centerVertical="true"
-                    android:textColor="@color/black" />
+                    android:layout_margin="@dimen/i1_15dp_margin"
+                    android:text="@string/section_title_sort_by" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/i1_10dp_margin"
+                    android:layout_marginLeft="@dimen/i1_10dp_margin"
+                    android:layout_marginRight="@dimen/i1_10dp_margin"
+                    android:layout_marginStart="@dimen/i1_10dp_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/button2"
+                        style="@style/sort_by_button"
+                        android:layout_weight="1"
+
+                        android:text="@string/sort_price_lowtohigh" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        style="@style/sort_by_button"
+                        android:layout_weight="1"
+                        android:text="@string/sort_price_hightolow" />
+
+                    <Button
+                        android:id="@+id/button4"
+                        style="@style/sort_by_button"
+                        android:layout_weight="1"
+                        android:text="@string/sort_newest_ads" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/i1_15dp_margin"
+                    android:layout_marginEnd="@dimen/i1_10dp_margin"
+                    android:layout_marginLeft="@dimen/i1_10dp_margin"
+                    android:layout_marginRight="@dimen/i1_10dp_margin"
+                    android:layout_marginStart="@dimen/i1_10dp_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        style="@style/sort_by_button"
+                        android:layout_weight="1"
+                        android:text="@string/sort_closest_ads"
+                        android:textAllCaps="false" />
+
+                    <Button
+                        style="@style/sort_by_button"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                    <Button
+                        style="@style/sort_by_button"
+                        android:layout_weight="1"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View style="@style/i1_underline_1dp" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="$"
-                    android:layout_centerVertical="true"
-                    android:paddingRight="@dimen/i1_10dp_margin"
-                    android:layout_toLeftOf="@+id/from_editText"
-                    android:textColor="@color/black" />
+                    android:layout_margin="@dimen/i1_15dp_margin"
+                    android:text="@string/section_title_filter_by" />
 
-                <EditText
-                    android:layout_width="150dp"
-                    style="@style/custom_edit_text"
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/from_editText"
-                    android:inputType="number"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true" />
+                    android:layout_marginEnd="@dimen/i1_10dp_margin"
+                    android:layout_marginLeft="@dimen/i1_10dp_margin"
+                    android:layout_marginRight="@dimen/i1_10dp_margin"
+                    android:layout_marginStart="@dimen/i1_10dp_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
-            </RelativeLayout>
+                    <Button
+                        style="@style/filter_by_button"
+                        android:layout_weight="1"
+                        android:text="@string/filter_categories" />
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/i1_15dp_margin">
+                    <Button
+                        android:id="@+id/button5"
+                        style="@style/filter_by_button"
+                        android:layout_weight="1"
+                        android:text="@string/filter_location" />
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <Button
+                        style="@style/filter_by_button"
+                        android:layout_weight="1"
+                        android:text="@string/filter_price" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="To"
-                    android:textColor="@color/black" />
+                    android:orientation="horizontal"
+                    android:layout_margin="@dimen/i1_10dp_margin">
 
-                <TextView
-                    android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/category_home_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_home_selector"
+                            android:text="@string/category_home" />
+
+                        <Button
+                            android:id="@+id/category_baby_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_children_selector"
+                            android:text="@string/category_baby" />
+
+                        <Button
+                            android:id="@+id/category_electronics_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_electronics_selector"
+                            android:text="@string/category_electronics" />
+
+                        <Button
+                            android:id="@+id/category_sports_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_sport_selector"
+                            android:text="@string/category_sports" />
+
+                        <Button
+                            android:id="@+id/category_multimedia_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_multimedia_selector"
+                            android:text="@string/category_multimedia" />
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_weight="1">
+
+                        <Button
+                            android:id="@+id/category_fashion_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_fashion_selector"
+                            android:text="@string/category_fashion" />
+
+                        <Button
+                            android:id="@+id/category_cars_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_cars_selector"
+                            android:text="@string/category_cars" />
+
+                        <Button
+                            android:id="@+id/category_free_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_free_stuff_selector"
+                            android:text="@string/category_free" />
+
+                        <Button
+                            android:id="@+id/category_games_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_games_selector"
+                            android:text="@string/category_games" />
+
+                        <Button
+                            android:id="@+id/category_other_button"
+                            style="@style/sort_by_button"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableTop="@drawable/category_other_selector"
+                            android:text="@string/category_other" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/filter_layout_price"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="$"
-                    android:layout_centerVertical="true"
-                    android:paddingRight="@dimen/i1_10dp_margin"
-                    android:layout_toLeftOf="@+id/to_editText"
-                    android:textColor="@color/black" />
+                    android:layout_margin="@dimen/i1_15dp_margin"
+                    android:orientation="vertical"
+                    android:visibility="visible">
 
-                <EditText
-                    android:layout_width="150dp"
-                    style="@style/custom_edit_text"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="From"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/from_editText"
+                            android:paddingRight="@dimen/i1_10dp_margin"
+                            android:text="$"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/from_editText"
+                            style="@style/custom_edit_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:inputType="number" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/i1_15dp_margin">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="To"
+                            android:textColor="@color/black" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/to_editText"
+                            android:paddingRight="@dimen/i1_10dp_margin"
+                            android:text="$"
+                            android:textColor="@color/black" />
+
+                        <EditText
+                            android:id="@+id/to_editText"
+                            style="@style/custom_edit_text"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:inputType="number" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/filter_layout_distance"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/to_editText"
-                    android:inputType="number"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true" />
+                    android:layout_margin="@dimen/i1_10dp_margin"
+                    android:orientation="horizontal"
+                    android:visibility="visible">
 
-            </RelativeLayout>
+                    <ImageView
+                        android:id="@+id/location_image_view"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_home" />
+
+                    <SeekBar
+                        android:id="@+id/seekBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/i1_10dp_margin"
+                        android:layout_toRightOf="@+id/location_image_view"
+                        android:max="30"
+                        android:progress="10"
+                        android:thumb="@drawable/ic_location_pin"
+                        android:thumbOffset="10dip" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/seekBar"
+                        android:layout_marginLeft="@dimen/i1_15dp_margin"
+                        android:layout_marginTop="@dimen/i1_5dp_margin"
+                        android:layout_toRightOf="@+id/location_image_view"
+                        android:text="@string/distance_0_km" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:id="@+id/filter_layout_distance"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/i1_10dp_margin"
-            android:orientation="horizontal"
-            android:visibility="visible">
-
-            <ImageView
-                android:id="@+id/location_image_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_home" />
-
-            <SeekBar
-                android:id="@+id/seekBar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/i1_10dp_margin"
-                android:layout_toRightOf="@+id/location_image_view"
-                android:max="30"
-                android:progress="10"
-                android:thumb="@drawable/ic_location_pin"
-                android:thumbOffset="10dip" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/seekBar"
-                android:layout_marginLeft="@dimen/i1_15dp_margin"
-                android:layout_marginTop="@dimen/i1_5dp_margin"
-                android:layout_toRightOf="@+id/location_image_view"
-                android:text="@string/distance_0_km" />
-
-        </RelativeLayout>
-
-
-    </LinearLayout>
+    </ScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/filter_select_options_fab"
@@ -235,9 +356,9 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        app:backgroundTint="@color/fab"
         android:layout_marginBottom="@dimen/i1_20dp_margin"
         android:layout_marginRight="@dimen/i1_20dp_margin"
-        android:src="@drawable/ic_done" />
+        android:src="@drawable/ic_done"
+        app:backgroundTint="@color/fab" />
 
 </RelativeLayout>
