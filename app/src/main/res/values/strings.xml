@@ -71,7 +71,7 @@
     <string name="serial_number">Serial Number(optional)</string>
     <string name="model">Model(optional)</string>
     <string name="brand_manufacturer">Brand/Manufacturer *</string>
-    <string name="title">Title *</string>
+    <string name="title">Enter title here</string>
     <string name="rent_to_own">Rent to own</string>
     <string name="picture_upload_instruction">Recommended 4 pictures (from different angles)</string>
 

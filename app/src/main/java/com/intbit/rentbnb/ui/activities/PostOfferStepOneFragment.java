@@ -48,7 +48,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment  implements Re
         View view = inflater.inflate(R.layout.tab_post_offer_step_1, container, false);
 
         step2 = (Button) view.findViewById(R.id.tab_post_offer_step_1_next_button);
-        categoriesSpinner = (Spinner) view.findViewById(R.id.tab_post_offer_step_1_category_spinner);
+        categoriesSpinner = (Spinner) view.findViewById(R.id.tab_post_offer_step_2_category_spinner);
 
         step2.setOnClickListener(new View.OnClickListener() {
             @Override
