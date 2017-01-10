@@ -109,17 +109,19 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/activity_filter_categories_button"
                         style="@style/filter_by_button"
                         android:layout_weight="1"
                         android:text="@string/filter_categories" />
 
                     <Button
-                        android:id="@+id/button5"
+                        android:id="@+id/activity_filter_location_button"
                         style="@style/filter_by_button"
                         android:layout_weight="1"
                         android:text="@string/filter_location" />
 
                     <Button
+                        android:id="@+id/activity_filter_price_button"
                         style="@style/filter_by_button"
                         android:layout_weight="1"
                         android:text="@string/filter_price" />
@@ -128,6 +130,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/activity_filter_categories_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -179,11 +182,10 @@
                             android:drawableTop="@drawable/category_multimedia_selector"
                             android:text="@string/category_multimedia" />
 
-
-
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/activity_filter_categories2_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"
@@ -234,7 +236,7 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/filter_layout_price"
+                    android:id="@+id/activity_filter_price_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/i1_15dp_margin"
@@ -307,7 +309,7 @@
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/filter_layout_distance"
+                    android:id="@+id/activity_filter_layout_distance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="@dimen/i1_10dp_margin"
@@ -341,7 +343,6 @@
                         android:text="@string/distance_0_km" />
 
                 </RelativeLayout>
-
 
             </LinearLayout>
 

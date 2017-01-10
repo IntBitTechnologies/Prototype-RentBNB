@@ -20,6 +20,11 @@ public abstract class RentbnbBaseFragment extends Fragment {
         int id = item.getItemId();
 
         if (id == R.id.action_changeView) {
+            if (RentBnbEnvironment.Offers_View_Mode == RentBnbEnums.Offers_View_Grid.toInt()) {
+                item.setIcon(R.drawable.ic_grid_view);
+            } else if (RentBnbEnvironment.Offers_View_Mode == RentBnbEnums.Offers_View_List.toInt()) {
+                item.setIcon(R.drawable.ic_list_view);
+            }
             changeViewType();
             return true;
         } else if (id == R.id.action_filter) {
