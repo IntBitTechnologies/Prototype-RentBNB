@@ -133,14 +133,14 @@
                     android:id="@+id/activity_filter_categories_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_margin="@dimen/i1_10dp_margin">
+                    android:layout_margin="@dimen/i1_10dp_margin"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/category_home_button"
@@ -188,8 +188,8 @@
                         android:id="@+id/activity_filter_categories2_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:layout_weight="1">
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
                         <Button
                             android:id="@+id/category_fashion_button"
@@ -251,7 +251,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
-                            android:text="From"
+                            android:text="@string/from"
                             android:textColor="@color/black" />
 
                         <TextView
@@ -260,7 +260,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toLeftOf="@+id/from_editText"
                             android:paddingRight="@dimen/i1_10dp_margin"
-                            android:text="$"
+                            android:text="@string/dollar"
                             android:textColor="@color/black" />
 
                         <EditText
@@ -283,7 +283,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
-                            android:text="To"
+                            android:text="@string/to"
                             android:textColor="@color/black" />
 
                         <TextView
@@ -292,7 +292,7 @@
                             android:layout_centerVertical="true"
                             android:layout_toLeftOf="@+id/to_editText"
                             android:paddingRight="@dimen/i1_10dp_margin"
-                            android:text="$"
+                            android:text="@string/dollar"
                             android:textColor="@color/black" />
 
                         <EditText

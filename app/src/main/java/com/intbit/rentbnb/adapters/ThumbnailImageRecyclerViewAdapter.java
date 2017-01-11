@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.models.Thumbnail;
@@ -45,8 +46,10 @@ public class ThumbnailImageRecyclerViewAdapter extends RecyclerView.Adapter<Thum
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
         if (i == 0) {
         //if (i == (getItemCount()-1)) {
-            viewHolder.thumbnailImageView.setImageResource(R.drawable.ic_add_photo_icon);
+            viewHolder.thumbnailImageView.setImageResource(R.drawable.ic_upload_photo);
+            viewHolder.addPhotoTextView.setVisibility(View.VISIBLE);
         } else {
+            viewHolder.addPhotoTextView.setVisibility(View.GONE);
             File file = new File(thumbnailList.get(i).getImageUrl());
             Uri imageUri = Uri.fromFile(file);
             String path = ImageUtil.getPath(mContext, imageUri);
@@ -126,10 +129,12 @@ public class ThumbnailImageRecyclerViewAdapter extends RecyclerView.Adapter<Thum
 
     class ViewHolder extends RecyclerView.ViewHolder {
         public ImageView thumbnailImageView;
+        public TextView addPhotoTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             this.thumbnailImageView = (ImageView) itemView.findViewById(R.id.rowItem_thumbnails_ImageView);
+            this.addPhotoTextView = (TextView) itemView.findViewById(R.id.add_photo_text_view);
         }
     }
 
