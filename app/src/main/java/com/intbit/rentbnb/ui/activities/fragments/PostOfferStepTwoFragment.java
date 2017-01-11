@@ -2,18 +2,17 @@ package com.intbit.rentbnb.ui.activities.fragments;
 
 import android.app.Activity;
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TextView;
 
 import com.intbit.rentbnb.R;
+import com.intbit.rentbnb.adapters.CustomSpinnerAdapter;
 import com.intbit.rentbnb.base.DataManager;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.models.Category;
@@ -46,56 +45,42 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
         dataManager = new DataManager();
 
         categoriesSpinner = (Spinner) view.findViewById(R.id.tab_post_offer_step_2_category_spinner);
+        categoriesSpinner.setDropDownWidth(getScreenWidthInPixels());
         List<Category> categoryList = dataManager.getAllCategories();
-        List<String> categories = new ArrayList<String>();
+        ArrayList<String> categories = new ArrayList<String>();
+        ArrayList<String> categoriesIcons = new ArrayList<>();
         categories.add(getResources().getString(R.string.select_category));
         for (int i = 0; i < categoryList.size(); i++) {
             categories.add(categoryList.get(i).getCategoryName());
+            categoriesIcons.add(categoryList.get(i).getImageUrl());
         }
-        // Creating adapter for spinner
-        ArrayAdapter<String> categoriesAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), R.layout.row_item_spinneritem, categories) {
-            public boolean isEnabled(int position) {
-                if (position == 0) {
-                    // Disable the first item from Spinner. First item will be used for hint
-                    return false;
-                } else {
-                    return true;
-                }
-            }
 
-            @Override
-            public View getDropDownView(int position, View convertView, ViewGroup parent) {
-                View view = super.getDropDownView(position, convertView, parent);
-                TextView tv = (TextView) view;
-                if (position == 0) {
-                    // Set the hint text color gray
-                    tv.setTextColor(Color.GRAY);
-                } else {
-                    tv.setTextColor(Color.BLACK);
-                }
-                return view;
-            }
-        };
+        CustomSpinnerAdapter customSpinnerAdapter = new CustomSpinnerAdapter(mContext, categories, categoriesIcons);
 
-        // Drop down layout style - list view with radio button
-        categoriesAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // attaching data adapter to spinner
-        categoriesSpinner.setAdapter(categoriesAdapter);
+        categoriesSpinner.setAdapter(customSpinnerAdapter);
 
         step3NextButton = (Button) view.findViewById(R.id.tab_post_offer_step_2_next_button);
         step3NextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Preferences.setCurrentPage(3);
-                ((PostOfferActivity)getActivity()).changefragmentalongStepProcess(3);
+                ((PostOfferActivity) getActivity()).changefragmentalongStepProcess(3);
             }
         });
 
         return view;
     }
 
+    private int getScreenWidthInPixels() {
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        mContext.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int height = displaymetrics.heightPixels;
+        int width = displaymetrics.widthPixels;
+        return width;
+    }
+
     @Override
     public void changeViewType() {
-
     }
 }

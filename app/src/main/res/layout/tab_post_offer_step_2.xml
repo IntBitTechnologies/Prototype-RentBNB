@@ -5,17 +5,15 @@
     android:background="@color/white"
     android:orientation="vertical">
 
-    <android.support.v7.widget.CardView
-        style="@style/i1_card_view_without_content_padding"
+    <Spinner
+        android:id="@+id/tab_post_offer_step_2_category_spinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="@dimen/i1_5dp_padding">
-
-        <Spinner
-            android:id="@+id/tab_post_offer_step_2_category_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </android.support.v7.widget.CardView>
+        android:dropDownWidth="match_parent"
+        android:overlapAnchor="false"
+        android:popupBackground="@color/white"
+        android:popupElevation="0dp"
+        android:spinnerMode="dropdown" />
 
     <Button
         android:id="@+id/tab_post_offer_step_2_next_button"

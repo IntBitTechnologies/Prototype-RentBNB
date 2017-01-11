@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.OfferListRecyclerViewAdapter;
 import com.intbit.rentbnb.base.DataManager;
+import com.intbit.rentbnb.base.RentBnbEnums;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
 import com.intbit.rentbnb.models.Offer;
 
@@ -34,7 +35,7 @@ public class MyOrdersActivity extends RentbnbBaseActivity {
         dataManager.getAllOffersList();
         List<Offer> offerList = dataManager.getAllOffersList();
 
-        ordersListRecyclerViewAdapter = new OfferListRecyclerViewAdapter(offerList, this);
+        ordersListRecyclerViewAdapter = new OfferListRecyclerViewAdapter(offerList, this, RentBnbEnums.Offers_View_List.toInt());
         ordersRecyclerView.setAdapter(ordersListRecyclerViewAdapter);
     }
 }

@@ -76,6 +76,8 @@
     <string name="rent_to_own">Rent to own</string>
     <string name="picture_upload_instruction">Recommended 4 pictures (from different angles)</string>
     <string name="search_hint">Tell us what do you want</string>
+    <string name="add_weekly_monthly_rates">Add Weekly and Monthly Rates</string>
+    <string name="insurance_coverage">Insurance Coverage</string>
 
     <array name="dashboard_tab_titles">
         <item>Rent</item>
