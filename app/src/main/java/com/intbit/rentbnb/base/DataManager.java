@@ -13,17 +13,17 @@ import java.util.List;
 
 public class DataManager {
 
-    String[] categories = {"Business", "Sports", "Education", "Electronics", "Party", "Home", "Construction", "Uniform & Tuxedo"};
+    String[] categories = {"Home & Garden", "Fashion & Accessories", "Baby Care", "Cars & Motors", "Electronics", "Free Stuff", "Sports", "Games & Leisure", "Multimedia", "Other"};
 
-    String[] categoryUrls = {"business", "sports", "education", "electronics", "party", "home", "construction", "tuxedo"};
+    String[] categoryUrls = {"category_home", "category_fashion", "category_children", "category_cars", "category_electronics", "category_free_stuff", "category_sport", "category_games", "category_multimedia", "category_other" };
 
-    String[] products = {"Apple MacBook Pro", "Dell Inspiron", "HP Notebook", "HP Spectre", "Lenovo C2000 Desktop"};
+    String[] products = {"Apple MacBook Pro", "Dell Inspiron", "HP Notebook", "HP Spectre", "Lenovo C2000 Desktop", "Lenovo C2000 Desktop", "Lenovo C2000 Desktop", "Lenovo C2000 Desktop"};
 
-    String[] productUrls = {"macbook", "dell", "hp", "hpspectre", "lenovo"};
+    String[] productUrls = {"business", "sports", "education", "electronics", "party", "home", "construction", "tuxedo"};
 
-    String[] description = {"1GB RAM", "2GB RAM", "3GB RAM", "4GB RAM", "5GB RAM"};
+    String[] description = {"1GB RAM", "2GB RAM", "3GB RAM", "4GB RAM", "5GB RAM", "6GB RAM", "7GB RAM", "8GB RAM"};
 
-    String[] listedBy = {"Harry Potter", "Tom Cruise", "Brad Pitt", "Angelina Jolie", "Emma Watson"};
+    String[] listedBy = {"Harry Potter", "Tom Cruise", "Brad Pitt", "Angelina Jolie", "Emma Watson", "Emma Watson", "Emma Watson", "Emma Watson"};
 
     String[] requestProducts = {"Harley Davidson for 1 Week", "Apple Laptop for 3 Months"};
 
@@ -44,6 +44,7 @@ public class DataManager {
             Offer offer = new Offer();
             offer.setProductName(products[i]);
             offer.setProductPrice(String.valueOf(i + 5));
+            //offer.setProductUrl(productUrls[i]);
             offer.setProductUrl(productUrls[i]);
             offer.setPostedDate("16-Nov-2016");
             offer.setProductDescription(description[i]);

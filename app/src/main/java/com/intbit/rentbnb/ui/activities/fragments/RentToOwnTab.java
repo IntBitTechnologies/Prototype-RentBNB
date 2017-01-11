@@ -21,11 +21,13 @@ import android.widget.ImageView;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.CategoriesListRecyclerViewAdapter;
+import com.intbit.rentbnb.adapters.OfferListRecyclerViewAdapter;
 import com.intbit.rentbnb.base.DataManager;
 import com.intbit.rentbnb.base.RentBnbEnums;
 import com.intbit.rentbnb.base.RentBnbEnvironment;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.models.Category;
+import com.intbit.rentbnb.models.Offer;
 import com.intbit.rentbnb.support.RentBnbOnFragmentSelectedListener;
 
 import java.util.List;
@@ -35,7 +37,7 @@ public class RentToOwnTab extends RentbnbBaseFragment implements RentBnbOnFragme
     private Activity mContext;
     private ImageView noDataImageView;
     private DataManager dataManager;
-    private CategoriesListRecyclerViewAdapter mAdapter;
+    private OfferListRecyclerViewAdapter mAdapter;
 
     @Override
     public void onAttach(Context context) {
@@ -73,7 +75,7 @@ public class RentToOwnTab extends RentbnbBaseFragment implements RentBnbOnFragme
     }
 
     public void getData(int viewType) {
-        List<Category> allCategoriesList = dataManager.getAllCategories();
+        List<Offer> allCategoriesList = dataManager.getAllOffersList();
 
         if (viewType == RentBnbEnums.Offers_View_Grid.toInt()) {
             GridLayoutManager mLayoutManager = new GridLayoutManager(mContext, 2);
@@ -82,7 +84,7 @@ public class RentToOwnTab extends RentbnbBaseFragment implements RentBnbOnFragme
             mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         }
 
-        mAdapter = new CategoriesListRecyclerViewAdapter(allCategoriesList, mContext, viewType);
+        mAdapter = new OfferListRecyclerViewAdapter(allCategoriesList, mContext, RentBnbEnums.Offers_View_Grid.toInt());
         mRecyclerView.setAdapter(mAdapter);
     }
 

@@ -30,11 +30,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.OrientationHelper;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.ThumbnailImageRecyclerViewAdapter;
@@ -146,7 +141,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
     }
 
     private void popup() {
-        final CharSequence[] items = {"Take Photo", "Choose from Library", "Cancel"};
+        final CharSequence[] items = {"Take Photo", "Choose from Library"};
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.AlertDialogCSS);
         builder.setTitle("Add Photo!");
         builder.setItems(items, new DialogInterface.OnClickListener() {
@@ -160,8 +155,6 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
                     if (checkReadStorage()) {
                         openGallery();
                     }
-                } else if (items[item].equals("Cancel")) {
-                    dialog.dismiss();
                 }
             }
         });

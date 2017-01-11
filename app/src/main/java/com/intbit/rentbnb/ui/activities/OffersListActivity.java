@@ -10,6 +10,7 @@ import android.view.View;
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.OfferListRecyclerViewAdapter;
 import com.intbit.rentbnb.base.DataManager;
+import com.intbit.rentbnb.base.RentBnbEnums;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
 import com.intbit.rentbnb.models.Offer;
 import com.intbit.rentbnb.base.ApplicationConstants;
@@ -39,7 +40,7 @@ public class OffersListActivity extends RentbnbBaseActivity {
 
         List<Offer> offerList = dataManager.getAllOffersList();
 
-        offerListRecyclerViewAdapter = new OfferListRecyclerViewAdapter(offerList, this);
+        offerListRecyclerViewAdapter = new OfferListRecyclerViewAdapter(offerList, this, RentBnbEnums.Offers_View_List.toInt());
         productsRecyclerView.setAdapter(offerListRecyclerViewAdapter);
         productsRecyclerView.addOnItemTouchListener(
                 new RecyclerItemClickListener(this, new RecyclerItemClickListener.OnItemClickListener() {
