@@ -33,6 +33,7 @@
     <string name="listed_by">Listed By</string>
     <string name="product_description">Product Description</string>
     <string name="enter_daily_rental_price">Daily Price*</string>
+    <string name="daily_price">Daily Price</string>
     <string name="enter_weekly_rental_price">Weekly Price*</string>
     <string name="enter_monthly_rental_price">Monthly Price*</string>
     <string name="enter_deposit_amount">Deposit Amount*</string>
@@ -74,6 +75,7 @@
     <string name="title">Enter title here</string>
     <string name="rent_to_own">Rent to own</string>
     <string name="picture_upload_instruction">Recommended 4 pictures (from different angles)</string>
+    <string name="search_hint">Tell us what do you want</string>
 
     <array name="dashboard_tab_titles">
         <item>Rent</item>

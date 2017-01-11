@@ -1,6 +1,7 @@
 package com.intbit.rentbnb.ui.activities;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -18,6 +19,7 @@ public class FilterActivity extends RentbnbBaseActivity {
     Button categoriesButton, locationButton, priceButton;
     LinearLayout categoriesLayout,categories2Layout,priceLayout;
     RelativeLayout distanceLayout;
+    FloatingActionButton selectFAB;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,13 @@ public class FilterActivity extends RentbnbBaseActivity {
             }
         });
 
+        selectFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
     }
 
     private void intializeViews() {
@@ -62,6 +71,7 @@ public class FilterActivity extends RentbnbBaseActivity {
         categories2Layout = (LinearLayout) findViewById(R.id.activity_filter_categories2_layout);
         priceLayout = (LinearLayout) findViewById(R.id.activity_filter_price_layout);
         distanceLayout = (RelativeLayout) findViewById(R.id.activity_filter_layout_distance);
+        selectFAB = (FloatingActionButton) findViewById(R.id.activity_filter_select_options_fab);
 
         hideAllLayouts();
     }

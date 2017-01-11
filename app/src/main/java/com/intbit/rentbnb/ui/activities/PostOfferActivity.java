@@ -1,12 +1,5 @@
 package com.intbit.rentbnb.ui.activities;
 
-//import android.app.FragmentManager;
-//import android.app.FragmentTransaction;
-//import android.support.v4.app.Fragment;
-/*import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;*/
-//import android.app.FragmentManager;
-//import android.app.FragmentTransaction;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 
@@ -28,7 +21,7 @@ import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepTwoFragment;
 public class PostOfferActivity extends RentbnbBaseActivity {
 
     StepsView mStepsView;
-    String[] labels = {"1", "2", "3", "4"};
+    String[] labels = {"Photo", "Details", "Price", "Finish"};
     int stepProcess = 1;
     boolean isFirstTime = true;
 

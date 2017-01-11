@@ -13,21 +13,22 @@
         android:layout_alignParentBottom="true"
         android:text="@string/button_complete_step3" />
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/business"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/tab_post_offer_step3_productImageView" />
-
     <TextView
-        android:text="@string/picture_upload_instruction"
+        android:text="@string/daily_price"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tab_post_offer_step3_productImageView"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="25dp"
         android:id="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/tab_postOffer_step3_price_Edittext"
+        style="@style/custom_edit_text"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:layout_below="@+id/textView2"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

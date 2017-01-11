@@ -47,7 +47,6 @@ public class StepsView extends LinearLayout implements StepsViewIndicator.OnDraw
         mStepsViewIndicator = (StepsViewIndicator) rootView.findViewById(R.id.steps_indicator_view);
         mStepsViewIndicator.setDrawListener(this);
         mLabelsLayout = (FrameLayout) rootView.findViewById(R.id.labels_container);
-        mLabelsLayout.setVisibility(View.GONE);
     }
 
     public String[] getLabels() {

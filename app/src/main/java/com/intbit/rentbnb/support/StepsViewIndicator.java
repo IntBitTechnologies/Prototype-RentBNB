@@ -18,8 +18,9 @@ import java.util.List;
  * Created by Adiba on 16/11/2016.
  */
 
-public class StepsViewIndicator extends View{
-    private static final int THUMB_SIZE = 80;
+public class StepsViewIndicator extends View {
+
+    private static final int THUMB_SIZE = 50;
 
     private Paint paint = new Paint();
     private Paint selectedPaint = new Paint();
@@ -30,6 +31,7 @@ public class StepsViewIndicator extends View{
     private float mPadding;
     private int mProgressColor = Color.YELLOW;
     private int mBarColor = Color.BLACK;
+
     private float mCenterY;
     private float mLeftX;
     private float mLeftY;
@@ -59,8 +61,8 @@ public class StepsViewIndicator extends View{
     }
 
     private void init() {
-        mLineHeight = 0.1f * THUMB_SIZE;//0.2
-        mThumbRadius = 0.6f * THUMB_SIZE;//0.4
+        mLineHeight = 0.1f * THUMB_SIZE;
+        mThumbRadius = 0.4f * THUMB_SIZE;
         mCircleRadius = 0.7f * mThumbRadius;
         mPadding = 0.5f * THUMB_SIZE;
     }
@@ -161,20 +163,23 @@ public class StepsViewIndicator extends View{
             final float pos = mThumbContainerXPosition.get(i);
             canvas.drawCircle(pos, mCenterY, mCircleRadius,
                     (i <= mCompletedPosition) ? selectedPaint : paint);
-            Paint textpaint = new Paint();
-            textpaint.setColor(getResources().getColor(R.color.white));
-            textpaint.setTextSize(40f);
-            textpaint.setAntiAlias(true);
-            textpaint.setTextAlign(Paint.Align.CENTER);
 
-            String text = i+1+"";
-            Rect bounds = new Rect();
-            textpaint.getTextBounds(text, 0, text.length(), bounds);
             if (i == mCompletedPosition) {
-                canvas.drawCircle(pos, mCenterY, mCircleRadius, selectedPaint);// mCircleRadius * 1.8f
+//                selectedPaint.setColor(getColorWithAlpha(mProgressColor, 0.2f));
+//                canvas.drawCircle(pos, mCenterY, mCircleRadius * 1.8f, selectedPaint);
+                canvas.drawCircle(pos, mCenterY, mCircleRadius, selectedPaint);
             }
-             canvas.drawText(text, pos, 63, textpaint);
         }
+    }
+
+    public static int getColorWithAlpha(int color, float ratio) {
+        int newColor = 0;
+        int alpha = Math.round(Color.alpha(color) * ratio);
+        int r = Color.red(color);
+        int g = Color.green(color);
+        int b = Color.blue(color);
+        newColor = Color.argb(alpha, r, g, b);
+        return newColor;
     }
 
     public interface OnDrawListener {
