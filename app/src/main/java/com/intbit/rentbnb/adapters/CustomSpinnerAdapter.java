@@ -70,6 +70,7 @@ public class CustomSpinnerAdapter extends BaseAdapter implements SpinnerAdapter 
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
 
         v.setLayoutParams(layoutParams);
+        v.setPadding(30, 0, 0, 0);
 
         return v;
     }
@@ -77,8 +78,8 @@ public class CustomSpinnerAdapter extends BaseAdapter implements SpinnerAdapter 
     //Title Header View
     public View getView(int i, View view, ViewGroup viewgroup) {
         TextView txt = new TextView(activity);
-        txt.setGravity(Gravity.CENTER);
-        txt.setPadding(16, 16, 16, 16);
+        txt.setGravity(Gravity.LEFT);
+        txt.setPadding(0, 16, 16, 16);
         txt.setTextSize(16);
         //txt.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.ic_detect_current_location_icon, 0);
         txt.setText(asr.get(i));

@@ -29,7 +29,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.ThumbnailImageRecyclerViewAdapter;
@@ -50,6 +55,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.intbit.rentbnb.R.color.icons;
+
 /**
  * Created by Adiba on 14/11/2016.
  */
@@ -58,6 +65,9 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
     private Activity mContext;
     private RecyclerView photosRecyclerView;
     ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter;
+
+    final String[] items = {"Camera", "Gallery"};
+    final int[] icons = {R.drawable.ic_camera_icon, R.drawable.ic_gallery_icon};
 
     private int SELECT_FILE = ApplicationConstants.OPEN_GALLERY,
             REQUEST_CAMERA = ApplicationConstants.OPEN_CAMERA,
@@ -140,7 +150,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
         //productPhotoImageView.setImageBitmap(processedBitmap);
     }
 
-    private void popup() {
+    /*private void popup() {
         final CharSequence[] items = {"Take Photo", "Choose from Library"};
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.AlertDialogCSS);
         builder.setTitle("Add Photo!");
@@ -159,6 +169,57 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
             }
         });
         builder.show();
+    }*/
+
+    private void popup() {
+        ListAdapter mAdapter = new ArrayAdapter<String>(
+                mContext, R.layout.popup_choose_photo, items) {
+            ViewHolder holder;
+
+            class ViewHolder {
+                ImageView icon;
+                TextView title;
+            }
+
+            public View getView(int position, View convertView, ViewGroup parent) {
+                final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                if (convertView == null) {
+                    convertView = inflater.inflate(R.layout.popup_choose_photo, null);
+                    holder = new ViewHolder();
+                    holder.icon = (ImageView) convertView.findViewById(R.id.usertype_icon);
+                    holder.title = (TextView) convertView.findViewById(R.id.usertype_title);
+                    convertView.setTag(holder);
+                } else {
+                    // view already defined, retrieve view holder
+                    holder = (ViewHolder) convertView.getTag();
+                }
+                holder.title.setText(items[position]);
+                holder.title.setTextColor(getResources().getColor(R.color.secondary_text));
+                holder.icon.setImageResource(icons[position]);
+                holder.icon.setColorFilter(getResources().getColor(R.color.button_disabled));
+                return convertView;
+            }
+        };
+        AlertDialog.Builder builder = new AlertDialog.Builder(mContext, R.style.AppCompatAlertDialogStyle);
+        builder.setTitle(getResources().getString(R.string.choose_photo_from))
+                .setSingleChoiceItems(mAdapter, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(mContext, items[which], Toast.LENGTH_SHORT).show();
+                        Intent intent = null;
+                        if (items[which].equals("Camera")) {
+                            if (checkCameraPermission()) {
+                                openCamera();
+                            }
+                        } else if (items[which].equals("Gallery")) {
+                            if (checkReadStorage()) {
+                                openGallery();
+                            }
+                        }
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     private boolean checkCameraPermission() {

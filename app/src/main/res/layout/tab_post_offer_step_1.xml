@@ -4,53 +4,80 @@
     android:layout_height="match_parent"
     android:background="@color/background">
 
-    <LinearLayout
-        android:id="@+id/tab_post_offer_step1_title_editText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@color/white">
-
-        <android.support.design.widget.TextInputLayout
-            style="@style/i1_text_input_layout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/i1_15dp_margin">
-
-            <android.support.design.widget.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="top|left"
-                android:hint="@string/title"
-                android:inputType="text"
-                android:scrollHorizontally="false" />
-        </android.support.design.widget.TextInputLayout>
-
-    </LinearLayout>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/tab_post_offer_step1_thumbnailRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/tab_post_offer_step1_title_editText"
-        android:padding="@dimen/i1_10dp_padding"
-        android:layout_marginTop="@dimen/i1_10dp_margin"
-        android:background="@color/white"/>
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/you_can_add_upto_4_photos"
-        android:background="@color/white"
-        android:paddingLeft="@dimen/i1_15dp_padding"
-        android:layout_below="@+id/tab_post_offer_step1_thumbnailRecyclerView"/>
+        android:fillViewport="true">
 
-    <Button
-        android:id="@+id/tab_post_offer_step_1_next_button"
-        style="@style/i1_button_standard"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tab_post_offer_step1_title_editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <android.support.design.widget.TextInputLayout
+                    style="@style/i1_text_input_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/i1_15dp_margin">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="top|left"
+                        android:hint="@string/title"
+                        android:inputType="text"
+                        android:scrollHorizontally="false" />
+                </android.support.design.widget.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/tab_post_offer_step1_thumbnailRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/i1_10dp_margin"
+                    android:layout_below="@+id/tab_post_offer_step1_title_editText"
+                    android:background="@color/white"
+                    android:padding="@dimen/i1_10dp_padding" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/i1_15dp_padding"
+                    android:text="@string/you_can_add_upto_4_photos" />
+
+            </LinearLayout>
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/button_complete_step1" />
+        android:id="@+id/button_relative_layout"
+        android:background="@color/white">
+
+                <Button
+                    android:id="@+id/tab_post_offer_step_1_next_button"
+                    style="@style/i1_button_standard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/button_complete_step1" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
 
 </RelativeLayout>

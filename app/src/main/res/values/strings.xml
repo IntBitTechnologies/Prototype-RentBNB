@@ -144,4 +144,8 @@
     <string name="you_can_add_upto_4_photos">* You can add 4 photos</string>
     <string name="from">From</string>
     <string name="to">To</string>
+    <string name="choose_photo_from">Choose photo from</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="weekly_rate">Weekly Rate</string>
+    <string name="monthly_rate">Monthly Rate</string>
 </resources>

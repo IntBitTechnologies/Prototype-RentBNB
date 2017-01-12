@@ -180,16 +180,22 @@
 
             </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/tab_post_offer_step_4_next_button"
+                    style="@style/i1_button_standard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/button_post_now" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
     </ScrollView>
-
-    <Button
-        android:id="@+id/tab_post_offer_step_4_next_button"
-        style="@style/i1_button_standard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/button_post_now" />
 
 </RelativeLayout>
