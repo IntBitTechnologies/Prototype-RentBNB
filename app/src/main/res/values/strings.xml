@@ -148,4 +148,9 @@
     <string name="enter_description">Enter Description</string>
     <string name="weekly_rate">Weekly Rate</string>
     <string name="monthly_rate">Monthly Rate</string>
+    <string name="new_request">New Request</string>
+    <string name="rent">Rent</string>
+    <string name="sell">Sell</string>
+    <string name="i_want_to">I want to</string>
+    <string name="login_signup_button">Log In/Sign Up</string>
 </resources>

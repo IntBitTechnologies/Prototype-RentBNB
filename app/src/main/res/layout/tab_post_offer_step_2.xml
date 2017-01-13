@@ -34,7 +34,7 @@
                 android:layout_marginBottom="@dimen/i1_10dp_margin"
                 android:layout_marginLeft="@dimen/i1_15dp_margin"
                 android:layout_marginRight="@dimen/i1_15dp_margin"
-                android:layout_marginTop="@dimen/i1_10dp_margin" />
+                android:layout_marginTop="@dimen/i1_0dp" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

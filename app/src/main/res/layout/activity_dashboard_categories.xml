@@ -15,6 +15,8 @@
         android:background="@color/white"
         android:layout_marginRight="@dimen/i1_15dp_margin"
         android:layout_marginLeft="@dimen/i1_15dp_margin"
+        android:layout_marginTop="@dimen/i1_5dp_margin"
+        android:layout_marginBottom="@dimen/i1_5dp_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v7.widget.SearchView>

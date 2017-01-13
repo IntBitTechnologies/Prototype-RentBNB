@@ -17,6 +17,7 @@ import android.app.AlertDialog;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.widget.Button;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -31,6 +32,9 @@ import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.ApplicationConstants;
 import com.intbit.rentbnb.base.RentbnbBaseFragment;
 import com.intbit.rentbnb.support.Locator;
+import com.intbit.rentbnb.support.Preferences;
+import com.intbit.rentbnb.ui.activities.NewRequestActivity;
+import com.intbit.rentbnb.ui.activities.PostOfferActivity;
 import com.intbit.rentbnb.ui.activities.ProductPostedActivity;
 
 import static android.content.Context.LOCATION_SERVICE;
@@ -48,6 +52,7 @@ public class PostOfferStepFourFragment extends RentbnbBaseFragment implements Lo
     private Double currentLongitude;
     private int PERMISSION_REQUEST_FINE_LOCATION = ApplicationConstants.PERMISSION_REQUEST_FINE_LOCATION;
     private int PERMISSION_REQUEST_COARSE_LOCATION = ApplicationConstants.PERMISSION_REQUEST_COARSE_LOCATION;
+    private Button postOfferButton;
     //MapView mMapView;
 
     @Override
@@ -60,6 +65,14 @@ public class PostOfferStepFourFragment extends RentbnbBaseFragment implements Lo
         //gotoCurrentLocation();
 
         //showCurrentPinCode();
+
+        postOfferButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, NewRequestActivity.class);
+                startActivity(intent);
+            }
+        });
 
         return v;
     }
@@ -93,6 +106,8 @@ public class PostOfferStepFourFragment extends RentbnbBaseFragment implements Lo
 
     private void initializeViews(View v, Bundle savedInstanceState) {
         mContext = getActivity().getApplicationContext();
+
+        postOfferButton = (Button) v.findViewById(R.id.tab_post_offer_step_4_next_button);
 
         //locationManager = (LocationManager) getActivity().getSystemService(LOCATION_SERVICE);
 

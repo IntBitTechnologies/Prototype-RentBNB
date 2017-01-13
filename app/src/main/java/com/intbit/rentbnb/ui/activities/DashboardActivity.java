@@ -6,7 +6,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
 import android.support.v7.widget.SearchView;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -36,7 +38,6 @@ public class DashboardActivity extends RentbnbBaseActivity
 
     private ViewPager pager;
     private DashboardViewPagerAdapter dashboardViewPagerAdapter;
-    private SearchView searchView;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -65,6 +66,8 @@ public class DashboardActivity extends RentbnbBaseActivity
     private void initializeViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("");
+        getSupportActionBar().setIcon(R.drawable.ic_logo);
 
         SearchView searchView = (SearchView) findViewById(R.id.activity_main_categories_searchView);
         searchView.setQueryHint(getResources().getString(R.string.search_hint));
@@ -75,9 +78,12 @@ public class DashboardActivity extends RentbnbBaseActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -87,20 +93,7 @@ public class DashboardActivity extends RentbnbBaseActivity
                 startActivity(intent);
             }
         });
-
     }
-
-    /*inflater.inflate(R.menu.menu_search, menu);
-    mSearchView = (SearchView) menu.findItem(R.id.action_search).getActionView();
-    mSearchView.setQueryHint(getResources().getString(R.string.search_hint_patient));
-
-    ((EditText)mSearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text)).setTextColor(getResources().getColor(R.color.white));
-    ((EditText)mSearchView.findViewById(android.support.v7.appcompat.R.id.search_src_text)).setHintTextColor(getResources().getColor(R.color.primary_light));
-
-    ImageView searchCloseIcon = (ImageView)mSearchView.findViewById(android.support.v7.appcompat.R.id.search_close_btn);
-    searchCloseIcon.setColorFilter(getResources().getColor(R.color.white));
-    setupSearchView();
-    return true;*/
 
     private void setAdapterItems() {
 

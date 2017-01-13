@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/rentbnb_custom_toolbar_view" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/i_want_to"
+            android:id="@+id/i_want_to_text_view"
+            android:layout_below="@+id/toolbar"
+            android:layout_marginTop="@dimen/activity_row_height"
+            android:layout_marginBottom="@dimen/i1_15dp_margin"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/i1_10dp_margin"
+            android:layout_marginLeft="@dimen/i1_10dp_margin"
+            android:layout_marginRight="@dimen/i1_10dp_margin"
+            android:layout_marginStart="@dimen/i1_10dp_margin"
+            android:gravity="center"
+            android:layout_below="@+id/i_want_to_text_view"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/new_request_sell_button"
+                style="@style/new_request_button"
+                android:text="@string/sell" />
+
+            <Button
+                android:id="@+id/new_request_rent_button"
+                style="@style/new_request_button"
+                android:text="@string/rent" />
+
+            <Button
+                android:id="@+id/new_request_rent_to_own_button"
+                style="@style/new_request_button"
+                android:text="@string/rent_to_own" />
+
+        </LinearLayout>
+
+</RelativeLayout>

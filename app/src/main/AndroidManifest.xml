@@ -57,6 +57,7 @@
         <activity android:name=".ui.activities.MyOrdersActivity" />
         <activity android:name=".ui.activities.OpenRequestsActivity"></activity>
         <activity android:name=".ui.activities.FilterActivity" />
+        <activity android:name=".ui.activities.NewRequestActivity" />
     </application>
 
 </manifest>
