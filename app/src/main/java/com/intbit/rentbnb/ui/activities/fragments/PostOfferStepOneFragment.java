@@ -117,7 +117,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
     @Override
     public void onFragmentSelected(FragmentManager fragmentManager, ViewPager viewPager, int position, Fragment fragment) {
         if (fragment instanceof PostOfferStepOneFragment) {
-            //getData(RentBnbEnums.Offers_View_Grid.toInt());
+
         }
     }
 

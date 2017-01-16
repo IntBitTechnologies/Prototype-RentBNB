@@ -56,8 +56,6 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
         }
 
         CustomSpinnerAdapter customSpinnerAdapter = new CustomSpinnerAdapter(mContext, categories, categoriesIcons);
-
-        // attaching data adapter to spinner
         categoriesSpinner.setAdapter(customSpinnerAdapter);
 
         step3NextButton = (Button) view.findViewById(R.id.tab_post_offer_step_2_next_button);
@@ -83,4 +81,5 @@ public class PostOfferStepTwoFragment extends RentbnbBaseFragment {
     @Override
     public void changeViewType() {
     }
+
 }
