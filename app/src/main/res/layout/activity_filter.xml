@@ -41,20 +41,19 @@
                     android:orientation="horizontal">
 
                     <Button
-                        android:id="@+id/button2"
+                        android:id="@+id/activity_filter_sort_price_lowtohigh"
                         style="@style/sort_by_button"
                         android:layout_weight="1"
-
                         android:text="@string/sort_price_lowtohigh" />
 
                     <Button
-                        android:id="@+id/button3"
+                        android:id="@+id/activity_filter_sort_price_hightolow"
                         style="@style/sort_by_button"
                         android:layout_weight="1"
                         android:text="@string/sort_price_hightolow" />
 
                     <Button
-                        android:id="@+id/button4"
+                        android:id="@+id/activity_filter_sort_newest_ads"
                         style="@style/sort_by_button"
                         android:layout_weight="1"
                         android:text="@string/sort_newest_ads" />
@@ -73,6 +72,7 @@
                     android:orientation="horizontal">
 
                     <Button
+                        android:id="@+id/activity_filter_sort_closest_ads"
                         style="@style/sort_by_button"
                         android:layout_weight="1"
                         android:text="@string/sort_closest_ads"
@@ -323,20 +323,21 @@
                         android:src="@drawable/ic_home" />
 
                     <SeekBar
-                        android:id="@+id/seekBar"
+                        android:id="@+id/activity_filter_location_seekBar"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/i1_10dp_margin"
                         android:layout_toRightOf="@+id/location_image_view"
                         android:max="30"
-                        android:progress="10"
+                        android:progress="0"
                         android:thumb="@drawable/ic_location_pin"
                         android:thumbOffset="10dip" />
 
                     <TextView
+                        android:id="@+id/activity_filter_distance_value_textView"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/seekBar"
+                        android:layout_below="@+id/activity_filter_location_seekBar"
                         android:layout_marginLeft="@dimen/i1_15dp_margin"
                         android:layout_marginTop="@dimen/i1_5dp_margin"
                         android:layout_toRightOf="@+id/location_image_view"

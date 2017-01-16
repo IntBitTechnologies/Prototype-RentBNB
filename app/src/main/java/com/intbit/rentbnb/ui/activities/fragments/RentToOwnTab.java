@@ -84,7 +84,7 @@ public class RentToOwnTab extends RentbnbBaseFragment implements RentBnbOnFragme
             mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         }
 
-        mAdapter = new OfferListRecyclerViewAdapter(allCategoriesList, mContext, RentBnbEnums.Offers_View_Grid.toInt());
+        mAdapter = new OfferListRecyclerViewAdapter(allCategoriesList, mContext, viewType);
         mRecyclerView.setAdapter(mAdapter);
     }
 

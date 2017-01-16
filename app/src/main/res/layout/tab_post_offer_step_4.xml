@@ -5,17 +5,9 @@
     android:background="@color/background"
     android:orientation="vertical">
 
-    <!--<com.google.android.gms.maps.MapView
-        android:id="@+id/tab_post_offer_step4_mapView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </com.google.android.gms.maps.MapView>-->
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/tab_post_offer_step_4_next_button"
         android:fillViewport="true">
 
         <LinearLayout
@@ -71,6 +63,7 @@
                     android:textColor="@color/secondary_text" />
 
                 <CheckBox
+                    android:id="@+id/tab_post_offer_step4_delivery_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/would_you_like" />
@@ -90,6 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
+                android:visibility="gone"
                 android:paddingLeft="@dimen/i1_15dp_padding">
 
                 <TextView
@@ -134,6 +128,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@color/white"
+                android:visibility="gone"
                 android:paddingLeft="@dimen/i1_15dp_padding"
                 android:paddingTop="@dimen/i1_10dp_padding">
 

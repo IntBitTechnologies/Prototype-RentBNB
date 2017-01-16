@@ -85,7 +85,7 @@ public class BuyTab extends RentbnbBaseFragment implements RentBnbOnFragmentSele
         }
 
         //mAdapter = new CategoriesListRecyclerViewAdapter(allCategoriesList, mContext, viewType);
-        mAdapter =  new OfferListRecyclerViewAdapter(allCategoriesList, mContext, RentBnbEnums.Offers_View_Grid.toInt());
+        mAdapter =  new OfferListRecyclerViewAdapter(allCategoriesList, mContext, viewType);
         mRecyclerView.setAdapter(mAdapter);
     }
 

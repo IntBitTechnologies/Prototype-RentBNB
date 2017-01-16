@@ -80,6 +80,7 @@
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/weekly_monthly_rate_relative_layout"
                     android:background="@color/white"
+                    android:visibility="gone"
                     android:paddingLeft="@dimen/i1_15dp_padding">
 
                     <TextView
@@ -109,6 +110,7 @@
                     android:layout_below="@+id/weekly_rate_relative_layout"
                     android:background="@color/white"
                     android:paddingLeft="@dimen/i1_15dp_padding"
+                    android:visibility="gone"
                     android:paddingTop="@dimen/i1_10dp_padding">
 
                     <TextView
@@ -134,6 +136,7 @@
                 </RelativeLayout>
 
                 <android.support.design.widget.TextInputLayout
+                    android:id="@+id/tab_post_offer_step3_insurance_layout"
                     style="@style/i1_text_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

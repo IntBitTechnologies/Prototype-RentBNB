@@ -84,7 +84,7 @@ public class RequestsTab extends RentbnbBaseFragment implements RentBnbOnFragmen
             mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         }
 
-        mAdapter = new OfferListRecyclerViewAdapter(allCategoriesList, mContext, RentBnbEnums.Offers_View_Grid.toInt());
+        mAdapter = new OfferListRecyclerViewAdapter(allCategoriesList, mContext, viewType);
         mRecyclerView.setAdapter(mAdapter);
     }
 
