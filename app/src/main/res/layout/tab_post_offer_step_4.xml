@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     android:orientation="vertical">
 
     <!--<com.google.android.gms.maps.MapView
@@ -11,12 +12,190 @@
 
     </com.google.android.gms.maps.MapView>-->
 
-    <Button
-        android:id="@+id/tab_post_offer_step_4_next_button"
-        style="@style/i1_button_standard"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="@string/button_post_now" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/tab_post_offer_step_4_next_button"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/congrats_image_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:src="@drawable/congrats" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/congratulation"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/i1_10dp_padding"
+                    android:text="@string/you_almost_done"
+                    android:textAlignment="center"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/congrats_image_linear_layout"
+                android:layout_marginTop="@dimen/i1_10dp_margin"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingLeft="@dimen/i1_15dp_padding"
+                android:paddingTop="@dimen/i1_15dp_padding">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/i1_15dp_padding"
+                    android:text="@string/you_can_choose"
+                    android:textColor="@color/secondary_text" />
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/would_you_like" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/i1_15dp_margin"
+                    android:layout_marginLeft="@dimen/i1_35dp_margin"
+                    android:text="@string/learn_how_delivery_works"
+                    android:textColor="@color/accent" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/maximum_distance_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/i1_15dp_padding">
+
+                <TextView
+                    android:id="@+id/maximum_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/i1_5dp_margin"
+                    android:text="@string/maximum_distance"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/maximum_text_view"
+                    android:text="@string/insert_0_if"
+                    android:textColor="@color/accent" />
+
+                <TextView
+                    android:id="@+id/miles_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="@dimen/i1_10dp_margin"
+                    android:text="@string/miles"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/maximum_distance_editText"
+                    style="@style/custom_edit_text"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/i1_10dp_margin"
+                    android:layout_toLeftOf="@+id/miles_text_view"
+                    android:inputType="number" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/distance_fees_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white"
+                android:paddingLeft="@dimen/i1_15dp_padding"
+                android:paddingTop="@dimen/i1_10dp_padding">
+
+                <TextView
+                    android:id="@+id/delivery_fees_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="@dimen/i1_15dp_margin"
+                    android:text="@string/delivery_fees"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/dollar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/delivery_editText"
+                    android:paddingRight="@dimen/i1_10dp_margin"
+                    android:text="@string/dollar"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:id="@+id/dollar_text_view"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:paddingRight="@dimen/i1_10dp_margin"
+                    android:text="Miles"
+                    android:textColor="@color/black"
+                    android:visibility="invisible" />
+
+                <EditText
+                    android:id="@+id/delivery_editText"
+                    style="@style/custom_edit_text"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginBottom="@dimen/i1_30dp_margin"
+                    android:layout_marginRight="@dimen/i1_10dp_margin"
+                    android:layout_toLeftOf="@+id/dollar_text_view"
+                    android:inputType="number" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/tab_post_offer_step_4_next_button"
+                    style="@style/i1_button_standard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:text="@string/button_post_now" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
 
 </RelativeLayout>

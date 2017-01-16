@@ -89,7 +89,7 @@
     <string name="button_complete_step1">Complete Step 1/4</string>
     <string name="button_complete_step2">Complete Step 2/4</string>
     <string name="button_complete_step3">Complete Step 3/4</string>
-    <string name="button_post_now">Post Now!</string>
+    <string name="button_post_now">Post Now !</string>
 
     <string name="sort_price_lowtohigh">Price: Low to High</string>
     <string name="sort_price_hightolow">Price: High to Low</string>
@@ -130,4 +130,27 @@
     <string name="category_multimedia">Multimedia</string>
     <string name="category_other">Other</string>
 
+    <string name="delivery_fees">Delivery Fees</string>
+    <string name="congratulation">Congratulation!</string>
+    <string name="you_almost_done">You Almost Done</string>
+    <string name="you_can_choose">You can choose to deliver the item for a little extra cash and convenience !</string>
+    <string name="would_you_like">Would you like to offer delivery ?</string>
+    <string name="learn_how_delivery_works">Learn how delivery works</string>
+    <string name="maximum_distance">Maximum Distance</string>
+    <string name="insert_0_if">Insert 0 if you willing to ship it</string>
+    <string name="miles">Miles</string>
+    <string name="dollar">$</string>
+    <string name="add_photo">Add Photo</string>
+    <string name="you_can_add_upto_4_photos">* You can add 4 photos</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="choose_photo_from">Choose photo from</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="weekly_rate">Weekly Rate</string>
+    <string name="monthly_rate">Monthly Rate</string>
+    <string name="new_request">New Request</string>
+    <string name="rent">Rent</string>
+    <string name="sell">Sell</string>
+    <string name="i_want_to">I want to</string>
+    <string name="login_signup_button">Log In/Sign Up</string>
 </resources>

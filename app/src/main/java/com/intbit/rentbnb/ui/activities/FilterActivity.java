@@ -2,6 +2,7 @@ package com.intbit.rentbnb.ui.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -30,13 +31,24 @@ public class FilterActivity extends RentbnbBaseActivity {
 
         intializeViews();
 
-        categoriesButton.setOnClickListener(new View.OnClickListener() {
+        categoriesButton.setOnTouchListener(new View.OnTouchListener() {
+
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                categoriesButton.setPressed(true);
+                hideAllLayouts();
+                showCategoriesLayout();
+                return true;
+            }
+        });
+
+        /*categoriesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 hideAllLayouts();
                 showCategoriesLayout();
             }
-        });
+        });*/
 
         locationButton.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -6,6 +6,9 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.widget.SearchView;
+import android.view.Gravity;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -14,6 +17,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.intbit.rentbnb.R;
@@ -61,6 +66,11 @@ public class DashboardActivity extends RentbnbBaseActivity
     private void initializeViews() {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        setTitle("");
+        getSupportActionBar().setIcon(R.drawable.ic_logo);
+
+        SearchView searchView = (SearchView) findViewById(R.id.activity_main_categories_searchView);
+        searchView.setQueryHint(getResources().getString(R.string.search_hint));
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -68,9 +78,12 @@ public class DashboardActivity extends RentbnbBaseActivity
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu);
+
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +93,6 @@ public class DashboardActivity extends RentbnbBaseActivity
                 startActivity(intent);
             }
         });
-
     }
 
     private void setAdapterItems() {
