@@ -27,6 +27,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -61,7 +62,7 @@ import static com.intbit.rentbnb.R.color.icons;
  * Created by Adiba on 14/11/2016.
  */
 public class PostOfferStepOneFragment extends RentbnbBaseFragment implements RentBnbOnFragmentSelectedListener {
-    private Button step2, takePhotoButton, selectPhotoButton;
+    private Button step2, takePhotoButton, selectPhotoButton, sellButton, rentButton, bothButton;
     private Activity mContext;
     private RecyclerView photosRecyclerView;
     ThumbnailImageRecyclerViewAdapter thumbnailImageRecyclerViewAdapter;
@@ -121,7 +122,52 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
                     }
                 }));
 
+        sellButton = (Button) view.findViewById(R.id.tab_post_offer_step_1_sell_button);
+        sellButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                toggleButtonSelection(sellButton);
+                return true;
+            }
+        });
+
+        rentButton = (Button) view.findViewById(R.id.tab_post_offer_step_1_rent_button);
+        rentButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                toggleButtonSelection(rentButton);
+                return true;
+            }
+        });
+
+        bothButton = (Button) view.findViewById(R.id.tab_post_offer_step_1_both_button);
+        bothButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                toggleButtonSelection(bothButton);
+                return true;
+            }
+        });
+
         return view;
+    }
+
+    private void toggleButtonSelection(Button button) {
+        clearAllButtonStates();
+
+        if (button == sellButton) {
+            sellButton.setPressed(true);
+        } else if (button == rentButton) {
+            rentButton.setPressed(true);
+        } else if (button == bothButton) {
+            bothButton.setPressed(true);
+        }
+    }
+
+    private void clearAllButtonStates() {
+        sellButton.setPressed(false);
+        rentButton.setPressed(false);
+        bothButton.setPressed(false);
     }
 
     @Override

@@ -90,7 +90,7 @@ public class DashboardActivity extends RentbnbBaseActivity
             @Override
             public void onClick(View view) {
                 //Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
-                Intent intent = new Intent(DashboardActivity.this, NewRequestActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
                 startActivity(intent);
             }
         });
@@ -183,7 +183,7 @@ public class DashboardActivity extends RentbnbBaseActivity
             Intent intent = new Intent(DashboardActivity.this, MyOrdersActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_openRequest) {
-            Intent intent = new Intent(DashboardActivity.this, OpenRequestsActivity.class);
+            Intent intent = new Intent(DashboardActivity.this, RequestProductActivity.class);
             startActivity(intent);
         }
 

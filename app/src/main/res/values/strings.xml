@@ -50,7 +50,7 @@
     <string name="my_listing">My Listing</string>
     <string name="my_orders">My Orders</string>
     <string name="open_requests">Open Requests</string>
-    <string name="request_product">Request Product</string>
+    <string name="request">Request</string>
     <string name="subcategories">SubCategories</string>
     <string name="products">Products</string>
     <string name="productDetails">Product Detail</string>
@@ -86,9 +86,10 @@
         <item>Requests</item>
     </array>
     
-    <string name="button_complete_step1">Complete Step 1/4</string>
-    <string name="button_complete_step2">Complete Step 2/4</string>
-    <string name="button_complete_step3">Complete Step 3/4</string>
+    <string name="button_complete_step1">Complete Step 1/5</string>
+    <string name="button_complete_step2">Complete Step 2/5</string>
+    <string name="button_complete_step3">Complete Step 3/5</string>
+    <string name="button_complete_step4">Complete Step 4/5</string>
     <string name="button_post_now">Post Now !</string>
 
     <string name="sort_price_lowtohigh">Price: Low to High</string>
@@ -153,4 +154,12 @@
     <string name="sell">Sell</string>
     <string name="i_want_to">I want to</string>
     <string name="login_signup_button">Log In/Sign Up</string>
+    <string name="both">Both</string>
+    <string name="select_your_requested_item_type">Select your requested item type</string>
+    <string name="item_name">Item Name</string>
+    <string name="item_category">Item Category</string>
+    <string name="when_will_you_need_it">When will you need it?</string>
+    <string name="tell_us_what_is_your_budget">Tell us what is your budget?</string>
+    <string name="per_day"> /Per Day</string>
+    <string name="amount">Amount</string>
 </resources>

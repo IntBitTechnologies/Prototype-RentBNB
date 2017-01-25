@@ -26,7 +26,6 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
     Button step4;
     Activity mActivity;
     Context mContext;
-    TextInputLayout insuranceLayout;
     RelativeLayout weeklyLayout, monthlyLayout, addRatesLayout;
 
     @Override
@@ -36,7 +35,6 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
 
         step4 = (Button) v.findViewById(R.id.tab_post_offer_step_3_next_button);
         addRatesLayout = (RelativeLayout) v.findViewById(R.id.weekly_monthly_rate_relative_layout);
-        insuranceLayout = (TextInputLayout) v.findViewById(R.id.tab_post_offer_step3_insurance_layout);
         monthlyLayout = (RelativeLayout) v.findViewById(R.id.monthly_rate_relative_layout);
         weeklyLayout = (RelativeLayout) v.findViewById(R.id.weekly_rate_relative_layout);
 
@@ -68,13 +66,11 @@ public class PostOfferStepThreeFragment extends RentbnbBaseFragment {
     private void showRatesLayout() {
         monthlyLayout.setVisibility(View.VISIBLE);
         weeklyLayout.setVisibility(View.VISIBLE);
-        insuranceLayout.setVisibility(View.GONE);
     }
 
     private void hideRatesLayout() {
         monthlyLayout.setVisibility(View.GONE);
         weeklyLayout.setVisibility(View.GONE);
-        insuranceLayout.setVisibility(View.VISIBLE);
     }
 
     @Override
