@@ -21,6 +21,46 @@
                 android:background="@color/white"
                 android:orientation="vertical">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/i1_15dp_margin"
+                    android:text="@string/i_want_to" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/i1_10dp_margin"
+                    android:layout_marginLeft="@dimen/i1_10dp_margin"
+                    android:layout_marginRight="@dimen/i1_10dp_margin"
+                    android:layout_marginStart="@dimen/i1_10dp_margin"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/tab_post_offer_step_1_sell_button"
+                        style="@style/filter_by_button"
+                        android:text="@string/sell" />
+
+                    <Button
+                        android:id="@+id/tab_post_offer_step_1_rent_button"
+                        style="@style/filter_by_button"
+                        android:text="@string/rent" />
+
+                    <Button
+                        android:id="@+id/tab_post_offer_step_1_both_button"
+                        style="@style/filter_by_button"
+                        android:text="@string/both" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/spinner_underline"
+                    style="@style/i1_underline_1dp"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="@dimen/i1_15dp_margin"
+                    android:layout_marginTop="@dimen/i1_10dp_margin" />
+
                 <android.support.design.widget.TextInputLayout
                     style="@style/i1_text_input_layout"
                     android:layout_width="match_parent"
@@ -48,7 +88,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/i1_10dp_margin"
-                    android:layout_below="@+id/tab_post_offer_step1_title_editText"
                     android:background="@color/white"
                     android:padding="@dimen/i1_10dp_padding" />
 
@@ -61,11 +100,11 @@
 
             </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/button_relative_layout"
-        android:background="@color/white">
+            <RelativeLayout
+                android:id="@+id/button_relative_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
 
                 <Button
                     android:id="@+id/tab_post_offer_step_1_next_button"

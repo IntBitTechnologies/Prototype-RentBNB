@@ -91,15 +91,9 @@ public class DashboardActivity extends RentbnbBaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(DashboardActivity.this, NewRequestActivity.class);
-                //startActivity(intent);
-                Offer offerModel = new Offer();
-                offerModel.setPostedDate("fdsf");
-                offerModel.setProductListedBy("fdsfs");
-                offerModel.setProductUrl("audio");
-                offerModel.setProductDescription("fdsf");
-                offerModel.setProductName("fdsf");
-                offerModel.setProductPrice("fdsfds");
+                //Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -191,7 +185,7 @@ public class DashboardActivity extends RentbnbBaseActivity
             Intent intent = new Intent(DashboardActivity.this, MyOrdersActivity.class);
             startActivity(intent);
         } else if (id == R.id.nav_openRequest) {
-            Intent intent = new Intent(DashboardActivity.this, OpenRequestsActivity.class);
+            Intent intent = new Intent(DashboardActivity.this, RequestProductActivity.class);
             startActivity(intent);
         }
 

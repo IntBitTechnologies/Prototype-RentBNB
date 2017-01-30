@@ -111,19 +111,18 @@
                     <Button
                         android:id="@+id/activity_filter_categories_button"
                         style="@style/filter_by_button"
-                        android:layout_weight="1"
+                        android:paddingRight="@dimen/i1_10dp_padding"
+                        android:paddingLeft="@dimen/i1_10dp_padding"
                         android:text="@string/filter_categories" />
 
                     <Button
                         android:id="@+id/activity_filter_location_button"
                         style="@style/filter_by_button"
-                        android:layout_weight="1"
                         android:text="@string/filter_location" />
 
                     <Button
                         android:id="@+id/activity_filter_price_button"
                         style="@style/filter_by_button"
-                        android:layout_weight="1"
                         android:text="@string/filter_price" />
 
                 </LinearLayout>
