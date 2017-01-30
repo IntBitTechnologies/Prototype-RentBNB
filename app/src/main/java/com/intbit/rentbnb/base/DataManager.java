@@ -67,4 +67,52 @@ public class DataManager {
         return requestList;
     }
 
+    public List<Offer> getAllRentOffers() {
+        List<Offer> offerList = new ArrayList<>();
+        for (int i = 0; i < products.length; i++) {
+            Offer offer = new Offer();
+            offer.setProductName(products[i]);
+            offer.setProductPrice(String.valueOf(i + 5));
+            //offer.setProductUrl(productUrls[i]);
+            offer.setProductUrl(productUrls[i]);
+            offer.setPostedDate("16-Nov-2016");
+            offer.setProductDescription(description[i]);
+            offer.setProductListedBy(listedBy[i]);
+            offerList.add(offer);
+        }
+        return offerList;
+    }
+
+    public List<Offer> getAllBuyOffers() {
+        List<Offer> offerList = new ArrayList<>();
+        for (int i = 0; i < products.length; i++) {
+            Offer offer = new Offer();
+            offer.setProductName(products[i]);
+            offer.setProductPrice(String.valueOf(i + 5));
+            //offer.setProductUrl(productUrls[i]);
+            offer.setProductUrl(productUrls[i]);
+            offer.setPostedDate("16-Nov-2016");
+            offer.setProductDescription(description[i]);
+            offer.setProductListedBy(listedBy[i]);
+            offerList.add(offer);
+        }
+        return offerList;
+    }
+
+    public List<Offer> getAllRequests() {
+        List<Offer> offerList = new ArrayList<>();
+        for (int i = 0; i < products.length; i++) {
+            Offer offer = new Offer();
+            offer.setProductName(products[i]);
+            offer.setProductPrice(String.valueOf(i + 5));
+            //offer.setProductUrl(productUrls[i]);
+            offer.setProductUrl(productUrls[i]);
+            offer.setPostedDate("16-Nov-2016");
+            offer.setProductDescription(description[i]);
+            offer.setProductListedBy(listedBy[i]);
+            offerList.add(offer);
+        }
+        return offerList;
+    }
+
 }

@@ -24,7 +24,9 @@ import android.widget.Toast;
 import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.adapters.DashboardViewPagerAdapter;
 import com.intbit.rentbnb.adapters.DashboardViewPagerItem;
+import com.intbit.rentbnb.base.DataManager;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
+import com.intbit.rentbnb.models.Offer;
 import com.intbit.rentbnb.support.SlidingTabLayout.SlidingTabLayout;
 import com.intbit.rentbnb.ui.activities.fragments.BuyTab;
 import com.intbit.rentbnb.ui.activities.fragments.RentTab;
@@ -89,9 +91,15 @@ public class DashboardActivity extends RentbnbBaseActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
-                Intent intent = new Intent(DashboardActivity.this, NewRequestActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(DashboardActivity.this, NewRequestActivity.class);
+                //startActivity(intent);
+                Offer offerModel = new Offer();
+                offerModel.setPostedDate("fdsf");
+                offerModel.setProductListedBy("fdsfs");
+                offerModel.setProductUrl("audio");
+                offerModel.setProductDescription("fdsf");
+                offerModel.setProductName("fdsf");
+                offerModel.setProductPrice("fdsfds");
             }
         });
     }

@@ -110,8 +110,8 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
                 new RecyclerItemClickListener(mContext, new RecyclerItemClickListener.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position) {
-                        if (position == 0) {
-                            //if (position == (photosRecyclerView.getAdapter().getItemCount()-1)) {
+                        //if (position == 0) {
+                        if (position == (photosRecyclerView.getAdapter().getItemCount()-1)) {
                             popup();
                         } else {
                             Thumbnail itemThumbnail = thumbnailImageRecyclerViewAdapter.getItem(position);
@@ -346,7 +346,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
 
     private void uploadPhotoToRecyclerView(String imageUri) {
         int itemCount = photosRecyclerView.getAdapter().getItemCount();
-        if (itemCount > 6) {
+        if (itemCount > 4) {
             //Toast.makeText(PostOfferStepThreeFragment.this, "You can upload only 6 photos maximum", Toast.LENGTH_SHORT).show();
         } else {
             thumbnailImageRecyclerViewAdapter.addThumbnail(imageUri.toString());
