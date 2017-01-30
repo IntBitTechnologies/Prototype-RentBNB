@@ -9,6 +9,7 @@ import com.intbit.rentbnb.R;
 import com.intbit.rentbnb.base.RentbnbBaseActivity;
 import com.intbit.rentbnb.support.Preferences;
 import com.intbit.rentbnb.support.StepsView;
+import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepFiveFragment;
 import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepFourFragment;
 import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepOneFragment;
 import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepThreeFragment;
@@ -21,7 +22,7 @@ import com.intbit.rentbnb.ui.activities.fragments.PostOfferStepTwoFragment;
 public class PostOfferActivity extends RentbnbBaseActivity {
 
     StepsView mStepsView;
-    String[] labels = {"Photo", "Details", "Price", "Finish"};
+    String[] labels = {"Photo", "Details", "Price", "Coverage", "Finish"};
     int stepProcess = 1;
     boolean isFirstTime = true;
 
@@ -29,7 +30,7 @@ public class PostOfferActivity extends RentbnbBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_offer);
-        setupActionBar(getResources().getString(R.string.activity_title_new_request), ActionBarActivityLeftAction.ACTION_CLOSE,ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
+        setupActionBar(getResources().getString(R.string.activity_title_new_request), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
 
         mStepsView = (StepsView) findViewById(R.id.stepsView);
 
@@ -82,6 +83,12 @@ public class PostOfferActivity extends RentbnbBaseActivity {
                 mStepsView.setCompletedPosition(3);
                 PostOfferStepFourFragment stepFour = new PostOfferStepFourFragment();
                 ft.replace(R.id.stepFragment, stepFour);
+                ft.commit();
+                break;
+            case 5:
+                mStepsView.setCompletedPosition(4);
+                PostOfferStepFiveFragment stepFive = new PostOfferStepFiveFragment();
+                ft.replace(R.id.stepFragment, stepFive);
                 ft.commit();
                 break;
         }

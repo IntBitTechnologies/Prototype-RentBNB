@@ -15,7 +15,7 @@ public class DataManager {
 
     String[] categories = {"Home & Garden", "Fashion & Accessories", "Baby Care", "Cars & Motors", "Electronics", "Free Stuff", "Sports", "Games & Leisure", "Multimedia", "Other"};
 
-    String[] categoryUrls = {"category_home", "category_fashion", "category_children", "category_cars", "category_electronics", "category_free_stuff", "category_sport", "category_games", "category_multimedia", "category_other" };
+    String[] categoryUrls = {"category_home", "category_fashion", "category_children", "category_cars", "category_electronics", "category_free_stuff", "category_sport", "category_games", "category_multimedia", "category_other"};
 
     String[] products = {"Apple MacBook Pro", "Dell Inspiron", "HP Notebook", "HP Spectre", "Lenovo C2000 Desktop", "Lenovo C2000 Desktop", "Lenovo C2000 Desktop", "Lenovo C2000 Desktop"};
 
@@ -26,6 +26,14 @@ public class DataManager {
     String[] listedBy = {"Harry Potter", "Tom Cruise", "Brad Pitt", "Angelina Jolie", "Emma Watson", "Emma Watson", "Emma Watson", "Emma Watson"};
 
     String[] requestProducts = {"Harley Davidson for 1 Week", "Apple Laptop for 3 Months"};
+
+    String[] buyProductsName = {"Domestic Kitchen", "Litefoot Fringe Necklace", "Digital Multimeter with test", "White and grey headphones"};
+
+    String[] buyProductsCategories = { "Home & Garden", "Home & Garden", "Baby Care", "Audio & Video" };
+
+    String[] buyProductsPrice = {"7","15","9","10"};
+
+    String[] buyProductsImageURL = {"business", "sports", "education", "electronics", "party", "home", "construction", "tuxedo"};
 
     public List<Category> getAllCategories() {
         List<Category> categoryList = new ArrayList<>();
@@ -67,7 +75,7 @@ public class DataManager {
         return requestList;
     }
 
-    public List<Offer> getAllRentOffers() {
+    public List<Offer> getAllRentProducts() {
         List<Offer> offerList = new ArrayList<>();
         for (int i = 0; i < products.length; i++) {
             Offer offer = new Offer();
@@ -85,14 +93,13 @@ public class DataManager {
 
     public List<Offer> getAllBuyOffers() {
         List<Offer> offerList = new ArrayList<>();
-        for (int i = 0; i < products.length; i++) {
+        for (int i = 0; i < buyProductsName.length; i++) {
             Offer offer = new Offer();
-            offer.setProductName(products[i]);
-            offer.setProductPrice(String.valueOf(i + 5));
-            //offer.setProductUrl(productUrls[i]);
-            offer.setProductUrl(productUrls[i]);
+            offer.setProductName(buyProductsName[i]);
+            offer.setProductPrice(buyProductsPrice[i]);
+            offer.setProductUrl(buyProductsImageURL[i]);
             offer.setPostedDate("16-Nov-2016");
-            offer.setProductDescription(description[i]);
+            offer.setProductDescription(buyProductsCategories[i]);
             offer.setProductListedBy(listedBy[i]);
             offerList.add(offer);
         }

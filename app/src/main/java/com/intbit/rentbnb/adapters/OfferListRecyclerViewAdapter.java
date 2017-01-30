@@ -45,7 +45,7 @@ public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter<OfferList
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
         /*viewHolder.titleView.setText(mItems.get(i).getProductName());
-        viewHolder.priceView.setText("$ " + mItems.get(i).getProductPrice());
+
         viewHolder.dateView.setText("Posted on " + mItems.get(i).getPostedDate());
 
         String draw = mItems.get(i).getProductUrl();
@@ -55,6 +55,9 @@ public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter<OfferList
         } else {
             viewHolder.thumbnailImageView.setImageResource(id);
         }*/
+        viewHolder.priceView.setText("$ " + mItems.get(i).getProductPrice());
+        viewHolder.titleView.setText(mItems.get(i).getProductName());
+        viewHolder.categoryView.setText(mItems.get(i).getProductDescription());
         String draw = mItems.get(i).getProductUrl();
         int id = mContext.getResources().getIdentifier(draw, "drawable", mContext.getPackageName());
         if (id == 0) {
@@ -79,14 +82,15 @@ public class OfferListRecyclerViewAdapter extends RecyclerView.Adapter<OfferList
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView titleView, dateView, priceView;
+        public TextView titleView, dateView, priceView,categoryView;
         public ImageView pictureView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            /*this.titleView = (TextView) itemView.findViewById(R.id.rowitem_productlist_name_TextView);
+            this.titleView = (TextView) itemView.findViewById(R.id.rowitem_category_name_TextView);
             this.priceView = (TextView) itemView.findViewById(R.id.rowitem_productlist_price_TextView);
-            this.dateView = (TextView) itemView.findViewById(R.id.rowitem_productList_date_textView);
+            this.categoryView = (TextView) itemView.findViewById(R.id.rowitem_product_categoryName_TextView);
+            /*this.dateView = (TextView) itemView.findViewById(R.id.rowitem_productList_date_textView);
             this.thumbnailImageView = (ImageView) itemView.findViewById(R.id.rowItem_productList_thumbnail_ImageView);*/
             this.pictureView = (ImageView) itemView.findViewById(R.id.rowitem_recyclerview_categorylist_defaultimageview);
         }

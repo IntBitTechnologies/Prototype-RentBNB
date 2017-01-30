@@ -75,7 +75,8 @@ public class RequestsTab extends RentbnbBaseFragment implements RentBnbOnFragmen
     }
 
     public void getData(int viewType) {
-        List<Offer> allCategoriesList = dataManager.getAllOffersList();
+        //List<Offer> allCategoriesList = dataManager.getAllOffersList();
+        List<Offer> allRequestProductsList = dataManager.getAllOffersList();
 
         if (viewType == RentBnbEnums.Offers_View_Grid.toInt()) {
             GridLayoutManager mLayoutManager = new GridLayoutManager(mContext, 2);
@@ -84,7 +85,7 @@ public class RequestsTab extends RentbnbBaseFragment implements RentBnbOnFragmen
             mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
         }
 
-        mAdapter = new OfferListRecyclerViewAdapter(allCategoriesList, mContext, viewType);
+        mAdapter = new OfferListRecyclerViewAdapter(allRequestProductsList, mContext, viewType);
         mRecyclerView.setAdapter(mAdapter);
     }
 
