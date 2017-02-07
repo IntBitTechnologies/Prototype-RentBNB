@@ -48,6 +48,7 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/rowitem_category_name_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/i1_10dp_margin"
@@ -55,6 +56,7 @@
                 android:textColor="@color/black" />
 
             <TextView
+                android:id="@+id/rowitem_product_categoryName_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/i1_10dp_margin"
@@ -62,6 +64,7 @@
                 android:textColor="@color/secondary_text" />
 
             <TextView
+                android:id="@+id/rowitem_productlist_price_TextView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/i1_10dp_margin"

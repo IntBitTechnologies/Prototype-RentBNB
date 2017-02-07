@@ -82,8 +82,6 @@ public class RequestsTab extends RentbnbBaseFragment implements RentBnbOnFragmen
         mRecyclerView.setAdapter(mAdapter);
 
         mRecyclerView.setLayoutManager(mLayoutManager);
-
-
     }
 
     @Override

@@ -44,8 +44,8 @@ public class ThumbnailImageRecyclerViewAdapter extends RecyclerView.Adapter<Thum
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        if (i == 0) {
-        //if (i == (getItemCount()-1)) {
+        //if (i == 0) {
+        if (i == (getItemCount() - 1)) {
             viewHolder.thumbnailImageView.setImageResource(R.drawable.ic_upload_photo);
             viewHolder.addPhotoTextView.setVisibility(View.VISIBLE);
         } else {
@@ -108,8 +108,8 @@ public class ThumbnailImageRecyclerViewAdapter extends RecyclerView.Adapter<Thum
     public void addThumbnail(String url) {
         Thumbnail thumbnail = new Thumbnail();
         thumbnail.setImageUrl(url);
-        thumbnailList.add(thumbnail);
-        //thumbnailList.add(0, thumbnail);
+        //thumbnailList.add(thumbnail);
+        thumbnailList.add(0, thumbnail);
         notifyDataSetChanged();
     }
 
