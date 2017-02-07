@@ -122,7 +122,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
                     }
                 }));
 
-        sellButton = (Button) view.findViewById(R.id.tab_post_offer_step_1_sell_button);
+        /*sellButton = (Button) view.findViewById(R.id.tab_post_offer_step_1_sell_button);
         sellButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -147,12 +147,12 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
                 toggleButtonSelection(bothButton);
                 return true;
             }
-        });
+        });*/
 
         return view;
     }
 
-    private void toggleButtonSelection(Button button) {
+    /*private void toggleButtonSelection(Button button) {
         clearAllButtonStates();
 
         if (button == sellButton) {
@@ -168,7 +168,7 @@ public class PostOfferStepOneFragment extends RentbnbBaseFragment implements Ren
         sellButton.setPressed(false);
         rentButton.setPressed(false);
         bothButton.setPressed(false);
-    }
+    }*/
 
     @Override
     public void onFragmentSelected(FragmentManager fragmentManager, ViewPager viewPager, int position, Fragment fragment) {

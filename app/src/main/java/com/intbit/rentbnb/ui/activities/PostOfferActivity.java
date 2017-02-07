@@ -29,7 +29,7 @@ public class PostOfferActivity extends RentbnbBaseActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_post_offer);
-        setupActionBar(getResources().getString(R.string.activity_title_new_request), ActionBarActivityLeftAction.ACTION_CLOSE,ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
+        setupActionBar(getResources().getString(R.string.list_it), ActionBarActivityLeftAction.ACTION_CLOSE,ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
 
         mStepsView = (StepsView) findViewById(R.id.stepsView);
 

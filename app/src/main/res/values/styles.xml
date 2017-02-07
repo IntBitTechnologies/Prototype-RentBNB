@@ -2044,7 +2044,7 @@
         <item name="android:shadowRadius">1.2</item>
         <item name="cardBackgroundColor">@color/white</item>
         <item name="cardElevation">@dimen/i1_3dp_elevation</item>
-        <item name="cardCornerRadius">4dp</item>
+        <item name="cardCornerRadius">10dp</item>
     </style>
 
     <!--Card view style ends-->
@@ -2291,6 +2291,18 @@
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
         <item name="android:layout_margin">@dimen/i1_5dp_margin</item>
+    </style>
+
+    <style name="post_a_request_button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">@dimen/filter_by_button_height</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">@dimen/i1_eight</item>
+        <item name="android:background"> @drawable/post_a_request_button_background</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_marginLeft">@dimen/i1_15dp_margin</item>
     </style>
 
     <style name="custom_edit_text">

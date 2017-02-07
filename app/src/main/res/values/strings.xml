@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PerPe</string>
+    <string name="app_name">Exedra</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -33,7 +33,7 @@
     <string name="listed_by">Listed By</string>
     <string name="product_description">Product Description</string>
     <string name="enter_daily_rental_price">Daily Price*</string>
-    <string name="daily_price">Daily Price</string>
+    <string name="daily_rate">Daily Rate</string>
     <string name="enter_weekly_rental_price">Weekly Price*</string>
     <string name="enter_monthly_rental_price">Monthly Price*</string>
     <string name="enter_deposit_amount">Deposit Amount*</string>
@@ -162,4 +162,9 @@
     <string name="tell_us_what_is_your_budget">Tell us what is your budget?</string>
     <string name="per_day"> /Per Day</string>
     <string name="amount">Amount</string>
+    <string name="rent_and_sell">Rent &amp; Sell</string>
+    <string name="list_it">List it</string>
+    <string name="cannot_find_an_item">Can\'t find an item?</string>
+    <string name="post_a_request">Post a request</string>
+    <string name="selling_price">Selling Price</string>
 </resources>

@@ -14,18 +14,19 @@ import com.intbit.rentbnb.base.RentbnbBaseActivity;
 
 public class NewRequestActivity extends RentbnbBaseActivity {
 
-    Button rentButton,sellButton,rentToOwnButton;
+    Button rentButton,sellButton,rentToOwnButton, postARequestButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_request);
 
-        setupActionBar(getResources().getString(R.string.new_request), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
+        setupActionBar(getResources().getString(R.string.list_it), ActionBarActivityLeftAction.ACTION_CLOSE, ActionBarActivityRightAction.ACTION_NONE, ActionBarActivityRight2Action.ACTION_NONE);
 
         rentButton = (Button) findViewById(R.id.new_request_rent_button);
         rentToOwnButton = (Button) findViewById(R.id.new_request_rent_to_own_button);
         sellButton = (Button) findViewById(R.id.new_request_sell_button);
+        postARequestButton = (Button) findViewById(R.id.new_request_post_a_request_button);
 
         rentButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +46,15 @@ public class NewRequestActivity extends RentbnbBaseActivity {
             @Override
             public void onClick(View v) {
                 goToNextActivity();
+            }
+        });
+
+        postARequestButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewRequestActivity.this, RequestProductActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

@@ -36,9 +36,9 @@ public class RequestsListRecyclerViewAdapter extends RecyclerView.Adapter<Reques
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, final int i) {
-        viewHolder.titleView.setText(mItems.get(i).getRequestedBy());
-        viewHolder.priceView.setText(mItems.get(i).getRequestedProduct());
-        viewHolder.dateView.setText("Posted on : " + mItems.get(i).getRequestedDate());
+        viewHolder.titleTextView.setText(mItems.get(i).getRequestedBy());
+        viewHolder.priceTextView.setText(mItems.get(i).getRequestedProduct());
+        viewHolder.dateTextView.setText(mItems.get(i).getRequestedDate());
     }
 
     public void remove(final int position) {
@@ -56,15 +56,20 @@ public class RequestsListRecyclerViewAdapter extends RecyclerView.Adapter<Reques
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView titleView, dateView, priceView;
-        //public ImageView thumbnailImageView;
+        public TextView nameTextView, titleTextView, dateTextView, priceTextView, categoryTextView, descriptionTextView, fromToDateTextView;
+        public ImageView profileImageView, calendarImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
-            this.titleView = (TextView) itemView.findViewById(R.id.rowitem_requestList_name_TextView);
-            this.priceView = (TextView) itemView.findViewById(R.id.rowitem_requestList_price_TextView);
-            this.dateView = (TextView) itemView.findViewById(R.id.rowitem_requestList_date_textView);
-            //this.thumbnailImageView = (ImageView) itemView.findViewById(R.id.rowItem_requestList_thumbnail_ImageView);
+            this.nameTextView = (TextView) itemView.findViewById(R.id.rowitem_requestList_name_text_view);
+            this.titleTextView = (TextView) itemView.findViewById(R.id.rowitem_requestList_title_text_view);
+            this.priceTextView = (TextView) itemView.findViewById(R.id.rowitem_requestList_amount_textView);
+            this.dateTextView = (TextView) itemView.findViewById(R.id.rowitem_requestList_posted_date_TextView);
+            this.categoryTextView = (TextView) itemView.findViewById(R.id.rowitem_requestList_category_textView);
+            this.descriptionTextView = (TextView) itemView.findViewById(R.id.rowitem_requestList_product_description_TextView);
+            this.fromToDateTextView = (TextView) itemView.findViewById(R.id.rowitem_requestList_from_to_date_TextView);
+            this.profileImageView = (ImageView) itemView.findViewById(R.id.rowitem_requestList_profile_image_view);
+            this.calendarImageView = (ImageView) itemView.findViewById(R.id.posted_calendar_imageView);
         }
     }
 }

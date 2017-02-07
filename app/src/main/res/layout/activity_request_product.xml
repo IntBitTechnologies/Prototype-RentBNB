@@ -67,7 +67,8 @@
                     style="@style/i1_text_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/i1_15dp_margin">
+                    android:layout_marginBottom="@dimen/i1_15dp_margin"
+                    android:layout_marginRight="@dimen/i1_20dp_margin">
 
                     <EditText
                         android:id="@+id/textInputEditText"
@@ -83,33 +84,27 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
-                    <TextView
-                        android:id="@+id/item_category_textView"
-                        android:layout_width="wrap_content"
+                    <Spinner
+                        android:id="@+id/request_a_product_item_category_spinner"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="left"
                         android:layout_marginLeft="@dimen/i1_15dp_margin"
-                        android:text="@string/item_category"
-                        android:textStyle="normal" />
-
-                    <ImageButton
-                        android:id="@+id/item_category_image_button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
                         android:layout_marginRight="@dimen/i1_15dp_margin"
-                        android:background="@color/white"
-                        android:src="@drawable/ic_arrow_right" />
+                        android:layout_marginTop="@dimen/i1_10dp_margin"
+                        android:dropDownWidth="match_parent"
+                        android:popupBackground="@color/white"
+                        android:popupElevation="0dp"
+                        android:spinnerMode="dropdown" />
 
                     <View
                         android:id="@+id/spinner_underline"
                         style="@style/i1_underline_1dp"
                         android:layout_width="match_parent"
-                        android:layout_below="@+id/item_category_textView"
+                        android:layout_below="@+id/request_a_product_item_category_spinner"
                         android:layout_marginBottom="@dimen/i1_20dp_margin"
                         android:layout_marginLeft="@dimen/i1_15dp_margin"
-                        android:layout_marginRight="@dimen/i1_15dp_margin"
-                        android:layout_marginTop="@dimen/i1_20dp_margin" />
+                        android:layout_marginRight="@dimen/i1_20dp_margin"
+                        android:layout_marginTop="@dimen/i1_5dp_margin" />
 
                 </RelativeLayout>
 
@@ -157,7 +152,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/from_text_view"
                         android:layout_toRightOf="@+id/calendar_image_view"
-                        android:text="January 25 2017" />
+                        android:text="January 25 2017"
+                        android:textColor="@color/fab" />
 
                     <View
                         android:id="@+id/underline_view"
@@ -182,7 +178,8 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/to_text_view"
                         android:layout_toRightOf="@+id/underline_view"
-                        android:text="January 28 2017" />
+                        android:text="January 28 2017"
+                        android:textColor="@color/fab" />
 
                 </RelativeLayout>
 
@@ -215,6 +212,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/amount_textView"
+                    android:layout_marginBottom="@dimen/i1_15dp_margin"
                     android:layout_marginLeft="@dimen/i1_15dp_margin"
                     android:layout_marginTop="@dimen/i1_10dp_margin"
                     android:orientation="horizontal">
@@ -247,6 +245,7 @@
                 android:background="@color/white">
 
                 <Button
+                    android:id="@+id/new_request_post_a_request_button"
                     style="@style/i1_button_standard"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

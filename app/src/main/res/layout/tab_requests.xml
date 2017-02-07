@@ -4,12 +4,12 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/requestsTab_productsList_recyclerView"
+        android:id="@+id/activity_Requests_recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background"
         android:clipToPadding="false"
-        android:paddingBottom="@dimen/i1_card_view_margin_8dp" />
+        android:paddingBottom="@dimen/i1_card_view_margin_8dp">
+    </android.support.v7.widget.RecyclerView>
 
     <ImageView
         android:id="@+id/global_noDataFoundImageView"

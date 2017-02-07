@@ -90,7 +90,7 @@ public class DashboardActivity extends RentbnbBaseActivity
             @Override
             public void onClick(View view) {
                 //Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
-                Intent intent = new Intent(DashboardActivity.this, PostOfferActivity.class);
+                Intent intent = new Intent(DashboardActivity.this, NewRequestActivity.class);
                 startActivity(intent);
             }
         });

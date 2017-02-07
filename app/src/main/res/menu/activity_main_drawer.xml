@@ -5,19 +5,19 @@
         <item
             android:id="@+id/nav_dashboard"
             android:icon="@drawable/drawer_home"
-            android:title="Dashboard" />
+            android:title="Home" />
         <item
             android:id="@+id/nav_myListings"
             android:icon="@drawable/drawer_categories"
-            android:title="My Listings" />
+            android:title="Categories" />
         <item
             android:id="@+id/nav_myOrders"
-            android:icon="@drawable/drawer_alerts"
-            android:title="My Orders" />
+            android:icon="@drawable/drawer_message"
+            android:title="Messages" />
         <item
             android:id="@+id/nav_openRequest"
             android:icon="@drawable/drawer_locations"
-            android:title="Open Requests" />
+            android:title="Locations" />
     </group>
 
     <group
